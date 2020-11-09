@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    
+    <style>
+        #page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background: #FFF none repeat scroll 0% 0%;
+        z-index: 99999;
+        }
+        #page-loader .preloader-interior {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #3498db;
+        
+            -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+                animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        #page-loader .preloader-interior:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #e74c3c;
+        
+            -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        #page-loader .preloader-interior:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #f9c922;
+        
+            -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        @-webkit-keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        @keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        #everything-wrapper {
+            display : none;
+        }
+        /* .page-content{
+            background-color: rgba(0,0,0,0.8);
+            background-image: url(images/principal.jpg);
+            background-attachment: fixed;
+            background-size:cover;
+            filter:brightness(0.4);
+        } */
+    </style>
+</head>
+
+<body >
+
+    <div id="preloader" class="preloader-light">
+        <h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">Gforms</h1>
+        <div id="preload-spinner"></div>
+    </div>
+    <div id="everything-wrapper">
+        <h1>Gforms</h1>
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+    </div>
+
+    
+
+    <div id="page-transitions" class="highlight-red">
+
+        <div id="header" class="header header-logo-app header-dark ">
+            <a href="#" class="header-title ">Catálogos</a>
+            <a href="#" class="header-logo disabled"></a>
+            <a data-menu="menu-1" data-menu-type="menu-sidebar-left-push" href="#" class="header-icon header-icon-1"><i
+                    class="fas fa-bars"></i></a>
+            <!-- <a class="header-icon header-icon-2" onclick="getposition();"><i class="fas fa-map-marker-alt"></i></a> -->
+            <!-- <a class="header-icon header-icon-2" onclick="db.truncateFull();"><i class="fas fa-trash"></i></a> -->
+            <!-- <a class="header-icon header-icon-3" data-menu="menu-call" data-menu-type="menu-box-bottom" id="btnSync"> -->
+                <!-- <i class="fas fa-cog fa-sync font-12"></i> -->
+            <!-- </a> -->
+            <!-- <a class="header-icon header-icon-4" onclick="db.createTables()"><i class="fas fa-database"></i></a> -->
+        </div>
+
+        <div id="menu-1" class="menu menu-sidebar-left menu-settings"></div>
+        <!-- CATALOGOS -->
+        <div class="page-content header-clear-large">
+            <div class="content-box button-red shadow-icon-large round-element">
+                <p class="uppercase center-text font-12 bold color-white top-10 bottom-10">Catalogos</p>
+            </div>
+            <div class="content-box shadow-large bg-white">
+                <div class="system-box"><strong>Departamentos</strong><em class="" id="departamento"><i class="fa fa-circle"></i> </em></div>
+                <div class="system-box"><strong>Municipios</strong><em class="" id="municipios"><i class="fa fa-circle"></i> </em></div>
+                <div class="system-box" ><strong>Aldeas</strong><em class="" id="aldeas"><i class="fa fa-circle"></i> </em></div>
+                <div class="system-box"><strong>Productos</strong><em class="" id="productos"><i class="fa fa-circle"></i> </em></div>
+                <div class="system-box" ><strong>SubProductos</strong><em class="" id="subproductos"><i class="fa fa-circle"></i> </em></div>
+                <div class="system-box"><strong>Sector Económico</strong><em class="" id="sector"><i class="fa fa-circle"></i> </em></div>
+                <div class="system-box"><strong>Actividar Económica</strong><em class="" id="actividad"><i class="fa fa-circle"></i> </em></div>
+                <div class="system-box"><strong>Flujos</strong><em class="" id="flujo"><i class="fa fa-circle"></i> </em></div>
+            </div>
+        </div>
+        <!-- FORMULARIOS -->
+        <div class="page-content header-clear-large" style="padding-top:0">
+            <div class="content-box button-red shadow-icon-large round-element">
+                <p class="uppercase center-text font-12 bold color-white top-10 bottom-10">Formularios</p>
+            </div>
+            <div class="content-box shadow-large bg-white" id="formularios">
+                <!-- <div class="system-box"><strong>Departamentos</strong><em class="" id="departamento"><i class="fa fa-circle"></i> </em></div> -->
+            </div>
+        </div>
+        <!-- FLUJOS -->
+        <div class="page-content header-clear-large"  style="padding-top:0">
+            <div class="content-box button-red shadow-icon-large round-element">
+                <p class="uppercase center-text font-12 bold color-white top-10 bottom-10">Flujos</p>
+            </div>
+            <div class="content-box shadow-large bg-white" id="flujos">
+                <!-- <div class="system-box"><strong>Departamentos</strong><em class="" id="departamento"><i class="fa fa-circle"></i> </em></div> -->
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/OptionsMenu.js"></script>
+    <script src="js/eventos.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var app = {
+            initialize: function(){
+                this.getDep();
+                this.getMun();
+                this.getAld();
+                this.getPro();
+                this.getSub();
+                this.getSec();  
+                this.getAct();
+                this.getflu();
+                this.formularios();
+                this.flujos();
+            },
+            getflu: function(){
+                var empresa = window.localStorage.getItem("empresa");
+                var query = 'SELECT count(*) as total FROM flujos';
+                var condicion = [];
+                gforms.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("flujos: "+result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#flujo").addClass("color-green-dark");
+                        }else{
+                            $("#flujo").addClass("color-orange-dark");
+                        }
+                        
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getDep: function(){
+                var empresa = window.localStorage.getItem("empresa");
+                var query = 'SELECT count(*) as total FROM departamentos';
+                var condicion = [];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("departamentos: "+result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#departamento").addClass("color-green-dark");
+                        }else{
+                            $("#departamento").addClass("color-orange-dark");
+                        }
+                        
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getMun: function(){
+                var query = 'SELECT count(*) as total FROM municipios';
+                var condicion = [];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("municipios:" +result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#municipios").addClass("color-green-dark");
+                        }else{
+                            $("#municipios").addClass("color-orange-dark");
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getAld: function(){
+                var query = 'SELECT count(*) as total FROM aldeas';
+                var condicion = [];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("aldeas: "+result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#aldeas").addClass("color-green-dark");
+                        }else{
+                            $("#aldeas").addClass("color-orange-dark");
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getPro: function(){
+                var query = 'SELECT count(*) as total FROM productos';
+                var condicion = [];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("productos: "+result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#productos").addClass("color-green-dark");
+                        }else{
+                            $("#productos").addClass("color-orange-dark");
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getSub: function(){
+                var query = 'SELECT count(*) as total FROM subproductos';
+                var condicion = [];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("subproductos: "+result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#subproductos").addClass("color-green-dark");
+                        }else{
+                            $("#subproductos").addClass("color-orange-dark");
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getSec: function(){
+                var query = 'SELECT count(*) as total FROM sector_economico';
+                var condicion = [];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("sector_economico: "+result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#sector").addClass("color-green-dark");
+                        }else{
+                            $("#sector").addClass("color-orange-dark");
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getAct: function(){
+                var query = 'SELECT count(*) as total FROM actividad_economica';
+                var condicion = [];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        console.log("actividad_economica: "+result.rows[0].total);
+                        if(result.rows[0].total!=0){
+                            $("#actividad").addClass("color-green-dark");
+                        }else{
+                            $("#actividad").addClass("color-orange-dark");
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            successIT: function(){
+                window.location.reload(true);
+            },
+            transError: function(t,e){
+                console.error("Error Ocurrido ! Codigo:" + e.code + " Mensaje : " + e.message);
+            },
+            mensaje: function(){
+                $('.menu').removeClass('active-menu-box-top active-menu-box-bottom active-menu-box-modal active-menu-full active-sidebar-left-over active-sidebar-left-push active-sidebar-right-push active-sidebar-left-parallax active-sidebar-right-parallax active-sidebar-right-over');
+		        $('.page-content, .header').removeClass('active-body-left-push active-body-right-push active-body-left-parallax active-body-right-parallax')
+                $('.menu').css({'margin-top':''})
+                var bodyEffect = ($('#confirm').data('menu-height')) / 6;
+                $('#confirm-1').toggleClass('active-menu-box-bottom');
+                $('.page-content').css('transform','translateY('+bodyEffect*(-1)+'px)');
+                $('.header').css('transform','translateY('+(-90)+'px)');
+                location.reload();
+            },
+            formularios: function(){
+                // id="formularios"
+                var html='';
+                var formularios = document.getElementById("formularios")
+                var query = 'SELECT nombre,count(*) as total FROM formularios group by nombre';
+                var condicion = [];
+                gforms.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        var len = result.rows.length;
+                        console.log("longitud formularios: "+len);
+                        if(len!=0){
+                            for(var i = 0; i < len; i++){
+                                // html += '<li><a onclick="app.verificacion(' + result.rows.item(i).form_id + ','+ result.rows.item(i).proceso +','+nombre +')"><i class="fa fa-angle-right"></i><i class="font-17 '+result.rows.item(i).icon+' color-red-dark"></i><span>' + result.rows.item(i).nombre + '</span><em>Version: ' + result.rows.item(i).version + '</em></a></li>';
+                                html += '<div class="system-box"><strong>' + result.rows.item(i).nombre + '</strong><em class="" id="departamento"><strong> Total: ' + result.rows.item(i).total + '</strong></em></div>';
+                            }
+                            formularios.innerHTML = html;
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            flujos: function(){
+                // id="formularios"
+                var html='';
+                var formularios = document.getElementById("flujos")
+                var query = 'SELECT flu_descripcion,count(*) as total FROM flujos group by flu_descripcion';
+                var condicion = [];
+                gforms.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        var len = result.rows.length;
+                        console.log("longitud formularios: "+len);
+                        if(len!=0){
+                            for(var i = 0; i < len; i++){
+                                // html += '<li><a onclick="app.verificacion(' + result.rows.item(i).form_id + ','+ result.rows.item(i).proceso +','+nombre +')"><i class="fa fa-angle-right"></i><i class="font-17 '+result.rows.item(i).icon+' color-red-dark"></i><span>' + result.rows.item(i).nombre + '</span><em>Version: ' + result.rows.item(i).version + '</em></a></li>';
+                                html += '<div class="system-box"><strong>' + result.rows.item(i).flu_descripcion + '</strong><em class="" id="departamento"><strong> Total: ' + result.rows.item(i).total + '</strong></em></div>';
+                            }
+                            formularios.innerHTML = html;
+                        }
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            }
+        }
+    </script>
+</body>
+
+</html>

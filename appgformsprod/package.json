@@ -1,0 +1,89 @@
+{
+  "name": "com.gforms.app",
+  "version": "1.9.3",
+  "displayName": "Gforms",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-battery-status": {},
+      "cordova-plugin-media-capture": {},
+      "cordova-plugin-console": {},
+      "cordova-plugin-contacts": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-device-motion": {},
+      "cordova-plugin-device-orientation": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-globalization": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-media": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-vibration": {},
+      "phonegap-plugin-battery-status": {},
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-zip": {},
+      "cordova-plugin-code-push": {},
+      "cordova-plugin-file": {},
+      "phonegap-plugin-media-stream": {},
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-request-location-accuracy": {},
+      "cordova.plugins.diagnostic": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      },
+      "cordova-plugin-appversion": {},
+      "onesignal-cordova-plugin": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      },
+      "com.cesidiodibenedetto.filechooser": {},
+      "cordova-plugin-mfilechooser": {}
+    }
+  },
+  "dependencies": {
+    "cordova": "9.0.0",
+    "cordova-android-support-gradle-release": "^3.0.1",
+    "cordova-plugin-android-permissions": "~1.0.0",
+    "cordova-plugin-appversion": "1.0.0",
+    "cordova-plugin-badge": "0.8.8",
+    "cordova-plugin-battery-status": "~1.1.1",
+    "cordova-plugin-code-push": "~1.11.17",
+    "cordova-plugin-console": "~1.0.2",
+    "cordova-plugin-contacts": "~2.0.1",
+    "cordova-plugin-device": "~1.1.1",
+    "cordova-plugin-device-motion": "~1.2.0",
+    "cordova-plugin-device-orientation": "~1.0.2",
+    "cordova-plugin-dialogs": "~1.2.0",
+    "cordova-plugin-file": "~4.3.3",
+    "cordova-plugin-file-transfer": "~1.5.0",
+    "cordova-plugin-geolocation": "^2.1.0",
+    "cordova-plugin-globalization": "~1.0.3",
+    "cordova-plugin-inappbrowser": "~1.3.0",
+    "cordova-plugin-local-notification": "0.9.0-beta.2",
+    "cordova-plugin-media": "~2.2.0",
+    "cordova-plugin-media-capture": "~1.2.0",
+    "cordova-plugin-network-information": "~1.2.0",
+    "cordova-plugin-request-location-accuracy": "^2.3.0",
+    "cordova-plugin-splashscreen": "~3.2.1",
+    "cordova-plugin-statusbar": "~2.1.2",
+    "cordova-plugin-vibration": "~2.1.0",
+    "cordova-plugin-whitelist": "~1.2.2",
+    "cordova-plugin-zip": "~3.1.0",
+    "cordova.plugins.diagnostic": "^5.0.0",
+    "help": "3.0.2",
+    "onesignal-cordova-plugin": "2.8.1",
+    "phonegap-plugin-battery-status": "~1.0.0",
+    "phonegap-plugin-media-stream": "1.2.1",
+    "serve": "11.0.0"
+  },
+  "devDependencies": {
+    "cordova-android": "^7.1.4",
+    "cordova-plugin-file-chooser": "git+https://github.com/caixiangsap/filechooser.git",
+    "cordova-plugin-mfilechooser": "^1.0.5"
+  }
+}

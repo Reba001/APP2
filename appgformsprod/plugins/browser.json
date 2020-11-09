@@ -1,0 +1,115 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-code-push": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-device-motion": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-request-location-accuracy": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-zip": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "phonegap-plugin-battery-status": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "phonegap-plugin-media-stream": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-appversion": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-android-support-gradle-release": {
+      "PACKAGE_NAME": "com.gforms.app"
+    }
+  },
+  "dependent_plugins": {
+    "code-push": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.gforms.app"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.gforms.app"
+    }
+  }
+}

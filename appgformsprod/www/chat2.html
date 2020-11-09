@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    
+    <script type="text/javascript" charset="utf-8" src="js/OptionsMenu.js"></script>
+</head>
+<body id="body" onload="menu();">
+
+    <div id="page-transitions" class="highlight-red">
+        <div class="page-bg gradient-body-1"></div>
+        <div id="header" class="header header-logo-app header-dark ">
+            <a href="#" class="header-title ">Chat</a>
+            <a href="#" class="header-logo disabled"></a>
+            <a data-menu="menu-1" data-menu-type="menu-sidebar-left-push" href="#" class="header-icon header-icon-1">
+                <i class="fas fa-bars"></i>
+            </a>
+            
+            <a class="header-icon header-icon-2" data-menu="attention-1" data-menu-type="menu-box-modal">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+        <div id="menu-1" class="menu menu-sidebar-left menu-settings"></div>
+        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/socket.io.js"></script>
+                
+        <style>
+            .chat-u{
+                color: white;
+            }
+            .i-chat{
+                background-color: rgba(255,255,255,0.85);
+                padding-top: 2px;
+                padding-bottom: 2px;
+                height: 70px;
+                vertical-align: middle;
+                width: 100%;
+            }
+            .i-chat:hover{
+                background-color: rgb(165, 215, 238);
+            }
+            .i-chat-ima{
+                position: fixed;
+                margin-top:12px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: white;
+                margin-left: -48px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+                margin-top: 6px!important;
+            }
+            .time-right {
+                margin-top: 20px;
+                color: rgb(172, 172, 172);
+                position: absolute;
+                top: 1px;
+                right: 5px;
+                font-size: small;
+            }
+            .a-item-chat{
+                text-align: left;
+                vertical-align: middle;
+                color: black!important;
+                padding-left: 55px!important;
+                font-size: 16px!important;
+                padding-top: 5px;
+                border-bottom: solid 1px rgba(0,0,0,0.0)!important; 
+            }
+            .a-item-chat:hover{
+                color: white!important;
+            }
+            /* .page-content{
+                background-image: url(images/wall.jpg);
+                background-attachment:fixed;
+                background-size:cover;
+            } */
+        </style>
+        <div class=" page-content header-clear-large">
+            <div class="app" id="container">
+                <div class="content-box">
+                    <ul id = "chat-mensajes" class="link-list link-list-large bottom-0">
+                    </ul>
+                </div>
+            </div>
+            <div class="menu menu-box-modal gradient-blue-dark shadow-large" id="attention-1" data-menu-height="315">
+                <div class="content">
+                    <h1 class="center-text top-15 bottom-30"><i class="fa fa-user-plus font-30 icon-circle icon-l bg-white color-black shadow-icon-large"></i></h1>
+                    <div class="input-simple-2 has-icon input-blue"
+                        style="width:100%; background-color: rgba(255,255,255,0.90);">
+                        <i class="fa fa-address-book"></i>
+                        <input type="text" placeholder="Usuario.." id="txtUsuarioNew" name="txtUsuarioNew" style="font-size: 19px!important;">
+                    </div>
+                    <div class="input-simple-2 has-icon input-blue"
+                        style="width:100%; background-color: rgba(255,255,255,0.90);">
+                        <i class="fa fa-edit"></i>
+                        <input type="text" placeholder="Escribir mensaje.." id="txtMensajeNew" name="txtMensajeNew" style="font-size: 19px!important;">
+                    </div>
+                    <button type="button" id="enviarMensaje" class="close-menu button button-round button-xs button-green-3d button-green ultrabold button-center shadow-icon-small">
+                        Enviar  
+                    </button>
+                </div>
+            </div>
+            <script>
+                var $_usrsesion = localStorage.getItem("id")==null?"0":localStorage.getItem("id");
+
+                var socket = io.connect("http://iforms.genesisempresarial.org:5001");
+
+                $("#enviarMensaje").click(function(){
+                    //Validar si existe ususario txtUsuarioNew
+                    var ususarioBuscar = $("#txtUsuarioNew").val();
+
+                    var requestU = new XMLHttpRequest();
+                    requestU.open('GET', 'http://iforms.genesisempresarial.org/api/navegacion/usuario/'+ususarioBuscar, true);
+                    requestU.onload = function() {
+                        
+
+                        if (requestU.status >= 200 && requestU.status < 400 && this.response.length > 0) {
+                            // Begin accessing JSON data here
+                            var data = JSON.parse(this.response);
+
+                            //Si existe, entonces enviar por mensaje
+                            var message = $("#txtMensajeNew").val();
+                            var id2Aux = data.id;
+                            var id22Aux = $_usrsesion;
+                            if(message.length > 0 && id2Aux != null) {
+                                socket.emit('set-nickname', {id22:id22Aux, id2:id2Aux});
+                                socket.emit("add-message", {text:message, id2:id2Aux, id22:id22Aux});
+                                $("#txtMensajeNew").val("");
+                                document.location.href="chatSala.html?i="+id2Aux+"&usuario="+ususarioBuscar+"&ima=ima";
+                            }
+                        } else {
+                            alert('Usuario no existe');
+                        }
+                    }
+                    requestU.send();
+                }); 
+
+                //Realizar peticion
+                var request = new XMLHttpRequest();
+
+                request.open('GET', 'http://iforms.genesisempresarial.org/api/navegacion/usuarios/'+$_usrsesion, true)
+                request.onload = function() {
+                    // Begin accessing JSON data here
+                    var data = JSON.parse(this.response)
+
+                    if (request.status >= 200 && request.status < 400) {
+                        $("#chat-mensajes").empty();
+                        var mensajes = "";
+                        data.forEach(ite => {
+                            mensajes = mensajes + ("<li>"+
+                                "<div class='i-chat'>"+
+                                    "<a class='a-item-chat' href='chatSala.html?i="+ite.ID+"&usuario="+ite.USER+"&ima="+ite.URL+"'>"+
+                                        "<img class='i-chat-ima' src='"+(ite.URL!=null ? ite.URL : "im/man2.png")+"' alt='avatar'/>"+
+                                        ite.USER+
+                                        "<span class='time-right'>"+ite.FECHA+"</span>"+
+                                    "</a>"+
+                                "</div>"+
+                            "</li>");
+                        })
+                        $(mensajes).hide().appendTo("#chat-mensajes").show('fast');
+                    } else {
+                        alert('error');
+                    }
+                }
+                request.send();
+            </script>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/eventos.js"></script>
+    <script>
+        var app = {
+            initialize: function(){
+                
+            }
+        }
+    </script>
+</body>
+</html>

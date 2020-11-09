@@ -1,0 +1,58 @@
+{
+  "_from": "cordova-plugin-mfilechooser",
+  "_id": "cordova-plugin-mfilechooser@1.0.5",
+  "_inBundle": false,
+  "_integrity": "sha512-UsMSV6lqD0xtnx7BN7ySJxTL0biomdkZaMaoRpDSVB3QUdkZ2sWYb0PQ64g3xvgfIITIXx5ms2XhkAQbe1kA8A==",
+  "_location": "/cordova-plugin-mfilechooser",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-mfilechooser",
+    "name": "cordova-plugin-mfilechooser",
+    "escapedName": "cordova-plugin-mfilechooser",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-mfilechooser/-/cordova-plugin-mfilechooser-1.0.5.tgz",
+  "_shasum": "0b1aedeb4574801547331059ccca4da6c1a97416",
+  "_spec": "cordova-plugin-mfilechooser",
+  "_where": "/home/reba/Documentos/App2/appgformsprod",
+  "author": {
+    "name": "Evolution36"
+  },
+  "bugs": {
+    "url": "https://github.com/Evolution-36/MFileChooser/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-mfilechooser",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "File Chooser for Cordova/Phonegap based on Maginsoft FileChooser. One change, it can go landscape and portait mode.",
+  "homepage": "https://github.com/Evolution-36/MFileChooser#readme",
+  "keywords": [
+    "cordova",
+    "filechooser",
+    "android",
+    "filepicker",
+    "phonegap",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-mfilechooser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evolution-36/MFileChooser.git"
+  },
+  "version": "1.0.5"
+}

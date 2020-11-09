@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/preloader.css">
+</head>
+
+<body>
+
+    <div id="preloader" class="preloader-light">
+        <h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">Gforms</h1>
+        <div id="preload-spinner"></div>
+    </div>
+    <div id="everything-wrapper">
+        <h1>Gforms</h1>
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+    </div>
+
+    <div id="page-transitions" class="page-build">
+        <div class="page-bg gradient-body-1"></div>
+
+        <div id="header" class="header header-logo-app header-dark ">
+            <!-- <a href="#" class="header-title " id='nform'>Datos</a> -->
+            <label class="header-title " id='nform'></label>
+            <a href="#" class="header-icon header-icon-1" onclick="BackKeyDown()"><i class="fas fa-angle-left"></i></a>
+            <a class="header-icon header-icon-2" onclick="app.abrir();"><i class="fas fa-plus"></i></a>
+            <a class="header-icon header-icon-3" onclick="envio.sendTotal();" ><i class="fas fa-sync"></i></a>
+        </div>
+
+        <div class="page-content header-clear-large ">
+            <div class="app" id="container">
+                <div class="tabs content-box bg-white">
+                    <div class="tab-pill-content ">
+                        <div class="tab-pill-titles" data-active-tab-pill-background="bg-red-dark" >
+                            <a href="#" class="active-tab-pill-button bg-red-dark" data-tab-pill="tab-pill-1">Pendientes</a>
+                            <a href="#" data-tab-pill="tab-pill-2" >Finalizados</a>
+                            <a href="#" data-tab-pill="tab-pill-3" >Enviados</a>
+                        </div>
+                        <div class="tab-item active-tab" id="tab-pill-1" style="padding:10px;" >
+                            <div class="accordion accordion-style-1 " id="cPen">
+                            </div>
+                        </div>
+                        <div class="tab-item" id="tab-pill-2">
+                            <ul class="link-list link-list-large bottom-0" id="finalizados">
+                            </ul>
+                        </div>
+                        <div class="tab-item" id="tab-pill-3">
+                            <ul class="link-list link-list-large bottom-0" id="enviados">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/Datos.js" ></script>
+    <script type="text/javascript" src="js/envioData8.js" ></script>
+    <script type="text/javascript" src="js/eventos.js" ></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script src="js/sweetalert2@8.js"></script>
+    <script src="js/socket.io.js" type="text/javascript"></script>    
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<title>Gforms</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="stylesheet" type="text/css" href="css/framework.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+    
+<div id="preloader" class="preloader-light">
+	<h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">Gforms</h1>
+	<div id="preload-spinner"></div>
+	<p>Beautifully Crafted UI & UX.</p>
+	<em>This will only take a second. It's totally worth it!</em>
+</div>
+
+    
+<div id="page-transitions" class="page-build bg-white">
+    <div class="page-content page-content-full">
+        <a href="index.html" class="cover-home-button"><i class="fa fa-home font-14 color-white"></i></a>
+        <div class="cover-item cover-item-full">
+            <div class="cover-content-center">
+                <div class="page-login bg-white top-0">
+                    <img class="preload-image login-bg shadow-large responsive-image bottom-0" src="images/pictures/9w.jpg" alt="img">
+                    <!-- <img class="preload-image login-image shadow-icon-large" src="images/pictures/0s.png" data-src="images/pictures/0s.png" alt="img">             -->
+                    <div class="content bottom-0">
+                        <h3 class="uppercase ultrabold top-10 bottom-0">Login</h3>
+                        <div class="page-login-field top-15">
+                            <i class="fa fa-user"></i>
+                            <input type="text" placeholder="Usuario" id="usuario" name="usuario">
+                            <em>(required)</em>
+                        </div>
+                        <div class="page-login-field bottom-20">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" placeholder="Contraseña" id="pass" name="pass">
+                            <em>(required)</em>
+                        </div>
+                        <div class="page-login-links bottom-10">
+                            <a class="create float-left" href="#"><i class="fa fa-eye"></i>Se te olvidó tu contraseña</a>
+                            <div class="clear"></div>
+                        </div>
+                        <a onclick="login();" class="back-button button button-green button-full shadow-icon-large button-round button-s uppercase ultrabold">Iniciar Sesion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cover-infinite-background"></div>
+            <div class="cover-overlay overlay bg-black opacity-80"></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script>
+    function login() {
+        var usuario = $("#usuario").val();
+        var contra = $("#pass").val();
+        var route = "https://gforms.craftygt.ga/api/usuario/"+usuario+"/"+contra;
+        console.log(route);
+        $.ajax({
+            url: route,
+            type: 'GET',
+            url: route,
+            dataType: 'json',
+            success: function (data) {
+                var obj = data;
+                // var len = Object.keys(obj).length;
+                aler(obj);
+
+                if(data == 202){
+                  //usuario y contraseña validas
+                  alert(data);
+                  window.localStorage.setItem("login",usuario);
+                  window.location.href = "formularios.html"
+                }
+                else{
+                  if(data == 400){
+                    //contraseña invalida
+                    alert(data);
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 3000
+                      });
+
+                      Toast.fire({
+                        type: 'error',
+                        title: 'Contraseña Invalida!!'
+                      });
+                  }
+                  else{
+                    if(data ==404){
+                      alert(data);
+                      //usuario incorrecto
+                      const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 3000
+                      });
+
+                      Toast.fire({
+                        type: 'error',
+                        title: 'Usuario Invalido!!'
+                      });
+                    }
+                  }
+                }
+                
+            },
+            error: function (data) {
+                Swal.fire({
+                  type: 'error',
+                  title: 'Oops...',
+                  text: 'Error de Consulta de servicios',
+                  footer: 'Vuelve a Intentar!>'
+                });
+            }
+        });
+    }
+</script>
+</body>

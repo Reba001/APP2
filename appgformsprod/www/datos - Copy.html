@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <style>
+        .text-wrap{
+            word-wrap: break-word;
+        }
+        table {
+            border-collapse: collapse;
+        }
+
+        table thead th {
+            border-bottom: 2px solid #dee2e6;
+            vertical-align: bottom;
+        }
+
+        th {
+            text-align: inherit;
+        }
+        /* Tabla */
+        .table {
+            margin-bottom: 1em;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .table td,
+        .table th {
+            border-top: 1px solid #dee2e6;
+            padding: 0.75em;
+            vertical-align: top;
+        }
+        /* Tabla responsive */
+        .table-responsive {
+            display: block;
+            -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+            overflow-x: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader" class="preloader-light">
+        <h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">Gforms</h1>
+        <div id="preload-spinner"></div>
+    </div>
+
+
+    <div id="page-transitions" class="page-build">
+        <div class="page-bg gradient-body-1"></div>
+
+        <div id="header" class="header header-logo-app header-dark ">
+           
+        </div>
+        <div id="menu-1" class="menu menu-sidebar-left menu-settings">
+            <div class="menu-bg gradient-body-1"></div>
+            <div class="menu-scroll">
+                <div class="menu-header">
+                    <a class="menu-logo" href="index.html"></a>
+                    <h1>Bienvenido</h1>
+                    <p>mraxcaco@genesisempresarial.com</p>
+                </div>
+                <div class="menu-list icon-background-active">
+                    <em class="menu-divider top-10">Navegación</em>
+                    <a class="menu-item active-menu" href="home.html"><i class="fa gradient-green-light fa-home"></i>Inicio</a>
+                    <a class="menu-item " href="homepages.html"><i class="fa gradient-mint-dark fa-comment"></i>Mis
+                        Mensajes</a>
+                    <a class="menu-item" href="components.html"><i class="fa gradient-sky-light fa-cog"></i>Calculadora</a>
+                    <a class="menu-item" href="interactive.html"><i class="fa gradient-green-light fa-phone"></i>Llamada</a>
+                    <a class="menu-item" href="#"><i class="fa gradient-magenta-light fa-image"></i>WhatsApp</a>
+
+                    <a class="menu-item" href="pages.html"><i class="fa gradient-brown-light fa-file"></i>Brújula y GPS</a>
+                    <a class="menu-item" href="pageapp.html"><i class="fa gradient-sky-light fa-cog"></i>Ajustes</a>
+                    <a class="menu-item" href="#"><i class="fa gradient-mint-dark fa-shopping-bag"></i>Ayuda</a>
+                    <a class="menu-item" href="contact.html"><i class="fa gradient-sky-dark fa-envelope"></i>Cerrar
+                        sesión</a>
+                </div>
+                <em class="menu-copyright">Copyright <span class="copyright-year"></span>, Enabled. All Rights Reserved</em>
+            </div>
+        </div>
+
+        <div class="page-content header-clear-large bg-white">
+            <div class="app" id="container">
+                <div class="tabs">
+                    <div class="tab-pill-content ">
+                        <div class="tab-pill-titles" data-active-tab-pill-background="bg-red-dark" style="padding:10px;">
+                            <a href="#" class="active-tab-pill-button bg-red-dark" data-tab-pill="tab-pill-1">Pendientes</a>
+                            <a href="#" data-tab-pill="tab-pill-2" >Finalizados</a>
+                            <a href="#" data-tab-pill="tab-pill-3" >Enviados</a>
+                        </div>
+                        <div class="tab-item active-tab" id="tab-pill-1" style="padding:10px;" >
+                        </div>
+                        <div class="tab-item" id="tab-pill-2">
+                            <ul class="link-list link-list-large bottom-0" id="finalizados">
+                            </ul>
+                        </div>
+                        <div class="tab-item" id="tab-pill-3">
+                            <ul class="link-list link-list-large bottom-0" id="enviados">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/pulltorefresh.js"></script>
+    <script src="js/sweetalert2@8.js"></script>
+    <script>
+        function abrir(){
+            console.log("entro");
+            var id = getParameterByName('formid');
+            document.location.href = "formulario.html?formid=" + id;
+        }
+    </script>
+    <script>
+        var app={
+            initialize:function(){
+                this.datos("pendientes","finalizados","enviados");
+                var proceso = localStorage.getItem("proceso");
+                if(proceso!=1){
+                    var html = '<a href="#" class="header-title ">Datos</a><a data-menu="menu-1" data-menu-type="menu-sidebar-left-push" href="#" class="back-button header-icon header-icon-1"><i class="fas fa-angle-left"></i></a><a class="header-icon header-icon-2" onclick="abrir();"><i class="fas fa-plus"></i></a><a class="header-icon header-icon-3" onclick="app.fetchEnd();" ><i class="fas fa-sync"></i></a>';
+                    var html2 = '<ul class="link-list link-list-large bottom-0" id="cPen"></ul>';
+                    var header = document.getElementById("header");
+                    var conPen = document.getElementById("tab-pill-1");
+                    header.innerHTML=html;
+                    conPen.innerHTML=html2;
+                }
+                else{
+                    var html = '<a href="#" class="header-title ">Datos</a><a data-menu="menu-1" data-menu-type="menu-sidebar-left-push" href="#" class="back-button header-icon header-icon-1"><i class="fas fa-angle-left"></i></a><a class="header-icon header-icon-2" onclick="app.fetchEnd();" ><i class="fas fa-sync"></i></a>';
+                    var html2 = '<div class="table-responsive content-box-full" ><table class="table table-hover round-element shadow-large"><thead id="ePen"></thead><tbody id="cPen"></tbody></table></div>';
+                    var header = document.getElementById("header");
+                    var conPen = document.getElementById("tab-pill-1");
+                    header.innerHTML=html;
+                    conPen.innerHTML = html2;
+                }
+            },
+            datos: function(p,f,e){
+                gforms.transaction(function(tx){
+                    var pen="";
+                    var fin="";
+                    var env="";
+                    var formid = getParameterByName('formid');
+                    var pendientes = document.getElementById(p);
+                    var finalizados = document.getElementById(f);
+                    var enviados = document.getElementById(e);
+                    var proceso = localStorage.getItem("proceso");
+                
+                    tx.executeSql("SELECT * from datos WHERE form_id=? ORDER BY estado ASC", [formid], function(tx1,result){
+                        var len = result.rows.length;
+                        if(proceso!=1){
+                            for(var i=0; i<len; i++){
+
+                                var obj = JSON.parse(result.rows.item(i).data),j =1;
+                                var okeys = Object.keys(obj);
+
+                                if(result.rows.item(i).estado=="Finalizado"){
+                                    // fin += '<tr onclick="app.openData(' + result.rows.item(i).id + ')"><td>' + obj[okeys[0]] + '</td><td>' + obj[okeys[1]] + '</td><td>' + obj[okeys[2]] + '</td><td>' + obj[okeys[3]] + '</td></tr>';
+                                    fin += '<li ><a onclick="app.openData(' + result.rows.item(i).id + ')" ><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' +result.rows.item(i).external_id + '</span><em>' + result.rows.item(i).fechasig + '</em></a></li>'
+                                }
+                                else{
+                                    if(result.rows.item(i).estado=="Enviado"){
+                                        // env += '<tr onclick="app.openData(' + result.rows.item(i).id + ')"><td>' + obj[okeys[0]] + '</td><td>' + obj[okeys[1]] + '</td><td>' + obj[okeys[2]] + '</td><td>' + obj[okeys[3]] + '</td></tr>';
+                                        env += '<li ><a ><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' +result.rows.item(i).external_id + '</span><em>' + result.rows.item(i).fechasig + '</em></a></li>'
+                                    }
+                                    else{
+                                        pen += '<li><a onclick="app.openData(' + result.rows.item(i).id + ')"><i class="fa fa-angle-right"></i><i class="font-16 fa fa-bullseye color-red-dark"></i><span>' + result.rows.item(i).external_id + '</span><em>' + result.rows.item(i).fechasig + '</em></a></li>'
+                                        // pen += '<tr ><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')"><i class="font-16 fa fa-bullseye color-red-dark"></i></td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[1]] + '</td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[2]] + '</td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[3]] + '</td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[4]] + '</td><td class="text-wrap" onclick="app.delete(' + result.rows.item(i).id + ')"><i class="font-16 fa fa-trash color-red-dark" ></i></td></tr>';
+                                    }
+                                }
+                            }
+                                document.getElementById("cPen").innerHTML=pen;
+                                // pendientes.innerHTML = pen;
+                                finalizados.innerHTML = fin;
+                                enviados.innerHTML = env;
+                        }
+                        else{
+                            var enc= JSON.parse(result.rows.item(0).data);
+                            var keyys= Object.keys(enc);
+                            // document.getElementById("ePen").innerHTML='<div class="col-4">'+keyys[0]+'</div><div class="col-4">'+keyys[1]+'</div><div class="col-4">'+keyys[2]+'</div>';
+                            document.getElementById("ePen").innerHTML= "<tr><th class='bg-night-dark'></th><th class='bg-night-dark'>"+keyys[1]+"</th><th class='bg-night-dark'>"+keyys[2]+"</th><th class='bg-night-dark'>"+keyys[3]+"</th><th class='bg-night-dark'>"+keyys[4]+"</th><th class='bg-night-dark'>Opciones</th></tr>";
+
+                            for(var i=0; i<len; i++){
+
+                                var obj = JSON.parse(result.rows.item(i).data),j =1;
+                                var okeys = Object.keys(obj);
+
+                                if(result.rows.item(i).estado=="Finalizado"){
+                                    // fin += '<tr onclick="app.openData(' + result.rows.item(i).id + ')"><td>' + obj[okeys[0]] + '</td><td>' + obj[okeys[1]] + '</td><td>' + obj[okeys[2]] + '</td><td>' + obj[okeys[3]] + '</td></tr>';
+                                    fin += '<li ><a onclick="app.openData(' + result.rows.item(i).id + ')" ><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' + okeys[0] + '</span><em>' + obj[okeys[0]] + '</em></a></li>'
+                                }
+                                else{
+                                    if(result.rows.item(i).estado=="Enviado"){
+                                        // env += '<tr onclick="app.openData(' + result.rows.item(i).id + ')"><td>' + obj[okeys[0]] + '</td><td>' + obj[okeys[1]] + '</td><td>' + obj[okeys[2]] + '</td><td>' + obj[okeys[3]] + '</td></tr>';
+                                        env += '<li ><a ><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' + okeys[0] + '</span><em>' + obj[okeys[0]] + '</em></a></li>'
+                                    }
+                                    else{
+                                        // pen += '<li><a onclick="app.openData(' + result.rows.item(i).id + ')"><i class="fa fa-angle-right"></i><i class="font-16 fa fa-bullseye color-red-dark"></i><span>' + okeys[0] + '</span><em>' + obj[okeys[0]] + '</em></a></li>'
+                                        pen += '<tr ><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')"><i class="font-16 fa fa-bullseye color-red-dark"></i></td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[1]] + '</td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[2]] + '</td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[3]] + '</td><td class="text-wrap" onclick="app.openData(' + result.rows.item(i).id + ')">' + obj[okeys[4]] + '</td><td class="text-wrap" onclick="app.delete(' + result.rows.item(i).id + ')"><i class="font-16 fa fa-trash color-red-dark" ></i></td></tr>';
+                                    }
+                                }
+                            }
+                            document.getElementById("cPen").innerHTML=pen;
+                            // pendientes.innerHTML = pen;
+                            finalizados.innerHTML = fin;
+                            enviados.innerHTML = env;
+                        }
+                    },this.errorCT);
+                },this.errorCT,this.successCT);
+            },
+            fetchEnd: function(){
+                    var usr = window.localStorage.getItem("login");
+                    gforms.transaction(function(tx){
+                        var formid = getParameterByName('formid');
+                        tx.executeSql('SELECT * from datos WHERE form_id=? and estado=?', [formid,"Finalizado"], function(tx1,result){
+                            var len = result.rows.length;
+                            for(var i=0; i<len; i++){
+                                var obj =result.rows.item(i).data;
+                                app.sendData(result.rows.item(i).form_id,obj.replace(/['"]+/g, "'"),result.rows.item(i).external_id,usr,result.rows.item(i).fechasig,parseInt(result.rows.item(i).id));
+                            }
+                        },this.errorCT);
+                    },this.errorCT,this.successCT);
+            },
+            openData: function(id){
+                var form_id = getParameterByName('formid');
+                document.location.href = "formDatas.html?id=" + id+"&formid="+form_id;
+            },
+            delete: function(id){
+                Swal.fire({
+                    title: 'Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Sí, Eliminar!'
+                    }).then((result) => {
+                    if (result.value) {
+                        gforms.transaction(function(tx){
+                            var executeQuery = "DELETE FROM datos where Id=?";
+                            tx.executeSql(executeQuery, [id],function (tx, result) {
+                                Swal.fire(
+                                    'Eliminado',
+                                    'el formulario ha sido eliminado.',
+                                    'success'
+                                );
+                                window.location.reload(true);
+                            },function (error) { alert('Data no Eliminada'); });
+                        },this.errorCT,this.successCT);
+                    }
+                });
+            },
+            errorCT: function(err){
+                console.log("Error al seleccionar Formularios:"+err.message);
+            },
+            successCT: function(){
+                console.log("Consulta de formularios Exitoso");
+            },
+            sendData: async function(formid,datos,external,usuario,fecha,id){
+                var iduser = window.localStorage.getItem("id");
+                var dire = window.localStorage.getItem("url");
+                let Data = 'mutation{ ' +
+                                'addRecibidos( ' +
+  	                                'rec_idfor: "' + formid +'" '+
+  	                                ',rec_datos: "' +datos+ '" '+
+                                    ',rec_external_id: "' + external +'" '+
+                                    ',rec_usuario_grabacion: "' + usuario+'" '+
+                                    ',rec_iduser: '+ iduser +
+                                    ',rec_codcia: "1" '+
+                                    ',id_estado:5 ' +
+                                    ',fecha_asignacion: "'+ fecha+'"){ '+
+                                        'id ' +
+                                        'rec_idfor ' +
+                                        'rec_external_id ' +
+                                '}' +
+                            '}';
+                console.log(Data);
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        app.update(id);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+                // window.location.reload();
+            },
+            update: function(id){
+                gforms.transaction(function (tx) {
+                    tx.executeSql("UPDATE datos SET estado='Enviado' where id= ? ", [id], this.successUT, this.errorUT);
+                }, this.errorUT, this.successUT);
+            },
+            errorUT: function(){
+                console.log("Error al actualizar datos de formularios");
+            },
+            successUT: function(){
+                console.log("Actualización de Datos Exitoso");
+            }
+        }
+    </script>
+   <script>
+        window.onload= function(){
+            app.initialize();
+        }
+       
+
+       function ver2(id){
+             var form_id = getParameterByName('formid');
+             document.location.href = "formDatas.html?id=" + id+"&formid="+form_id;
+        }
+     </script>
+    <script>
+        // PullToRefresh.init({
+        //     mainElement: '#container',
+        //     onRefresh: function() {
+        //         app.datos("pendientes","finalizados","enviados");
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

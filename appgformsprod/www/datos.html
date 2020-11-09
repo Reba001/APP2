@@ -1,0 +1,726 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    
+    <style>
+        .text-wrap{
+            word-wrap: break-word;
+        }
+        table {
+            border-collapse: collapse;
+        }
+
+        table thead th {
+            border-bottom: 2px solid #dee2e6;
+            vertical-align: bottom;
+        }
+
+        th {
+            text-align: inherit;
+        }
+        /* Tabla */
+        .table {
+            margin-bottom: 1em;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .table td,
+        .table th {
+            border-top: 1px solid #dee2e6;
+            padding: 0.75em;
+            vertical-align: top;
+        }
+        /* Tabla responsive */
+        .table-responsive {
+            display: block;
+            -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+            overflow-x: auto;
+            width: 100%;
+        }
+    </style>
+    <style>
+            #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: #FFF none repeat scroll 0% 0%;
+            z-index: 99999;
+            }
+            #page-loader .preloader-interior {
+                display: block;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                width: 150px;
+                height: 150px;
+                margin: -75px 0 0 -75px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-top-color: #3498db;
+            
+                -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+                    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+            }
+            #page-loader .preloader-interior:before {
+                content: "";
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-top-color: #e74c3c;
+            
+                -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+                animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+            }
+            
+            #page-loader .preloader-interior:after {
+                content: "";
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-top-color: #f9c922;
+            
+                -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+                animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+            }
+            
+            @-webkit-keyframes spin {
+                0%   { 
+                    -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                    -ms-transform: rotate(0deg);  /* IE 9 */
+                    transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                    -ms-transform: rotate(360deg);  /* IE 9 */
+                    transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+                }
+            }
+            @keyframes spin {
+                0%   { 
+                    -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                    -ms-transform: rotate(0deg);  /* IE 9 */
+                    transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                    -ms-transform: rotate(360deg);  /* IE 9 */
+                    transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+                }
+            }
+            #everything-wrapper {
+                display : none;
+            }
+            /* .page-content{
+                background-color: rgba(0,0,0,0.8);
+                background-image: url(images/principal.jpg);
+                background-attachment: fixed;
+                background-size:cover;
+                filter:brightness(0.4);
+            } */
+        </style>
+</head>
+
+<body>
+
+    <div id="everything-wrapper">
+        <h1>Gforms</h1>
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+    </div>
+
+
+    <div id="page-transitions" class="page-build">
+        <div class="page-bg gradient-body-1"></div>
+
+        <div id="header" class="header header-logo-app header-dark ">
+                <!-- <a href="#" class="header-title ">Datos</a> -->
+                <label class="header-title " id='nform'></label>
+                <a href="#" class="header-icon header-icon-1" onclick="BackKeyDown()"><i class="fas fa-angle-left"></i></a>
+                <a class="header-icon header-icon-2" onclick="app.fetchEnd();" ><i class="fas fa-sync"></i></a>
+        </div>
+        <div id="menu-1" class="menu menu-sidebar-left menu-settings">
+            <div class="menu-bg gradient-body-1"></div>
+            <div class="menu-scroll">
+                <div class="menu-header">
+                    <a class="menu-logo" href="index.html"></a>
+                    <h1>Bienvenido</h1>
+                    <p>mraxcaco@genesisempresarial.com</p>
+                </div>
+                <div class="menu-list icon-background-active">
+                    <em class="menu-divider top-10">Navegación</em>
+                    <a class="menu-item active-menu" href="home.html"><i class="fa gradient-green-light fa-home"></i>Inicio</a>
+                    <a class="menu-item " href="homepages.html"><i class="fa gradient-mint-dark fa-comment"></i>Mis
+                        Mensajes</a>
+                    <a class="menu-item" href="components.html"><i class="fa gradient-sky-light fa-cog"></i>Calculadora</a>
+                    <a class="menu-item" href="interactive.html"><i class="fa gradient-green-light fa-phone"></i>Llamada</a>
+                    <a class="menu-item" href="#"><i class="fa gradient-magenta-light fa-image"></i>WhatsApp</a>
+
+                    <a class="menu-item" href="pages.html"><i class="fa gradient-brown-light fa-file"></i>Brújula y GPS</a>
+                    <a class="menu-item" href="pageapp.html"><i class="fa gradient-sky-light fa-cog"></i>Ajustes</a>
+                    <a class="menu-item" href="#"><i class="fa gradient-mint-dark fa-shopping-bag"></i>Ayuda</a>
+                    <a class="menu-item" href="contact.html"><i class="fa gradient-sky-dark fa-envelope"></i>Cerrar
+                        sesión</a>
+                </div>
+                <em class="menu-copyright">Copyright <span class="copyright-year"></span>, Enabled. All Rights Reserved</em>
+            </div>
+        </div>
+
+        <div class="page-content header-clear-large bg-white">
+            <div class="app" id="container">
+                <div class="tabs content-box bg-white">
+                    <div class="tab-pill-content ">
+                        <div class="tab-pill-titles" data-active-tab-pill-background="bg-red-dark" style="padding:10px;">
+                            <a href="#" class="active-tab-pill-button bg-red-dark" data-tab-pill="tab-pill-1">Pendientes</a>
+                            <a href="#" data-tab-pill="tab-pill-2" >Finalizados</a>
+                            <a href="#" data-tab-pill="tab-pill-3" >Enviados</a>
+                        </div>
+                        <div class="tab-item active-tab" id="tab-pill-1" style="padding:10px;" >
+                            <div class="table-responsive content-box-full" >
+                                <table class="display nowrap table" style="width:100%" id="pendientes" >
+                                    <thead>
+                                        <tr id="theader"></tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-item" id="tab-pill-2" style="padding:10px;">
+                            <div class="table-responsive content-box-full" >
+                                <table class="display nowrap" style="width:100%" id="finalizados" >
+                                    <thead>
+                                        <tr id="tfheader"></tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-item" id="tab-pill-3">
+                            <div class="table-responsive content-box-full" >
+                                <table class="display nowrap" style="width:100%" id="enviados" >
+                                    <thead>
+                                        <tr id="teheader"></tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <!-- <ul class="link-list link-list-large bottom-0" id="enviados">
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script src="js/sweetalert2@8.js"></script>
+    <script src="js/socket.io.js" type="text/javascript"></script>
+    <script src="js/eventos.js" type="text/javascript"></script>
+
+    <script>
+        var app={
+            initialize:function(){          
+                $('#nform').text(localStorage.getItem('nform'));      
+                var proceso = localStorage.getItem("proceso");
+                var g = localStorage.getItem("guardar");
+                this.datos("cPen","finalizados","enviados");
+                this.otros("cPen","finalizados","enviados");
+            },
+            datos: function(p,f,e){
+                $("#everything-wrapper").show();
+                gforms.transaction(function(tx){
+                    var pen="";
+                    var fin="";
+                    var env="";
+                    var formid = getParameterByName('formid');
+                    var pendientes = document.getElementById(p);
+                    var finalizados = document.getElementById(f);
+                    var enviados = document.getElementById(e);
+                    var proceso = localStorage.getItem("proceso");
+                    var Arrayh=[];
+                    if(proceso==1){
+                        var query="SELECT * from seguimiento WHERE form_id=? ORDER BY estado ASC";
+                    }
+                    else{
+                        var query="SELECT * from asig WHERE form_id=? ORDER BY estado ASC";
+                    }
+                    tx.executeSql(query, [formid], function(tx1,result){
+                        var len = result.rows.length;
+                        console.log("datos: longuitud "+len);
+                        if(len!=0){
+                            localStorage.setItem("regestion",1);
+                            var enc= JSON.parse(result.rows.item(0).data);
+                            var keyys= Object.keys(enc);
+                            if(formid === '141'){
+
+                                document.getElementById("theader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th><th>Ver</th>";
+                                document.getElementById("tfheader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th><th>Ver</th>";
+                                document.getElementById("teheader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th>";
+
+                            }else{
+                                
+                                document.getElementById("theader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th><th>"+keyys[4]+"</th><th>"+keyys[5]+"</th><th>Ver</th>";
+                                document.getElementById("tfheader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th><th>Ver</th>";
+                                document.getElementById("teheader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th>";
+
+                            }
+                            for(var i=0; i<len; i++){
+
+                                var obj = JSON.parse(result.rows.item(i).data),j =1;
+                                var okeys = Object.keys(obj);
+
+                                if(result.rows.item(i).estado=="temporal" ){
+                                    var button = "<i  class='font-16 fa fa-eye color-green-dark' onclick='app.openData(" + result.rows.item(i).id +")'></i>";
+                                    if(formid === '141'){
+                                        Arrayh.push([obj[okeys[0]],obj[okeys[1]],obj[okeys[2]],obj[okeys[3]],button]);
+                                    }else{
+                                        Arrayh.push([obj[okeys[0]],obj[okeys[1]],obj[okeys[2]],obj[okeys[3]],obj[okeys[4]],obj[okeys[5]],button]);
+                                    }
+                                    
+                                }
+                            }
+                           
+                            $('#pendientes').DataTable({
+                                fixedHeader: {
+                                    header: false,
+                                    footer: false
+                                },
+                                "ordering": false,
+                                destroy: true,
+                                "pageLength": 10,
+                                "bLengthChange":false,
+                                language: {
+                                    "sProcessing": "Procesando...",
+                                    "sLengthMenu": "Mostrar _MENU_ registros",
+                                    "sZeroRecords": "No se encontraron resultados",
+                                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                    "sInfoPostFix": "",
+                                    "sSearch": "Buscar:",
+                                    "sUrl": "",
+                                    "sInfoThousands": ",",
+                                    "sLoadingRecords": "Cargando...",
+                                    "oPaginate": {
+                                        "sFirst": "Primero",
+                                        "sLast": "Último",
+                                        "sNext": "Siguiente",
+                                        "sPrevious": "Anterior",
+                                        'loadingRecords': '&nbsp;',
+                                        'processing': 'Cargando...'
+                                    },
+                                    "oAria": {
+                                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                       }
+                                },
+                                data:Arrayh,
+                                responsive:true,
+                                "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+                                    
+                                    if ( aData[3] == "1" )
+                                    {
+                                        $('td', nRow).css('background-color', '#99FF99');
+                                    }
+                                    if ( aData[4] == "2" )
+                                    {
+                                        $('td', nRow).css('background-color', '#FFFFCC');
+                                    }
+                                    if ( aData[5] == "3" )
+                                    {
+                                        $('td', nRow).css('background-color', '#4653FC');
+                                    }
+                                },
+                                "initComplete": function () {
+                                    $("#everything-wrapper").fadeOut(600);
+                                }
+                            });
+                        }
+                        else{
+                            localStorage.setItem("regestion",0);
+                        }
+                    },this.errorCT);
+                },this.errorCT,this.successCT);
+            },
+            otros: function(p,f,e){
+                $("#everything-wrapper").show();
+                gforms.transaction(function(tx){
+                    var pen="";
+                    var fin="";
+                    var env="";
+                    var formid = getParameterByName('formid');
+                    var pendientes = document.getElementById(p);
+                    var finalizados = document.getElementById(f);
+                    var enviados = document.getElementById(e);
+                    var proceso = localStorage.getItem("proceso");
+                    var Arrayh=[];
+                    var Arrayhf=[];
+                    var Arrayhe=[];
+                    console.log(proceso);
+                    if(proceso==1){
+                        var query="SELECT * from seguimiento WHERE form_id=? ORDER BY estado ASC";
+                    }
+                    else{
+                        var query="SELECT * from asigFin WHERE form_id=? ORDER BY estado ASC";
+                    }
+
+                    tx.executeSql(query, [formid], function(tx1,result){
+                        var len = result.rows.length;
+                        if(len !=0){
+                            var enc= JSON.parse(result.rows.item(0).data);
+                            var keyys= Object.keys(enc);
+                            var reges = localStorage.getItem("regestion");
+                            if(reges==0){
+                                if(formid == "141"){
+                                    document.getElementById("theader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th><th>Ver</th>";
+                                }else{
+                                    document.getElementById("theader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th><th>"+keyys[4]+"</th><th>"+keyys[5]+"</th><th>Ver</th>";
+                                }
+                                
+                            }
+                            document.getElementById("tfheader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th><th>Ver</th>";
+                            document.getElementById("teheader").innerHTML= "<th>"+keyys[0]+"</th><th>"+keyys[1]+"</th><th>"+keyys[2]+"</th><th>"+keyys[3]+"</th>";
+
+                            for(var i=0; i<len; i++){
+
+                                var obj = JSON.parse(result.rows.item(i).data),j =1;
+                                var okeys = Object.keys(obj);
+
+                                if(result.rows.item(i).estado=="Finalizado"){
+                                    var buttonf = "<i  class='font-16 fa fa-eye color-green-dark' onclick='app.openData2(" + result.rows.item(i).id +")'></i>";
+                                    Arrayhf.push([obj[okeys[0]],obj[okeys[1]],obj[okeys[2]],obj[okeys[3]],buttonf]);
+                                    // fin += '<li ><a onclick="app.openData(' + result.rows.item(i).id + ')" ><i class="font-17 fa fa-trash color-red-dark" onclick="app.delete(' + result.rows.item(i).id + ')"></i><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' + okeys[0] + '</span><em>' + obj[okeys[0]] + '</em></a></li>'
+                                }
+                                else{
+                                    if(result.rows.item(i).estado=="Enviado"){
+                                        Arrayhe.push([obj[okeys[0]],obj[okeys[1]],obj[okeys[2]],obj[okeys[3]]]);
+                                        // env += '<li ><a ><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' + okeys[0] + '</span><em>' + obj[okeys[0]] + '</em></a></li>';
+                                    }
+                                   
+                                }
+                            }
+
+                            // $('#pendientes').DataTable({
+                            //     fixedHeader: {
+                            //         header: false,
+                            //         footer: false
+                            //     },
+                            //     "ordering": false,
+                            //     destroy: true,
+                            //     "pageLength": 10,
+                            //     "bLengthChange":false,
+                            //     language: {
+                            //         "sProcessing": "Procesando...",
+                            //         "sLengthMenu": "Mostrar _MENU_ registros",
+                            //         "sZeroRecords": "No se encontraron resultados",
+                            //         "sEmptyTable": "Ningún dato disponible en esta tabla",
+                            //         "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            //         "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            //         "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                            //         "sInfoPostFix": "",
+                            //         "sSearch": "Buscar:",
+                            //         "sUrl": "",
+                            //         "sInfoThousands": ",",
+                            //         "sLoadingRecords": "Cargando...",
+                            //         "oPaginate": {
+                            //             "sFirst": "Primero",
+                            //             "sLast": "Último",
+                            //             "sNext": "Siguiente",
+                            //             "sPrevious": "Anterior",
+                            //             'loadingRecords': '&nbsp;',
+                            //             'processing': 'Cargando...'
+                            //         },
+                            //         "oAria": {
+                            //             "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            //             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                            //            }
+                            //     },
+                            //     responsive:true,
+                            // });
+
+                            $('#finalizados').DataTable({
+                                fixedHeader: {
+                                    header: false,
+                                    footer: false
+                                },
+                                "ordering": false,
+                                destroy: true,
+                                "pageLength": 10,
+                                "bLengthChange":false,
+                                language: {
+                                    "sProcessing": "Procesando...",
+                                    "sLengthMenu": "Mostrar _MENU_ registros",
+                                    "sZeroRecords": "No se encontraron resultados",
+                                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                    "sInfoPostFix": "",
+                                    "sSearch": "Buscar:",
+                                    "sUrl": "",
+                                    "sInfoThousands": ",",
+                                    "sLoadingRecords": "Cargando...",
+                                    "oPaginate": {
+                                        "sFirst": "Primero",
+                                        "sLast": "Último",
+                                        "sNext": "Siguiente",
+                                        "sPrevious": "Anterior",
+                                        'loadingRecords': '&nbsp;',
+                                        'processing': 'Cargando...'
+                                    },
+                                    "oAria": {
+                                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                    }
+                                },
+                                data:Arrayhf,
+                                responsive:true
+                            });
+
+                            $('#enviados').DataTable({
+                                fixedHeader: {
+                                    header: false,
+                                    footer: false
+                                },
+                                "ordering": false,
+                                destroy: true,
+                                "pageLength": 10,
+                                "bLengthChange":false,
+                                language: {
+                                    "sProcessing": "Procesando...",
+                                    "sLengthMenu": "Mostrar _MENU_ registros",
+                                    "sZeroRecords": "No se encontraron resultados",
+                                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                    "sInfoPostFix": "",
+                                    "sSearch": "Buscar:",
+                                    "sUrl": "",
+                                    "sInfoThousands": ",",
+                                    "sLoadingRecords": "Cargando...",
+                                    "oPaginate": {
+                                        "sFirst": "Primero",
+                                        "sLast": "Último",
+                                        "sNext": "Siguiente",
+                                        "sPrevious": "Anterior",
+                                        'loadingRecords': '&nbsp;',
+                                        'processing': 'Cargando...'
+                                    },
+                                    "oAria": {
+                                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                    }
+                                },
+                                data:Arrayhe,
+                                responsive:true,
+                                "initComplete": function () {
+                                    $("#everything-wrapper").fadeOut(600);
+                                }
+                            });
+                        }
+                    },this.errorCT);
+                },this.errorCT,this.successCT);
+            },
+            fetchEnd: function(){
+                $("#everything-wrapper").show();
+                localStorage.setItem("enviados",'0');
+                    var usr = window.localStorage.getItem("login");
+                    gforms.transaction(function(tx){
+                        var formid = getParameterByName('formid');
+                        var proceso = localStorage.getItem("proceso");
+                        
+                        if(proceso==1){
+                            var query="SELECT * from seguimiento WHERE form_id=?  and estado=?";
+                        }
+                        else{
+                            var query="SELECT * from asigFin WHERE form_id=?  and estado=?";
+                        }
+
+                        tx.executeSql(query, [formid,"Finalizado"], function(tx1,result){
+                            var len = result.rows.length;
+                            localStorage.setItem("longitud",len);
+                            if(len != 0){
+                                for(var i=0; i<len; i++){
+                                    var obj =result.rows.item(i).data;
+                                    var miCadena = obj.replace(/[']/g, "`");
+                                    var res = miCadena.replace(/"/g, "'");
+
+                                    app.sendData(result.rows.item(i).form_id,res,result.rows.item(i).external_id,usr,result.rows.item(i).fechasig,parseInt(result.rows.item(i).id),result.rows.item(i).status);
+                                }
+                            }
+                            else{
+                                $("#everything-wrapper").fadeOut(600);
+                                location.reload();
+                            }
+                        },this.errorCT);
+                    },this.errorCT,this.successCT);
+            },
+            openData: function(id){
+                var form_id = getParameterByName('formid');
+                document.location.href = "formData.html?id=" + id+"&formid="+form_id;
+            },
+            openData2: function(id){
+                var form_id = getParameterByName('formid');
+                document.location.href = "formDataFin.html?id=" + id+"&formid="+form_id;
+            },
+            delete: function(id){
+                Swal.fire({
+                    title: 'Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Sí, Eliminar!'
+                    }).then((result) => {
+                    if (result.value) {
+                        gforms.transaction(function(tx){
+                            var executeQuery = "DELETE FROM asig where Id=?";
+                            tx.executeSql(executeQuery, [id],function (tx, result) {
+                                Swal.fire(
+                                    'Eliminado',
+                                    'el formulario ha sido eliminado.',
+                                    'success'
+                                );
+                                window.location.reload(true);
+                            },function (error) { alert('Data no Eliminada'); });
+                        },this.errorCT,this.successCT);
+                    }
+                });
+            },
+            errorG: function(err){ 
+                console.log("Error al actualizar: "+err.code);
+            },
+            successG: function(){
+                console.log("actualización exitosa");
+            },
+            successGT: function(){
+                localStorage.setItem("guardar",0);
+                localStorage.setItem("aux",0);
+                location.reload();
+            },
+            errorGT: function(err){
+                console.log("Error de transaccion: "+err.code);
+            },
+            errorCT: function(err){
+                console.log("Error al seleccionar Formularios:"+err.message);
+            },
+            successCT: function(){
+                console.log("Consulta de formularios Exitoso");
+            },
+            sendData: async function(formid,datos,external,usuario,fecha,id,estado){
+                var iduser = window.localStorage.getItem("id");
+                var dire = window.localStorage.getItem("gformsGes");
+                let Data = 'mutation{ ' +
+                                'addGestiones( ' +
+  	                                'rges_idfor: "' + formid +'" '+
+  	                                ',rges_datos: "' +datos+ '" '+
+                                    ',rges_external_id: "' + external +'" '+
+                                    ',rges_usuario_grabacion: "' + usuario+'" '+
+                                    ',rges_iduser: '+ iduser +
+                                    ',rges_codcia: "1" '+
+                                    ',id_estado:' +estado +
+                                    ',fecha_asignacion: "'+ fecha+'"){ '+
+                                        'id ' +
+                                        'rges_idfor ' +
+                                        'rges_external_id ' +
+                                '}' +
+                            '}';
+                console.log(Data);
+                debugger;
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        app.update(id);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                        alert(data);
+                        $("#everything-wrapper").fadeOut(600);
+                    }
+                });
+                // window.location.reload();
+            },
+            update: function(id){
+                var formid = getParameterByName('formid');
+                var proceso = localStorage.getItem("proceso");
+                        
+                if(proceso==1){
+                    var query="UPDATE seguimiento SET estado='Enviado' where id= ?";
+                }
+                else{
+                    var query="UPDATE asigFin SET estado='Enviado' where id= ?";
+                }
+                gforms.transaction(function (tx) {
+                    tx.executeSql(query, [id], this.successUT, this.errorUT);
+                }, this.errorUT, this.successUT);
+            },
+            errorUT: function(){
+                console.log("Error al actualizar datos de formularios");
+            },
+            successUT: function(){
+                var len = localStorage.getItem("enviados");
+                var actual = parseInt(len)+1;
+                localStorage.setItem("enviados",actual);
+                var lon = localStorage.getItem("longitud");
+                if(actual==lon){
+                    $("#everything-wrapper").fadeOut(600);
+                    location.reload();
+                }
+                console.log("Actualización de Datos Exitoso");
+            }
+        }
+    </script>
+    <script>
+        // PullToRefresh.init({
+        //     mainElement: '#container',
+        //     onRefresh: function() {
+        //         app.datos("pendientes","finalizados","enviados");
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <style>
+        
+    </style>
+    <style>
+        #page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background: #FFF none repeat scroll 0% 0%;
+        z-index: 99999;
+        }
+        #page-loader .preloader-interior {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #3498db;
+        
+            -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+                animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        #page-loader .preloader-interior:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #e74c3c;
+        
+            -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        #page-loader .preloader-interior:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #f9c922;
+        
+            -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        @-webkit-keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        @keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        #everything-wrapper {
+            display : none;
+        }
+        /* .page-content{
+            background-color: rgba(0,0,0,0.8);
+            background-image: url(images/principal.jpg);
+            background-attachment: fixed;
+            background-size:cover;
+            filter:brightness(0.4);
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader" class="preloader-light">
+        <h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">Gforms</h1>
+        <div id="preload-spinner"></div>
+    </div>
+    <div id="everything-wrapper">
+        <h1>Gforms</h1>
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+    </div>
+
+    <div id="page-transitions" class="page-build">
+        <div class="page-bg gradient-body-1"></div>
+
+        <div id="header" class="header header-logo-app header-dark ">
+            <!-- <a href="#" class="header-title " id='nform'>Datos</a> -->
+            <label class="header-title " id='nform'></label>
+            <a href="#" class="header-icon header-icon-1" onclick="BackKeyDown()"><i class="fas fa-angle-left"></i></a>
+            <a class="header-icon header-icon-2" onclick="abrir();"><i class="fas fa-plus"></i></a>
+            <a class="header-icon header-icon-3" onclick="app.sendTotal();" ><i class="fas fa-sync"></i></a>
+        </div>
+
+        <div class="page-content header-clear-large ">
+            <div class="app" id="container">
+                <div class="tabs content-box bg-white">
+                    <div class="tab-pill-content ">
+                        <div class="tab-pill-titles" data-active-tab-pill-background="bg-red-dark" >
+                            <a href="#" class="active-tab-pill-button bg-red-dark" data-tab-pill="tab-pill-1">Pendientes</a>
+                            <a href="#" data-tab-pill="tab-pill-2" >Finalizados</a>
+                            <a href="#" data-tab-pill="tab-pill-3" >Enviados</a>
+                        </div>
+                        <div class="tab-item active-tab" id="tab-pill-1" style="padding:10px;" >
+                            <div class="accordion accordion-style-1 " id="cPen">
+                            </div>
+                        </div>
+                        <div class="tab-item" id="tab-pill-2">
+                            <ul class="link-list link-list-large bottom-0" id="finalizados">
+                            </ul>
+                        </div>
+                        <div class="tab-item" id="tab-pill-3">
+                            <ul class="link-list link-list-large bottom-0" id="enviados">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script src="js/sweetalert2@8.js"></script>
+    <script src="js/socket.io.js" type="text/javascript"></script>
+    <script src="js/eventos.js" type="text/javascript"></script>
+    
+    <script>
+        var app={
+            initialize:function(){
+                localStorage.setItem('icon','');
+                //localStorage.setItem('nform','');
+                $('#nform').text(localStorage.getItem('nform'));
+                var formid = getParameterByName('formid');
+                this.datos("cPen","finalizados","enviados");
+                var proceso = localStorage.getItem("proceso");
+                this.icon(formid);
+                var g = localStorage.getItem("guardar");
+                if(g!=0){
+                    app.guardar();
+                }
+            },
+            icon: function(id){
+                gforms.transaction(function(tx){
+                    tx.executeSql("SELECT icon,nombre from formularios WHERE form_id=?", [id], function(tx1,result){
+                        var len = result.rows.length;
+                            for(var i=0; i<len; i++){
+                                localStorage.setItem('icon',result.rows.item(i).icon);
+                                //localStorage.setItem('nform',result.rows.item(i).nombre);
+                                //$('#nform').text(localStorage.getItem('nform'));
+                            }
+                    },this.errorCT);
+                },this.errorCT,this.successCT);
+            },
+            datos: function(p,f,e){
+                gforms.transaction(function(tx){
+                    var pen="";
+                    var fin="";
+                    var env="";
+                    var formid = getParameterByName('formid');
+                    var pendientes = document.getElementById(p);
+                    var finalizados = document.getElementById(f);
+                    var enviados = document.getElementById(e);
+                    var proceso = localStorage.getItem("proceso");
+                    var usuario = window.localStorage.getItem("login");
+
+                    tx.executeSql("SELECT id,external_id,fechasig,estado from datos WHERE form_id=? and usuario=? ORDER BY estado ASC", [formid,usuario], function(tx1,result){
+                        var len = result.rows.length;
+                            for(var i=0; i<len; i++){
+                                var externalid = "";
+                                var iden = "";
+                                var fecha ="";
+                                if(result.rows.item(i).estado=="Finalizado"){
+                                    fin += '<li ><a href="#" ><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' +result.rows.item(i).external_id + '</span><em>' + result.rows.item(i).fechasig + '</em></a></li>'
+                                }
+                                else{
+                                    if(result.rows.item(i).estado=="Enviado"){
+                                        env += '<li ><a href="#"><i class="fa fa-angle-right "></i><i class="font-17 fa fa-check color-green-dark"></i><span>' +result.rows.item(i).external_id + '</span><em>' + result.rows.item(i).fechasig + '</em></a></li>'
+                                    }
+                                    else{
+                                        externalid = result.rows.item(i).external_id;
+                                        iden = result.rows.item(i).id;
+                                        fecha = result.rows.item(i).fechasig;
+                                        app.hijos(externalid,fecha,iden);
+                                    }
+                                }
+                            }
+                            
+                            //pendientes.innerHTML = pen
+                            finalizados.innerHTML = fin;
+                            enviados.innerHTML = env;
+                    },this.errorCT);
+                },this.errorCT,this.successCT);
+            },
+            hijos: function(ex,fe,id){                
+                gforms.transaction(function(tx){
+                    tx.executeSql("SELECT id,external_id,external,fechasig,estado,form_id from daux WHERE external=? ORDER BY estado ASC", [ex], function(tx2,aux){
+                        var len1 = aux.rows.length;
+                        if(len1>0){
+                            var icon  = localStorage.getItem('icon');            
+                            var a = document.createElement("a");
+                            var ai1 = document.createElement("i");
+                            var ai = document.createElement("i");
+                            var di = document.createElement("i");
+                            
+                            var  aC = document.createTextNode(ex+" ("+fe+")");
+                            a.setAttribute("href","#");
+                            ai1.setAttribute("onclick","app.openData("+id+")")
+                            di.setAttribute("onclick","app.delete("+id+")")
+                            a.setAttribute("class","color-black font-10");
+                            a.setAttribute("data-accordion","accordion-"+id);
+                            ai.setAttribute("class","fa fa-angle-down");
+                            di.setAttribute("class","font-18 fa fa-trash color-red-dark");
+                            di.setAttribute("style","margin-right:11px !important; float:right; margin:13px");
+                            // ai1.setAttribute("class","font-18 fa fa-users color-green-dark");
+                            ai1.setAttribute("class","font-18 "+icon+" color-orange-dark");
+                            // ai1.setAttribute("style","margin:6px");
+                            
+                            document.getElementById("cPen").appendChild(a);
+                            a.appendChild(ai1);
+                            a.appendChild(aC);
+                            a.appendChild(di);
+                            a.appendChild(ai);
+
+                            var div = document.createElement("div");
+                            div.setAttribute("class","accordion-content");
+                            div.setAttribute("id","accordion-"+id);
+                            document.getElementById("cPen").appendChild(div);
+
+                            for(var ii=0; ii<len1; ii++){
+                                var p = document.createElement("p");
+                                var pi = document.createElement("i");
+                                var hi = document.createElement("i");
+                                pi.setAttribute("onclick","app.openAux("+aux.rows.item(ii).id+","+aux.rows.item(ii).form_id+")")
+                                if(aux.rows.item(ii).estado=='Finalizado'){
+                                    pi.setAttribute("class","font-15 fa fa-user color-green-dark");
+                                }
+                                else{
+                                    
+                                    pi.setAttribute("class","font-15 fa fa-user color-red-dark");
+                                }                                
+                                pi.setAttribute("style","margin:8px; margin-left:15px;");
+                                hi.setAttribute("class","font-18 fa fa-trash color-red-dark");
+                                hi.setAttribute("style","margin-right:11px !important; float:right; margin:13px");
+                                hi.setAttribute("onclick","app.deleteAux("+aux.rows.item(ii).id+")")
+                                p.setAttribute("class","color-black font-8");
+                                var  pC = document.createTextNode("  "+aux.rows.item(ii).external_id+" ("+aux.rows.item(ii).fechasig+")");
+                                p.appendChild(pi);
+                                p.appendChild(pC);
+                                div.appendChild(p);
+                                p.appendChild(hi);
+                                // app.accordion();
+                            }
+                            $(a).on( "click", function(){
+                                    var accordion_number = $(this).data('accordion');
+                                    $('.accordion-content').slideUp(200);
+                                    $('.accordion i').removeClass('rotate-180');
+                                    if($('#'+accordion_number).is(":visible")){
+                                        $('#'+accordion_number).slideUp(200);
+                                        $(this).find('i:last-child').removeClass('rotate-180');
+                                    }else{
+                                        $('#'+accordion_number).slideDown(200);
+                                        $(this).find('i:last-child').addClass('rotate-180');
+                                    }
+                                });
+                       
+                        }
+                        else{
+                            var icon  = localStorage.getItem('icon');
+                            var a = document.createElement("a");
+                            var ai1 = document.createElement("i");
+                            var ai = document.createElement("i");
+                            var di = document.createElement("i");
+                            var  aC = document.createTextNode(ex+" ("+fe+")");
+                            a.setAttribute("href","#");
+                            ai1.setAttribute("onclick","app.openData("+id+")");
+                            di.setAttribute("onclick","app.delete("+id+")")
+                            a.setAttribute("class","color-black font-10");
+                            a.setAttribute("data-accordion","accordion-"+id);
+                            ai.setAttribute("class","fa fa-angle-right");
+                            di.setAttribute("class","font-18  fa fa-trash color-red-dark");
+                            di.setAttribute("style","margin-right:11px !important; float:right; margin:13px");
+                            ai1.setAttribute("class","font-18 "+icon+" color-orange-dark");
+                            // ai1.setAttribute("style","margin:8px");
+                            document.getElementById("cPen").appendChild(a);
+                            a.appendChild(ai1);
+                            a.appendChild(aC);
+                            a.appendChild(di);
+                            a.appendChild(ai);
+                        }
+                    },this.errorCT);
+                },this.errorCT,this.successCT);
+            },
+            sendTotal:async function(){
+                if (verificacion()){
+                    var stack = $.Callbacks('unique');
+                    stack.add(app.enfetchEnd,app.fetchAux);
+                    stack.fire();
+                    // this.enfetchEnd();
+                    // this.fetchAux();
+                }
+                // var syn = localStorage.getItem("sync");
+                // if(syn!=1){
+                //     this.enfetchEnd();
+                //     this.fetchAux();
+                // }else{
+                //     Swal.fire({
+                //         title: 'Enviando en segundo plano',
+                //         animation: false,
+                //         customClass: {
+                //             popup: 'animated tada'
+                //         }
+                //     })
+                // }
+            },
+            enfetchEnd: function(){
+                    var usr = window.localStorage.getItem("login");
+                    gforms.transaction(function(tx){
+                        var formid = getParameterByName('formid');
+                        tx.executeSql('SELECT form_id,data,external_id,fechasig,id from datos WHERE form_id=? and estado=?', [formid,"Finalizado"], function(tx1,result){
+                            var len = result.rows.length;
+                            if(len != 0){
+                                for(var i=0; i<len; i++){
+                                    var obj =result.rows.item(i).data;
+                                    var miCadena = obj.replace(/[']/g, "`");
+                                    var objson = miCadena.replace(/"/g, "'");
+                                    app.sendData(result.rows.item(i).form_id,objson,result.rows.item(i).external_id,usr,result.rows.item(i).fechasig,parseInt(result.rows.item(i).id));
+                                }
+                            }
+                            else{
+                                $("#everything-wrapper").fadeOut(600);
+                                location.reload();
+                            }
+                        },this.errorCT);
+                    },this.errorCT,this.successCT);
+            
+            },
+            fetchAux: function(){
+                $("#everything-wrapper").show();
+                    var usr = window.localStorage.getItem("login");
+                    gforms.transaction(function(tx){
+                        tx.executeSql('SELECT form_id,data,external_id,fechasig,id,external from daux WHERE estado=?', ["Finalizado"], function(tx1,result){
+                            var len = result.rows.length;
+                            localStorage.setItem("longitud",len);
+                            if(len != 0){
+                                for(var i=0; i<len; i++){
+                                    var obj =result.rows.item(i).data;
+                                    var miCadena = obj.replace(/[']/g, "`");
+                                    var objson = miCadena.replace(/"/g, "'");
+                                    app.sendDataAux(result.rows.item(i).form_id,objson,result.rows.item(i).external_id,usr,result.rows.item(i).fechasig,parseInt(result.rows.item(i).id),result.rows.item(i).external);
+                                }
+                            }
+                        },this.errorCT);
+                    },this.errorCT,this.successCT);
+            },
+            openData: function(id){
+                var form_id = getParameterByName('formid');
+                localStorage.setItem("dataId",id);
+                document.location = "formDatas.html?id=" + id+"&formid="+form_id;
+            },
+            openAux: function(id,form){
+                var form_id = getParameterByName('formid');
+                localStorage.setItem("dataId",id);
+                var form_id = getParameterByName('formid');
+                document.location = "smodal.html?id=" + id+"&formid="+form+"&idv="+form_id;
+            },
+            delete: function(id){
+                Swal.fire({
+                    title: 'Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Sí, Eliminar!'
+                    }).then((result) => {
+                    if (result.value) {
+                        gforms.transaction(function(tx){
+                            var executeQuery = "DELETE FROM datos where Id=?";
+                            tx.executeSql(executeQuery, [id],function (tx, result) {
+                                Swal.fire(
+                                    'Eliminado',
+                                    'el formulario ha sido eliminado.',
+                                    'success'
+                                );
+                                window.location.reload(true);
+                            },function (error) { alert('Data no Eliminada'); });
+                        },this.errorCT,this.successCT);
+                    }
+                });
+            },
+            deleteAux: function(id){
+                Swal.fire({
+                    title: 'Estás seguro?',
+                    text: "¡No podrás revertir esto!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '¡Sí, Eliminar!'
+                    }).then((result) => {
+                    if (result.value) {
+                        gforms.transaction(function(tx){
+                            var executeQuery = "DELETE FROM daux where Id=?";
+                            tx.executeSql(executeQuery, [id],function (tx, result) {
+                                Swal.fire(
+                                    'Eliminado',
+                                    'el formulario ha sido eliminado.',
+                                    'success'
+                                );
+                                window.location.reload(true);
+                            },function (error) { alert('Data no Eliminada'); });
+                        },this.errorCT,this.successCT);
+                    }
+                });
+            },
+            errorCT: function(err){
+                console.log("Error al seleccionar Formularios:"+err.message);
+            },
+            successCT: function(){
+
+                console.log("Consulta de formularios Exitoso");
+            },
+            sendData: function(formid,datos,external,usuario,fecha,id){
+                var iduser = window.localStorage.getItem("id");
+                var dire = window.localStorage.getItem("url");
+                let Data = 'mutation{ ' +
+                                'addRecibidos( ' +
+  	                                'rec_idfor: "' + formid +'" '+
+  	                                ',rec_datos: "' +datos+ '" '+
+                                    ',rec_external_id: "' + external +'" '+
+                                    ',rec_usuario_grabacion: "' + usuario+'" '+
+                                    ',rec_iduser: '+ iduser +
+                                    ',rec_codcia: "1" '+
+                                    ',id_estado:50 ' +
+                                    ',fecha_asignacion: "'+ fecha+'"){ '+
+                                        'id ' +
+                                        'rec_idfor ' +
+                                        'rec_external_id ' +
+                                '}' +
+                            '}';
+                
+                $.ajax({
+                    url: dire,
+                    async: false,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        app.update(external);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                        location.reload();
+                    }
+                });
+            },
+            sendDataAux: function(formid,datos,external,usuario,fecha,id,padre){
+                var iduser = window.localStorage.getItem("id");
+                var dire = window.localStorage.getItem("url");
+                let Data = 'mutation{ ' +
+                                'addAuxiliares( ' +
+  	                                'raux_external_id: "' + external+'" '+
+  	                                ',raux_rec_external_id: "' +padre+ '" '+
+                                    ',raux_idfor: "' + formid +'" '+
+                                    ',raux_datos: "' + datos+'" '+
+                                    ',raux_usuario_grabacion: "'+ usuario +'"'+
+                                    ',raux_iduser:'+iduser +
+                                    ',raux_codcia: "1"' +
+                                    ',id_estado:50' +
+                                    ',fecha_asignacion: "'+ fecha+'"){ '+
+                                        'id ' +
+                                        'raux_idfor ' +
+                                '}' +
+                            '}';
+                $.ajax({
+                    url: dire,
+                    async: false,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var addAuxiliares = JSON.parse(JSON.stringify(data));
+                        app.updateAux(external);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                        $("#everything-wrapper").fadeOut(600);
+                        location.reload();
+                    }
+                });
+                // window.location.reload();
+            },
+            guardar: function(){
+                var id = localStorage.getItem("guardar");
+                var aux = localStorage.getItem("aux");
+                if(aux!=1){
+                    gforms.transaction(function (tx) {
+                        tx.executeSql("UPDATE datos SET  estado='Finalizado' where external_id='"+id+"'", [], this.successG, this.errorUT);
+                    }, this.errorUT, this.successG);
+                }else{
+                    gforms.transaction(function (tx) {
+                        tx.executeSql("UPDATE daux SET  estado='Finalizado' where external_id='"+id+"'", [], this.successG, this.errorUT);
+                    }, this.errorUT, this.successG);
+                }
+            },
+            successG: function(){
+                localStorage.setItem("guardar",0);
+                localStorage.setItem("aux",0);
+                location.reload();
+            },
+            update: function(id){
+                var date = new Date();
+                var d  = date.getDate();
+                var day = (d < 10) ? '0' + d : d;
+                var m = date.getMonth() + 1;
+                var month = (m < 10) ? '0' + m : m;
+                var yy = date.getYear();
+                var year = (yy < 1000) ? yy + 1900 : yy;
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                var fecha = year + "-" + month + "-" +day+" "+h+":"+m+":"+s;
+                gforms.transaction(function (tx) {
+                    tx.executeSql("UPDATE datos SET estado='Enviado',fechasig=? where external_id= ? ", [fecha,id], this.successUT, this.errorUT);
+                }, this.errorUT, this.successUTF);
+
+
+            },
+            updateAux: function(id){
+                gforms.transaction(function (tx) {
+                    tx.executeSql("UPDATE daux SET estado='Enviado' where external_id= ? ", [id], this.successUT, this.errorUT);
+                }, this.errorUT, this.successUT);
+            },
+            errorUT: function(){
+                console.log("Error al actualizar datos de formularios");
+            },
+            successUT: function(){
+                var len = localStorage.getItem("enviados");
+                var actual = parseInt(len)+1;
+                localStorage.setItem("enviados",actual);
+                var lon = localStorage.getItem("longitud");
+                if(actual==lon){
+                    $("#everything-wrapper").fadeOut(600);
+                    location.reload();
+                }
+                console.log("Actualización de Datos Exitoso");
+            },
+            //finaliza el envio del padre
+            successUTF: function(){
+                $("#everything-wrapper").fadeOut(600);
+                location.reload();
+                console.log("Actualización de Datos Exitoso");
+            }
+        }
+    </script>
+   
+   <script>
+        function abrir(){
+            var id = getParameterByName('formid');
+            document.location.href = "formulario.html?formid=" + id;
+        }
+    </script>
+
+</body>
+
+</html>

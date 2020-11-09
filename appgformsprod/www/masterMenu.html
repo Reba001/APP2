@@ -1,0 +1,41 @@
+
+<div id="menu-1" class="menu menu-sidebar-left menu-settings">
+    <div class="menu-bg gradient-body-8"></div>
+    <div class="menu-scroll">
+        <div class="menu-header">
+            <a class="menu-logo" href="index.html"></a>
+            <h1>Bienvenido</h1>
+            <p id="_Menu_Usuario"></p>
+        </div>
+        <div class="menu-list icon-background-active">
+            <em class="menu-divider top-10" >Versión <strong id="appV"></strong></em>
+            <em class="menu-divider top-10">Navegación</em>
+            <a class="menu-item active-menu" href="formularios.html"><i class="fa gradient-green-light fa-home"></i>Inicio</a>
+            <a class="menu-item " href="chat2.html">
+                <i class="fa gradient-mint-dark fa-comment"></i>Chat
+            </a>
+            <!-- <a class="menu-item" href="components.html"><i class="fa gradient-sky-light fa-cog"></i>Calculadora</a> -->
+            <!-- <a class="menu-item" href="tel: 2383 9000"><i class="fa gradient-green-light fa-phone"></i>Llamada</a> -->
+            <!-- <a class="menu-item" href="chat.html"><i class="fa gradient-magenta-light fa-image"></i>WhatsApp</a> -->
+
+            <!-- <a class="menu-item" href="gps.html"><i class="fa gradient-brown-light fa-file"></i>Brújula y GPS</a> -->
+            <a class="menu-item" href="#" onclick="sistema();"><i class="fa gradient-sky-light fa-cog"></i>Ajustes</a>
+            <a class="menu-item" href="#" data-menu="menu-call" data-menu-type="menu-box-bottom"><i class="fa gradient-sky-light fa-sync"></i>Sincronizar</a>
+            <a class="menu-item" onclick="ruta.interna()"><i class="fa gradient-mint-dark fa-shopping-bag"></i>Ip Interna</a>
+            <a class="menu-item" onclick="ruta.externa()"><i class="fa gradient-mint-dark fa-shopping-bag"></i>Ip Externa</a>
+            <!-- <a class="menu-item" href="#"><i class="fa gradient-mint-dark fa-shopping-bag"></i>Ayuda</a> -->
+            <a class="menu-item" onclick="logout();"><i class="fa gradient-sky-dark fa-envelope"></i>Cerrar
+                sesión</a>
+        </div>
+        <em class="menu-copyright">Gforms Copyright <span class="copyright-year"></span>, Enabled. All Rights Reserved</em>
+    </div>
+</div>
+<!-- <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/db.js"></script>
+<script type="text/javascript" src="cordova.js"></script> -->
+<script>
+    // var $_x = localStorage.getItem("login");
+    // document.getElementById("_Menu_Usuario").innerHTML = $_x; 
+</script>

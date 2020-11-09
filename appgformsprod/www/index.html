@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"></meta>
+
+  <meta
+    name="format-detection"
+    content="telephone=no"
+  ></meta>
+
+  <meta
+    name="msapplication-tap-highlight"
+    content="no"
+  ></meta>
+
+  <meta
+    name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"
+  ></meta>
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="css/login.css"
+  ></link>
+
+  <title>GformsApp</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <!-- <h1>Bienvenido</h1> -->
+
+      <div class="form">
+        <img
+          src="img/logo.png"
+          width="150px"
+          height="150px"
+          style="margin-bottom:20px;"
+        >
+
+        <input
+          type="text"
+          placeholder="Usuario"
+          id="usuario"
+          name="usuario"
+          style="text-transform: uppercase;"
+          required="required"
+        ></input>
+
+        <input
+          type="password"
+          placeholder="CONTRASEÑA"
+          id="pass"
+          name="pass"
+          required="required"
+        ></input>
+
+        <button
+          type="button"
+          id="login-button"
+          onclick="app.login();"
+        >Iniciar Sesión</button>
+      </div>
+
+      <div class="">
+        <label>Version <strong id="appV"></strong> </label><br>
+        <label>Build <strong id="appC"></strong> </label>
+      </div>
+    </div>
+
+    <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/sweetalert2@8.js"></script>
+  <script src="js/funciones.js"></script>
+
+  <script
+    type="text/javascript"
+    src="js/db.js"
+  ></script>
+
+  <script
+    type="text/javascript"
+    src="cordova.js"
+  ></script>
+  <script type="text/javascript">
+    var app = {
+            initialize: function(){
+              if(verificacion()){
+                this.appversion();
+              }
+              else{
+                app.checkLogin("login");
+              }
+                localStorage.setItem("fondo","gradient-body-1");
+                $("#appV").text(AppVersion.version);
+                $("#appC").text(AppVersion.build); // e.g. 1234
+                
+            },
+            permisos: function(){
+              var permissions = cordova.plugins.permissions;
+              var list = [
+                permissions.CAMERA,
+                permissions.READ_EXTERNAL_STORAGE,
+                permissions.WRITE_EXTERNAL_STORAGE,
+                permissions.ACCESS_COARSE_LOCATION,
+                permissions.ACCESS_FINE_LOCATION,
+                permissions.CALL_PHONE,
+                permissions.READ_PHONE_STATE,
+                permissions.RECEIVE_WAP_PUSH,
+                permissions.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+              ];
+              permissions.checkPermission(list, success, error);
+
+              function error() {
+                console.warn('La aplicación necesita permisos: camara, almacenamiento, gps y llamada');
+              }
+
+              function success( status ) {
+                if( !status.hasPermission ) {
+
+                  permissions.requestPermissions(
+                    list,
+                    function(status) {
+                      if( !status.hasPermission ) error();
+                    },
+                    error);
+                }
+}
+            },
+            checkLogin: function(item){
+                var value = window.localStorage.getItem(item)
+                var rol = window.localStorage.getItem("rolUser");
+                var admin = window.localStorage.getItem("loginAdmin");
+                if(rol==19){
+                  window.location.href = "admin.html";
+                }
+                if(value!=null){
+                  if(Object.keys(value).length>0){
+                    window.location.href='formularios.html';
+                  }
+                }
+                else{
+                  console.log("login es nullo");
+                }
+            },
+            login: function(){
+              // var enviroment = 'PRODUCCION';
+              var enviroment = 'PRUEBAS';
+
+              var version =localStorage.getItem('version');
+              var usuario = $("#usuario").val();
+              var contra = $("#pass").val();
+              
+              if(enviroment=='PRODUCCION'){
+                var route="https://iforms.genesisempresarial.org/api/apiLogin";
+                var gformsGes ="http://52.167.178.236:3000/gformsGes";
+                var GformsInd ="http://52.167.178.236:3002/GformsInd";
+                var GformsGru ="http://52.167.178.236:3001/GformsGru";
+                var RegPush ="https://iforms.genesisempresarial.org/api/push";
+                var RegPoint="https://iforms.genesisempresarial.org/api/setAccionUsuario/";
+              }
+              else{
+                var route="http://190.113.91.116:5000/api/apiLogin";
+                var gformsGes ="http://190.113.91.116:3000/gformsGes";
+                var GformsInd ="http://190.113.91.116:3002/GformsInd";
+                var GformsGru ="http://190.113.91.116:3001/GformsGru";
+                var RegPush ="http://190.113.91.116:5000/api/push";
+                var RegPoint="http://190.113.91.116:5000/api/setAccionUsuario/";
+              }
+              
+              
+              var form = new FormData();
+              form.append("user", $("#usuario").val());
+              form.append("pass", $("#pass").val());
+
+              if(usuario=="" || usuario==null){
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'center',
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+
+                Toast.fire({
+                  type: 'error',
+                  title: 'El usuario es requerido!!'
+                });
+              }
+              else{
+                if(contra=="" || contra==null){
+                  const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 3000
+                  });
+
+                  Toast.fire({
+                    type: 'error',
+                    title: 'La contraseña es requerida!!'
+                  });
+                }
+                else{
+                  if(verificacion()){
+                    console.log(route);
+                    $.ajax({
+                      url: route,
+                      type: 'POST',
+                      processData: false,
+                      contentType: false,
+                      mimeType: "multipart/form-data",
+                      data: form,
+                      success: function(data){
+                        var json = JSON.parse(data);
+                        if(json.codigo==202){
+                          // usuario y contraseña validas
+                          
+                          window.localStorage.setItem("id",json.id);
+                          window.localStorage.setItem("empresa",json.empresa);
+                          // window.localStorage.setItem("url",dire);
+                          window.localStorage.setItem("rolUser",json.role);
+                          
+                          window.localStorage.setItem("gformsGes",gformsGes);
+                          window.localStorage.setItem("GformsInd",GformsInd);
+                          window.localStorage.setItem("GformsGru",GformsGru);
+
+                          window.localStorage.setItem("RegPush",RegPush);
+                          window.localStorage.setItem("RegPoint",RegPoint);
+                          
+                          if(version>AppVersion.version){
+                          // if(version>"1.6.4"){
+                            Swal.fire({
+                              type: 'success',
+                              title: 'Actualización',
+                              text: 'Hay una nueva versión disponible Descárgala',
+                              footer: '<h2><a href="https://play.google.com/store/apps/details?id=com.gforms.app&hl=es">Descargar!</a></h2>'
+                            })
+                          }
+                          else{
+                            if(json.active==0){
+                              window.location.href = "updatepass.html";
+                            }
+                            else if(json.role==19){
+                               window.localStorage.setItem("loginAdmin",usuario);
+                               window.localStorage.setItem("login",usuario);
+                               window.location.href = "admin.html";
+                            } 
+                            else{
+                              window.localStorage.setItem("login",usuario);
+                              window.location.href = "formularios.html";
+                            }
+                            
+                          }
+                        }
+                        else{
+                          if(data == 400){
+                            //contraseña invalida
+                            const Toast = Swal.mixin({
+                              toast: true,
+                              position: 'center',
+                              showConfirmButton: false,
+                              timer: 3000
+                            });
+
+                            Toast.fire({
+                              type: 'error',
+                              title: 'Contraseña Invalida!!'
+                            });
+                          }
+                          else{
+                            if(data ==404){
+                              //usuario incorrecto
+                              const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'center',
+                                showConfirmButton: false,
+                                timer: 3000
+                              });
+
+                              Toast.fire({
+                                type: 'error',
+                                title: 'Usuario Invalido!!'
+                              });
+                            }
+                          }
+                        }
+                      },
+                      error: function (data) {
+                        console.log(data);
+                      }
+                    });
+                  }
+                }
+              }
+            },
+            errorCB: function(){
+                console.log("Error al seleccionar datos");
+            },
+            successCB: function(){
+                console.log("Consulta de formularios Exitoso");
+            },
+            appversion: function(){
+                // var dire ="http://20.186.17.62:3000/gformsGes";
+                var dire ="http://52.167.178.236:3000/gformsGes";
+                let Data ='{ '+
+                            'app_appversiones(app_estado:1){'+
+                                    'app_version '+
+                                '} '+
+                            '} ';
+                $.ajax({
+                     url: dire,
+                     async: false,   // this will solve the problem
+                     crossDomain: false,
+                     headers: {
+                        "Access-Control-Allow-Origin":"*",
+                        "Content-Type": "application/graphql"
+                     },
+                     type: "POST",
+                     contentType: "application/graphql",
+                     cache:false,
+                    data: Data,                    
+                    success: function(data){
+                        var sec = JSON.parse(JSON.stringify(data));
+                            for (var valor of sec.data.app_appversiones) {
+                                    var app_version = valor.app_version;
+                                    localStorage.setItem('version',app_version);
+                                    if(app_version>AppVersion.version){
+                                    //if(app_version>"1.6.4"){
+                                      Swal.fire({
+                                        type: 'success',
+                                        title: 'Actualización',
+                                        text: 'Hay una nueva version disponible Descargala',
+                                        footer: '<h3><a href="https://play.google.com/store/apps/details?id=com.gforms.app&hl=es">Descargar!</a></h3>'
+                                      })
+                                    }
+                                    else{
+                                      app.checkLogin("login");
+                                    }
+                            }
+                      },
+                      timeout: 300,//10 segundos
+                      error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus);
+                      }
+                    });
+                
+            }
+        }
+  </script>
+
+  <script>
+    $("#login-button").click(function(event){
+      event.preventDefault();
+      $('form').fadeOut(500);
+      $('.wrapper').addClass('form-success');
+    });
+  </script>
+
+  <script>
+    window.onload = function () {
+
+      document.addEventListener("deviceready", onDeviceReady, true);
+    }
+
+    function onDeviceReady() {
+      console.log("Device is ready");
+      
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+      setTimeout(() => {
+          cordova.plugins.notification.local.clear(15, function() {
+              console.log("ok");
+          });
+      }, 5000);
+      app.initialize();
+      app.permisos();
+      db.initialize();
+      document.addEventListener("backbutton", BackKeyDown, true);
+      debugger;
+     // window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+      //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+      
+
+      
+
+
+      
+
+       
+    }
+
+    function BackKeyDown()
+    {
+    }
+
+    function onRequestFileSystemSuccess(fileSystem) { 
+      debugger;
+      cordova.plugins.notification.local.setDefaults({
+        led: { color: '#FF00FF', on: 500, off: 500 }
+      });
+
+      
+      cordova.plugins.notification.local.schedule({
+        id: 15,
+        title: 'Cargando ',
+        text: 'Cargando videos ..',
+        progressBar: { value: 0 },
+        icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+      });
+      var entry=fileSystem.root; 
+
+      console.log("esto es un ejemplo");
+      entry.getDirectory("Imagenes", {create: true, exclusive: false}, onGetDirectorySuccess, onGetDirectoryFail);
+      entry.getDirectory("Videos", {create: true, exclusive: false}, onGetDirectorySuccess, onGetDirectoryFail);
+      var fileTransfer = new FileTransfer();
+      var filePath = entry.toURL() + "/Videos/parte1.mp4";
+      console.log("File path por siempre beibe");
+      console.log(filePath);
+      var URL = 'http://190.151.130.101:8090/wsgenesisapp/mov/parte1.mp4';
+      fileTransfer.download(URL, filePath, downloadComplete, downloadFail, true); 
+      
+      /*window.plugins.mfilechooser.open(['.mp4'], function (uri) {
+        console.log(uri);
+      
+      }, function (error) {
+      
+        alert(error);
+    
+      });*/
+    } 
+    function downloadComplete(path){
+      console.log("Descargado en " + path.name);
+      cordova.plugins.notification.local.update({
+        id: 15,
+        text: 'Sincronización finalizada',
+        progressBar: { value: 100 }
+      });
+      
+
+    }
+
+    function downloadFail(paht){
+      console.log("fallas en la matrix");
+    }
+
+    function onGetDirectorySuccess(dir) { 
+      console.log("Created dir "+dir.name); 
+    } 
+
+    function onGetDirectoryFail(error) { 
+      console.log("Error creating directory "+error.code); 
+    } 
+
+    function fail() {
+      console.log("failed to get filesystem");
+    }
+
+function gotFS(fileSystem) {
+    window.FS = fileSystem;
+
+    var printDirPath = function(entry){
+        console.log("Dir path - " + entry.fullPath);
+    }
+
+    //createDirectory("dhaval/android/apps", printDirPath);
+    //createDirectory("this/is/nested/dir", printDirPath);
+    //createDirectory("simple_dir", printDirPath);
+    createDirectory("Video", printDirPath);
+}
+
+function createDirectory(path, success){
+    var dirs = path.split("/").reverse();
+    var root = window.FS.root;
+
+    var createDir = function(dir){
+        console.log("create dir " + dir);
+        root.getDirectory(dir, {
+            create : true,
+            exclusive : false
+        }, successCB, failCB);
+    };
+
+    var successCB = function(entry){
+        console.log("dir created " + entry.fullPath);
+        root = entry;
+        if(dirs.length > 0){
+            createDir(dirs.pop());
+        }else{
+            console.log("all dir created");
+            success(entry);
+        }
+    };
+
+    var failCB = function(){
+        console.log("failed to create dir " + dir);
+    };
+
+    createDir(dirs.pop());
+}
+  </script>
+</body>
+</html>

@@ -1,0 +1,925 @@
+
+.genesis-hidden
+{
+    display: none;
+}
+
+
+.genesis-field
+{
+
+}
+
+
+.genesis-container
+{
+
+}
+
+
+.genesis-container-label
+{
+
+}
+.genesis-container-item
+{
+
+}
+
+
+.genesis-container-item-first
+{
+
+}
+
+
+.genesis-container-item-last
+{
+
+}
+
+.genesis-container-empty
+{
+
+}
+
+
+.genesis-array-toolbar
+{
+
+}
+
+.genesis-array-toolbar-action
+{
+
+}
+
+
+.genesis-array-actionbar
+{
+
+}
+
+
+.genesis-array-actionbar-action
+{
+
+}
+
+
+.genesis-control
+{
+
+}
+
+
+.genesis-control-label
+{
+
+}
+
+
+.genesis-display
+{
+
+}
+
+
+.genesis-create
+{
+
+}
+
+
+.genesis-edit
+{
+
+}
+
+
+.genesis-required
+{
+
+}
+
+
+.genesis-optional
+{
+
+}
+
+
+.genesis-readonly
+{
+
+}
+
+
+.genesis-disabled
+{
+
+}
+
+
+.genesis-helper
+{
+
+}
+
+
+.genesis-horizontal
+{
+
+}
+
+
+.genesis-vertical
+{
+
+}
+
+
+.genesis-top
+{
+
+}
+
+
+.genesis-valid
+{
+
+}
+
+
+.genesis-invalid
+{
+
+}
+
+
+.genesis-invalid-hidden
+{
+
+}
+
+
+.genesis-message
+{
+
+}
+
+
+.genesis-message-hidden
+{
+
+}
+
+
+.genesis-button-disabled
+{
+
+}
+
+
+
+
+.genesis-icon-helper
+{
+
+}
+
+.genesis-icon-required
+{
+
+}
+
+
+
+.genesis-autocomplete
+{
+}
+
+
+
+.genesis-hover
+{
+}
+
+
+.genesis-clear
+{
+    clear: both;
+}
+
+.genesis-float-right
+{
+    float: right;
+}
+
+
+
+.twitter-typeahead .tt-dropdown-menu
+{
+    background-color: white;
+    border: 1px #ccc solid;
+    padding: 10px;
+    color: #999;
+    width: 100%;
+    padding-bottom: 0px;
+}
+
+.twitter-typeahead .tt-dropdown-menu P
+{
+    font-size: 1em;
+}
+
+.tt-suggestion.tt-is-under-cursor
+{
+    background-color: #ccc;
+    color: #333;
+}
+
+.tt-dropdown-menu
+{
+    background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    width: 100%;
+}
+
+
+
+
+
+.genesis-controlfield-editor
+{
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 1px #ccc solid;
+}
+
+.genesis-controlfield-editor .control-field-editor-el
+{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right:0
+}
+
+
+
+#ui-datepicker-div
+{
+    display: none;
+    background-color:white;
+    z-index: 9999999 !important;
+    width: 22em !important;
+}
+
+
+.ui-button .ui-button-text {
+    white-space: nowrap;
+}
+
+.ui-datepicker
+{
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+.genesis-fileupload-container
+{
+    border: 1px #ccc solid;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.genesis-fileupload-container .row
+{
+    margin-bottom: 10px;
+}
+
+.genesis-fileupload-well
+{
+    /*border: 1px #ccc solid;*/
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 100px;
+}
+
+.genesis-fileupload-container table
+{
+    border: 1px #ccc solid;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.genesis-fileupload-well p
+{
+    padding-top: 20px;
+    color: #888;
+}
+
+.genesis-fileupload-well table tbody.files tr td.name
+{
+    word-wrap: break-word;
+}
+
+
+
+
+
+
+
+
+.ace_editor
+{
+    border: 1px solid rgb(204, 204, 204);
+}
+
+
+
+.genesis-field-ckeditor.genesis-invalid > .cke
+{
+    border-color: #f04124;
+}
+
+
+
+.genesis-field-optiontree {
+
+}
+
+.genesis-field-optiontree .optiontree {
+
+}
+
+.genesis-field-optiontree .optiontree .optiontree-selector {
+
+}
+
+.genesis-field-optiontree.optiontree-horizontal {
+
+}
+
+.genesis-field-optiontree.optiontree-horizontal .optiontree {
+    display: inline-block;
+}
+
+.genesis-field-optiontree.optiontree-horizontal .optiontree .optiontree-selector {
+    display: inline-block;
+    padding-left: 4px;
+}
+
+.genesis-field-optiontree.optiontree-horizontal input {
+    display: inline-block;
+    width: auto;
+}
+
+.genesis-field-optiontree.optiontree-horizontal label {
+    display: block;
+}
+
+
+
+
+.genesis-field-table .genesis-field-tablerow label.control-label,
+table.dt-rowReorder-float .genesis-field-tablerow label.control-label
+{
+    display: none;
+}
+
+.genesis-field-table .actionbar, .table .actionbar,
+table.dt-rowReorder-float .actionbar, .table .actionbar
+{
+    white-space: nowrap;
+    text-align: center;
+}
+
+.genesis-field-table table tr td .genesis-field,
+table.dt-rowReorder-float tr td .genesis-field
+{
+    width: 100%;
+}
+
+.genesis-field-table table tr td .genesis-field .form-control,
+table.dt-rowReorder-float tr td .genesis-field .form-control
+{
+    width: 100%;
+}
+
+.genesis-field-table .form-group,
+table.dt-rowReorder-float .form-group
+{
+    margin-bottom: 0px;
+}
+
+.genesis-field-table .form-group.genesis-field-checkbox,
+table.dt-rowReorder-float .form-group.genesis-field-checkbox
+{
+    text-align: center;
+}
+
+.genesis-field-table .genesis-control.checkbox,
+table.dt-rowReorder-float .genesis-control.checkbox
+{
+    padding-top: 6px;
+}
+
+.genesis-field-table table tr td.actionbar .genesis-array-actionbar,
+table.dt-rowReorder-float tr td.actionbar .genesis-array-actionbar
+{
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.genesis-field-table .actionbar .genesis-array-actionbar.btn-group,
+table.dt-rowReorder-float .actionbar .genesis-array-actionbar.btn-group
+{
+    width: auto;
+}
+
+.genesis-field-table .genesis-table-column-hidden,
+table.dt-rowReorder-float .genesis-table-column-hidden
+{
+    display: none;
+}
+
+.genesis-field-table .genesis-table-reorder-index-header,
+table.dt-rowReorder-float .genesis-table-reorder-index-header
+{
+    display: none;
+}
+
+.genesis-field-table .genesis-table-reorder-index-cell,
+table.dt-rowReorder-float .genesis-table-reorder-index-cell
+{
+    display: none;
+}
+
+.genesis-field-table .genesis-table-reorder-draggable-header,
+table.dt-rowReorder-float .genesis-table-reorder-draggable-header
+{
+
+}
+
+.genesis-field-table .genesis-table-reorder-draggable-cell,
+table.dt-rowReorder-float .genesis-table-reorder-draggable-cell
+{
+    color: #bbb;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 11px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.genesis-field-radio.disabled .genesis-control.radio
+{
+    color: grey;
+}
+
+.genesis-field-radio.disabled .genesis-control.radio label
+{
+    cursor: inherit;
+}
+
+
+.genesis-control.radio
+{
+    min-height: inherit;
+    height: inherit;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 10px;
+}
+
+.genesis-control.radio label
+{
+    line-height: 20px;
+}
+
+
+
+.has-error .multiselect
+{
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.btn.multiselect
+{
+    white-space: normal;
+}
+
+.genesis-field-table > legend
+{
+    display: none;
+}
+
+
+
+.genesis-field-chooser
+{
+
+}
+
+.genesis-field-chooser .genesis-control
+{
+}
+
+.genesis-field-chooser .genesis-control .chooser-panel .chooser-panel-header
+{
+    min-height: 34px;
+    margin-bottom: 20px;
+}
+
+.genesis-field-chooser .genesis-control .chooser-panel .chooser-panel-items
+{
+    background-color: white;
+    border: 1px #ccc solid;
+    border-radius: 4px;
+    overflow-y: scroll;
+    overflow-y: -moz-scrollbars-vertical;
+}
+
+.genesis-field-chooser .genesis-control .chooser-panel .chooser-panel-items .chooser-item
+{
+    min-height: 34px;
+}
+
+.genesis-field-chooser .genesis-control .chooser-panel .chooser-panel-items .chooser-item.disabled .chooser-item-text
+{
+    color: #ccc;
+}
+
+.genesis-field-chooser .genesis-control .chooser-panel .chooser-panel-items .chooser-item:not(:last-child)
+{
+    border-bottom: 1px #ddd solid;
+}
+
+.genesis-field-chooser .genesis-control .chooser-panel .chooser-panel-items .chooser-item .chooser-item-text
+{
+    margin-left: 10px;
+    line-height: 34px;
+    display: inline-block;
+}
+
+.genesis-field-chooser .genesis-control .chooser-panel .chooser-panel-items .chooser-item .chooser-item-buttons
+{
+    float: right;
+    margin: 5px;
+}
+
+.genesis-field-chooser .chooser-item-message
+{
+    color: #aaa;
+}
+
+.genesis-container-label
+{
+    margin-top: 20px;
+}
+
+legend.genesis-container-label
+{
+    margin-top: 0px;
+}
+
+.genesis-array-toolbar.genesis-array-toolbar-position-top
+{
+    margin-bottom: 10px;
+}
+
+.genesis-array-toolbar.genesis-array-toolbar-position-bottom
+{
+    margin-top: 10px;
+}
+
+.genesis-array-actionbar
+{
+    /*height: 40px;*/
+}
+
+.genesis-array-actionbar.genesis-array-actionbar-top
+{
+    padding-bottom: 10px;
+}
+
+.genesis-array-actionbar.genesis-array-actionbar-bottom
+{
+    padding-top: 10px;
+}
+
+.genesis-array-actionbar, .genesis-array-actionbar.btn-group
+{
+    width: 100%;
+}
+
+.genesis-array-actionbar
+{
+    overflow: hidden;
+}
+
+.genesis-field-object
+{
+    border: 1px #eee solid;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.genesis-display h3
+{
+    margin-top: 0px;
+}
+
+/*
+.genesis-field-object > .genesis-container.genesis-container-has-items
+{
+    border: 1px #eee solid;
+    border-radius: 4px;
+    padding: 10px;
+}
+*/
+
+.genesis-field-array
+{
+    border: 1px #eee solid;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+/*
+.genesis-field-array > .genesis-container.genesis-container-has-items
+{
+    border: 1px #eee solid;
+    border-radius: 4px;
+    padding: 10px;
+}
+*/
+
+.genesis-control-buttons-container
+{
+    margin-top: 10px;
+}
+
+.genesis-container-item > .genesis-container > .genesis-field-object
+{
+    border: 0px;
+}
+
+.genesis-form-buttons-container
+{
+    margin-top: 10px;
+    text-align: right;
+}
+
+.genesis-container > .form-group
+{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.genesis-field-hidden
+{
+    display:none;
+}
+
+.genesis-field-object.genesis-top
+{
+    border: 0px;
+}
+
+.genesis-field-array.genesis-top
+{
+    border: 0px;
+}
+
+.genesis-container-item:not(:first-child)
+{
+    margin-top: 10px;
+}
+
+.genesis-container .genesis-container-item:last-child
+{
+    margin-bottom: 0px;
+}
+
+.genesis-field-object.genesis-top .genesis-container
+{
+    border: 0px;
+}
+
+.genesis-field-select .btn-group
+{
+    display:block;
+}
+
+.genesis-field-select .btn-group button.multiselect
+{
+    float: none;
+}
+
+/*
+.bootstrap-timepicker-widget table td input
+{
+    width: 50px !important;
+}
+*/
+
+
+
+
+.genesis-field.genesis-field-upload .fileupload-active-zone
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.genesis-field.genesis-field-upload .template-download TD.error
+{
+    color: red;
+    word-break: break-all;
+}
+.genesis-field.genesis-field-upload .template-download TD.error .label
+{
+    color: red;
+    font-size: 16px;
+    text-align: left;
+}
+
+.genesis-field.genesis-field-upload .template-upload TD.error
+{
+    color: red;
+    word-break: break-all;
+}
+.genesis-field.genesis-field-upload .template-upload TD.error .label
+{
+    color: red;
+    font-size: 16px;
+    text-align: left;
+}
+
+.genesis-field.genesis-field-address .genesis-field-address-mapcanvas
+{
+    height: 250px;
+}
+
+.genesis-field.genesis-field-image .genesis-image-display
+{
+    margin-top: 20px;
+}
+
+.genesis-field-text-max-length-indicator
+{
+    color: #aaa;
+}
+
+.genesis-field-text-max-length-indicator.err
+{
+    color: #aa0000;
+}
+
+
+
+/** WIZARD **/
+
+.genesis-wizard .genesis-wizard-nav li .chevron
+{
+    position: absolute;
+    top: 0;
+    right: -14px;
+    display: block;
+    border: 27px solid transparent;
+    border-right: 0;
+    border-left: 14px solid #d4d4d4;
+}
+
+.genesis-wizard .genesis-wizard-nav li .chevron:before
+{
+    position: absolute;
+    top: -27px;
+    right: 1px;
+    display: block;
+    border: 27px solid transparent;
+    border-right: 0;
+    border-left: 14px solid #fcfcfc;
+    content: "";
+}
+
+.genesis-wizard .genesis-wizard-nav li div.holder
+{
+    padding-left: 30px;
+    padding-right: 20px;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.genesis-wizard .genesis-wizard-nav li:first-child div.holder
+{
+    padding-left: 10px;
+}
+
+.genesis-wizard .genesis-wizard-nav li div.holder div.title
+{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.genesis-wizard .genesis-wizard-nav li div.holder div.description
+{
+    color: #aaa;
+    font-size: 12px;
+}
+
+.genesis-wizard .genesis-wizard-nav li.completed div.holder div.title
+{
+    color: #333;
+}
+
+.genesis-wizard .genesis-wizard-nav li.completed div.holder div.description
+{
+    color: #333;
+}
+
+.genesis-wizard .genesis-wizard-nav li.visited:hover
+{
+    cursor: pointer;
+}
+
+.genesis-wizard .genesis-wizard-nav li.visited div.holder div.title
+{
+}
+
+.genesis-wizard .genesis-wizard-nav li.visited div.holder div.description
+{
+}
+
+.genesis-wizard .genesis-wizard-nav li.active:hover
+{
+    cursor: default;
+}
+
+.genesis-wizard .genesis-wizard-nav li.active div.holder div.title
+{
+    color: #206199;
+}
+
+.genesis-wizard .genesis-wizard-nav li.active div.holder div.description
+{
+    color: #206199;
+}
+
+.genesis-wizard .genesis-wizard-nav li.disabled div.holder div.title
+{
+    color: #ccc;
+}
+
+.genesis-wizard .genesis-wizard-nav li.disabled div.holder div.description
+{
+    color: #ccc;
+}
+
+.genesis-wizard .genesis-wizard-nav .genesis-wizard-back
+{
+    background-color: #fcfcfc;
+}
+
+.genesis-wizard .genesis-wizard-buttons
+{
+    margin-top: 20px;
+}
+
+.genesis-wizard .genesis-wizard-progress-bar
+{
+    margin-top: 20px;
+}
+
+.genesis-control.disabled label
+{
+    color: #aaa;
+}
+
+.genesis-required-indicator
+{
+    padding-left: 5px;
+    font-style: italic;
+    font-weight: 200;
+    color: #888;
+}

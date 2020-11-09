@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no, maximum-scale=1" />
+
+    <title>Inicio</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/genesisforms.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/preloader.css" />
+    <link rel="stylesheet" type="text/css" href="css/formularios.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body style="background: #353c7c;color:white;">
+    <div id="everything-wrapper">
+        <h1>Gforms</h1>
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+    </div>
+    <div id="DIV_1">
+        <!-- <a href="#" id="A_2">Datos</a> -->
+        <label id="A_2"></label>
+        <a href="#" style="position: absolute;height: 60px;width: 45px;text-align: center;line-height: 59px;font-size: 12px;left: 0px;width: 60px;" onclick="BackKeyDown()">
+            <i class="fas fa-angle-left" style="color:white;"></i>
+        </a>
+    </div>
+    <div class="container" style="padding-top:70px;">
+        <div class="page-bg gradient-body-1"></div>
+        <div class="formulario">
+            <div id="layout"></div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/genesisforms.js"></script>
+    <!-- <script type="text/javascript" src="js/code.min.js"></script> -->
+    <script type="text/javascript">Genesis.icons = 'fontawesome';</script>
+    <script type="text/javascript">Genesis.setUser(null);</script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script src="js/sweetalert2@8.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script src="js/socket.io.js" type="text/javascript"></script>
+    <script src="js/eventos.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/formularios.js"></script>
+    <script>
+        var idform = getParameterByName('formid');
+    </script>
+    
+
+    <script type="text/javascript">
+        var datas = "";
+        var app= {
+            initialize: function(){
+                $('ul').attr('id','tablist');
+                $('#A_2').text(localStorage.getItem('nform'));
+                var id = getParameterByName('id');
+                var formid = getParameterByName('formid');
+                this.fetchDatos(id);
+                this.fetchForm(id,formid);
+                this.fetchDepartamentos();
+            },
+            modal: function(external,texto,id,idV){
+                document.location="modal.html?external="+external+"&"+texto+"&id="+id+"&idv="+idV;
+            },
+            fetchDatos: async function(id){
+                gforms.transaction(function(tx){
+                    tx.executeSql("select data,external_id from datos WHERE id=?", [id], function (tx1, result) {
+                        var len = result.rows.length;
+                        datas = result.rows.item(0).data;
+                        localStorage.setItem('ExternalID',result.rows.item(0).external_id);
+                    }, this.errorCT);
+                }, this.errorCT, this.successCT);
+            },
+            fetchForm:async function(id,formid){
+                
+                gforms.transaction(function (tx) {
+                    var options = {
+                        language: 'en',
+                        i18n: {
+                            en: {
+                            cancel: 'Cancelar',
+                            previous: 'Atras',
+                            next: 'Siguiente',
+                            submit: 'Guardar'
+                            }
+                        }
+                    };
+                    tx.executeSql("SELECT DISTINCT formularios.form_id,formularios.esquema,flujos.flu_estado FROM formularios INNER JOIN flujos ON formularios.idflujo=flujos.id WHERE formularios.form_id=?;", [formid], function (tx1, result) {
+                        var len = result.rows.length;
+                        for (var i = 0; i < len; i++) {
+                            if (result.rows.item(i).form_id == formid) {
+                                var html = result.rows.item(i).esquema;
+                                var pjson = JSON.parse(datas);
+                                localStorage.setItem("flujo",result.rows.item(i).flu_estado);
+                                Genesis.createForm(document.getElementById('layout'),JSON.parse(html), options).then(function(form){
+                                    form.language = options.language;
+                                    form.submission = {
+                                        data: JSON.parse(datas)
+                                    };
+                                     form.on('change',async function(changed){
+                                        app.temporal(id,JSON.stringify(changed.data));
+                                    });
+                                    form.on('submit',function(submission){
+                                        $("#everything-wrapper").show();
+                                            var external = localStorage.getItem("ExternalID");
+                                            var flu = localStorage.getItem("flujo");
+                                            app.verHijos(external,flu);
+                                    });
+                                });
+                            }
+                        }
+                    }, this.errorCT);
+
+                }, this.errorCT, this.successCT);
+            },
+            fetchDepartamentos: async function(){
+                catalogos.transaction(function (tx) {
+                    tx.executeSql("select * from departamentos", null, function (tx1, result) {
+                        var len = result.rows.length;
+                        var jsonDep = {
+                            data: []
+                        };
+                        
+                        for(var i = 0; i < len; i++){
+                            jsonDep.data.push({
+                                "label" : result.rows.item(i).dep_descripcion,
+                                "value" : result.rows.item(i).dep_codigo.toString()
+                            });
+                        }
+                        var json = jsonDep.data;
+                        localStorage.setItem("jsonDep",JSON.stringify(json));
+                    }, this.errorCT);
+                }, this.errorCT, this.successCA);
+            },
+            filterMun: async function(id){
+                var departamento=id;
+                catalogos.transaction(function (tx) {
+                    tx.executeSql("select * from municipios where mun_depcod=?", [departamento], function (tx1, result) {
+                        var len = result.rows.length;
+                        var jsonMuni = {
+                            data: []
+                        };
+                        for(var i = 0; i < len; i++){
+                            jsonMuni.data.push({
+                                "label" : result.rows.item(i).mun_descripcion,
+                                "value" : result.rows.item(i).mun_codigo.toString()
+                            });
+                        }
+                        var json = jsonMuni.data;
+                        localStorage.setItem("jsonMun",JSON.stringify(json));
+                    }, this.errorCT);
+
+                }, this.errorCT, this.successCA);
+            },
+            fMun: function(){
+                catalogos.transaction(function (tx) {
+                    tx.executeSql("select * from municipios", [], function (tx1, result) {
+                        var len = result.rows.length;
+                        var jsonMuni = {
+                            data: []
+                        };
+                        for(var i = 0; i < len; i++){
+                            jsonMuni.data.push({
+                                "label" : result.rows.item(i).mun_descripcion.toString(),
+                                "value" : result.rows.item(i).mun_descripcion.toString()
+                            });
+                        }
+                        var json = jsonMuni.data;
+                        localStorage.setItem("jMun",JSON.stringify(json));
+                    }, this.errorCT);
+
+                }, this.errorCT, this.successCT);
+            },
+            filterAld:function(depa,muni){
+                var departamento = depa;
+                var municipio = muni;
+                catalogos.transaction(function (tx) {
+                    tx.executeSql("select * from aldeas where ald_depcod = ? and ald_muncod = ? ORDER BY ald_descripcion  ASC;", [departamento,municipio], function (tx1, result) {
+                        var len = result.rows.length;
+                        var jsonAld = {
+                            data: []
+                        };
+                        for(var i = 0; i < len; i++){
+                            jsonAld.data.push({
+                                "label" : result.rows.item(i).ald_descripcion,
+                                "value" : result.rows.item(i).ald_codigo.toString()
+                            });
+                        }
+                        var json = jsonAld.data;
+                        localStorage.setItem("jsonAld",JSON.stringify(json));
+                    }, this.errorCT);
+
+                }, this.errorCT, this.successCA);
+            },
+            productos: async function(){
+                var empresa = window.localStorage.getItem("empresa");
+                var query = 'SELECT * FROM productos where pro_codcia = ? and Pro_Codigo NOT IN (43,44,56)';
+                var condicion = [empresa];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        var len = result.rows.length;
+                        var json = {
+                            data: []
+                        };
+                        for (var i = 0; i < len; i++) {
+                            json.data.push({
+                                "label" : result.rows[i].Pro_Codigo.toString()+" - "+result.rows[i].Pro_Nombre.trim(),
+                                "value" : result.rows[i].Pro_Codigo.toString()
+                            });
+                        }
+                        localStorage.setItem("jsonProd",JSON.stringify(json.data));
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            subProductos: async function(producto){
+                var empresa = window.localStorage.getItem("empresa");
+                var query = 'SELECT * FROM subproductos where Sub_CodPro = ?';
+                var condicion = [producto];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        var len = result.rows.length;
+                        var json = {
+                            data: []
+                        };
+                        for (var i = 0; i < len; i++) {
+                            json.data.push({
+                                "label" : result.rows[i].Sub_Codigo.toString()+" - "+result.rows[i].Sub_Nombre.trim(),
+                                "value" : result.rows[i].Sub_Codigo.toString()
+                            });
+                        }
+                        localStorage.setItem("jsonSprod",JSON.stringify(json.data));
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            pgrupales: function(){
+                var empresa = window.localStorage.getItem("empresa");
+                var query = 'SELECT * FROM productos where pro_codcia = ? and Pro_Codigo in(43,44)';
+                var condicion = [empresa];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        var len = result.rows.length;
+                        var json = {
+                            data: []
+                        };
+                        for (var i = 0; i < len; i++) {
+                            json.data.push({
+                                "label" : result.rows[i].Pro_Nombre.trim(),
+                                "value" : result.rows[i].Pro_Codigo.toString()
+                            });
+                        }
+                        localStorage.setItem("jsonProdGroup",JSON.stringify(json.data));
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.transSuccess);
+            },
+            sectorEconomico: async function(){
+                var empresa = window.localStorage.getItem("empresa");
+                var query = 'SELECT * FROM sector_economico where sece_codcia = ?';
+                var condicion = [empresa.toString()];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+
+                        var len = result.rows.length;
+                        var json = {
+                            data: []
+                        };
+                        for (var i = 0; i < len; i++) {
+                            json.data.push({
+                                "label" : result.rows[i].sece_descripcion.toString(),
+                                "value" : result.rows[i].sece_Codigo.toString()
+                            });
+                        }
+                        localStorage.setItem("jsonSec",JSON.stringify(json.data));
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            activadEconomica: async function(sector){
+                var empresa = window.localStorage.getItem("empresa");
+                var query = 'SELECT * FROM actividad_economica where acte_codsece = ?';
+                var condicion = [sector];
+                catalogos.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        var len = result.rows.length;
+                        var json = {
+                            data: []
+                        };
+                        for (var i = 0; i < len; i++) {
+                            json.data.push({
+                                "label" : result.rows[i].acte_descripcion.toString(),
+                                "value" : result.rows[i].acte_codigo.toString()
+                            });
+                        }
+                        localStorage.setItem("jsonAct",JSON.stringify(json.data));
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            transError: async function(t,e){
+                console.log(e);
+                console.error("Error Ocurrido ! Codigo:" + e.code + " Mensaje : " + e.message);
+            },
+            transSuccess: async function(t,r){
+                console.info("Transaccion Completa!");
+            },
+            errorCT: async function(){
+                console.log("Error al seleccionar Formularios");
+            },
+            successCT: async function(){
+                console.log("Consulta de formularios Exitoso");
+            },
+            successCA: async function(){
+                console.log("Consulta de Catálogos Exitoso");
+            },
+            temporal: async function(id,data){
+                localStorage.setItem('reload',0);
+                gforms.transaction(function (tx) {
+                    tx.executeSql("UPDATE datos SET data= ? where id= ? ", [data, id], this.successUT, this.errorUT);
+                }, this.errorUT, this.successUT);
+            },
+            verTotal1:async function(){
+                
+                var exter = app.getID();
+                gforms.transaction(function (tx) {
+                    tx.executeSql("select count(*) as total from daux WHERE external=? ", [exter], function (tx1, result) {
+                        localStorage.setItem("totalAux",result.rows.item(0).total.toString());
+                    }, this.errorCT);
+
+                }, this.errorCT, this.successCT);
+            },
+            Test: function(test, callBack){
+                var x;
+                gforms.transaction(function (tx) {
+                        $yoursql = 'select id as total from daux WHERE external=? ';
+                        tx.executeSql($yoursql, [test], function (tx, results) {
+                            x = results.rows.length;
+                            console.log(x);
+                            callBack(x);                
+                        });
+                });
+            },
+            verTotal:function(){
+                app.verTotal1();
+                var total = localStorage.getItem("totalAux");
+                return total;
+            },
+            verFinalizados: function(){
+                let exter = app.getID();
+                gforms.transaction(function (tx) {
+                    tx.executeSql("select count(*) as total from daux WHERE external=? and estado='Finalizado' ", [exter], function (tx1, result) {
+                        var res = result.rows.item(0).total;
+                        localStorage.setItem("totalFin",res);
+                    }, this.errorCT);
+                }, this.errorCT, this.successCT);
+                var total = localStorage.getItem("totalFin");
+                return total;
+            },
+            verHijos:async function(exter,flu){
+                gforms.transaction(function (tx) {
+                    tx.executeSql("select count(*) as total from daux WHERE external=? and estado='temporal' ", [exter], function (tx1, result) {
+                        var len = result.rows.item(0).total;
+                        if(len==0){
+                            app.update2(exter,flu);
+                        }
+                        else{
+                            $("#everything-wrapper").fadeOut(600);
+                            $(".alert-success").remove();
+                            Swal.fire(
+                                'Error!',
+                                'Hay formularios auxiliares sin finalizar',
+                                'danger'
+                            );
+
+                        }
+                    }, this.errorCT);
+
+                }, this.errorCT, this.successCT);
+            },
+            update:async function(id){
+                gforms.transaction(function (tx) {
+                    tx.executeSql("UPDATE datos SET  estado='Finalizado' where external_id='"+id+"'", [], this.successUT, this.errorUT);
+                }, this.errorUT, this.successUTF);
+            },
+            update2: async function(exter,flujo){
+                gforms.transaction(function(transaction) {
+                    var executeQuery = 'UPDATE datos SET estado="Finalizado",status=? where external_id= ?';
+                    transaction.executeSql(executeQuery, [flujo,exter],
+                    //On Success
+                    function(tx, result) {
+                        var formid = getParameterByName('formid');
+                        var proceso =localStorage.getItem("proceso");
+                        if(proceso==2){
+                            window.location="Data2.html?formid="+formid;
+                        }
+                        if(proceso==3){
+                            window.location="Data3.html?formid="+formid;
+                        }
+                        if(proceso==5){
+                            window.location="Data5.html?formid="+formid;
+                        }
+                        if(proceso==8){
+                        
+                            window.location="Data8.html?formid="+formid;
+                        }
+                    },
+                    //On Error
+                    function(error){
+                        console.log('no se finalizo la gestion');
+                    });
+                });
+            },
+            errorUT:  function(){
+                alert("Error al actualizar datos de formularios");
+            },
+            successUT: async function(){
+                console.log("Actualización de Datos Exitoso");
+            },
+            successUTF: async function(){
+                debugger;
+                console.log("Actualización de Datos Exitoso");
+            },
+            filterDepa: function(){
+                this.fetchDepartamentos();
+                var json = localStorage.getItem("jsonDep");
+                return json;
+            },
+            filterMuni:function(depa){
+                var id = depa;
+                this.filterMun(id);
+                var json = localStorage.getItem("jsonMun");
+                return json;
+            },
+            fMuni: function(){
+                this.fMun();
+                var json = localStorage.getItem("jMun");
+                return json;
+            },
+            filterAlde: function(depa,muni){
+                this.filterAld(depa,muni);
+                var json = localStorage.getItem("jsonAld");
+                return json;
+            },
+            getProductos: function(){
+                this.productos();
+                var json = localStorage.getItem("jsonProd");
+                localStorage.setItem("jsonSprod","");
+                return json;
+            },
+            getProGrup: function(){
+                this.pgrupales();
+                var json = localStorage.getItem("jsonProdGroup");
+                return json;
+            },
+            getSubproductos: function(producto){
+                this.subProductos(producto);
+                var json = localStorage.getItem("jsonSprod");
+                return json;
+            },
+            getSector:  function(){
+                this.sectorEconomico();
+                var json = localStorage.getItem("jsonSec");
+                
+                return json;
+            },
+            getActividad: function(sector){
+                this.activadEconomica(sector);
+                var json = localStorage.getItem("jsonAct");
+                return json;
+            },
+            getID: function(){
+                var external = localStorage.getItem("ExternalID");
+                return external;
+            },
+            getTotal:function(){
+                var padre = this.getID();
+                var query = 'SELECT count(*) as total FROM daux where external = ?';
+                var condicion = [padre];
+                gforms.transaction(function(tx) {
+                    tx.executeSql(query, condicion, function(sqlTransaction, result) {
+                        var len = result.rows;
+                        localStorage.setItem("count",result.rows.item(0).total);
+                    }, function(sqlTransaction, sqlError) {
+                        switch (sqlError.code) {
+                            case sqlError.SYNTAX_ERR:
+                                console.error("Se ha producido un error de sintaxis. " + sqlError.message);
+                                break;
+                            default:
+                                console.error("Otro error");
+                        }
+                    });
+                }, this.transError, this.successCA);
+            },
+            getCount:function(){
+                this.getTotal();
+                var total = localStorage.getItem("count");
+                return total;
+            },
+            getRefis:function(externalid,data){
+                gforms.transaction(function (tx) {
+                    tx.executeSql("UPDATE datos SET data='"+data+"'  where external_id='"+externalid+"'", [], this.successUT, this.errorUT);
+                    tx.executeSql("select id,form_id from datos WHERE external_id=?", [externalid], function (tx1, result) {
+                        document.location = "formDatas.html?id=" + result.rows.item(0).id+"&formid="+result.rows.item(0).form_id;
+                        //document.location="datosO.html?formid="+result.rows.item(0).form_id;
+
+                    }, this.errorCT);
+                }, this.errorUT, this.successUTF);
+            }
+        }
+    </script>
+    
+
+</body>
+
+</html>

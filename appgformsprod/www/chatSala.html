@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+</head>
+<body id="body">
+    <div id="page-transitions" class="highlight-red">
+        <div id="header" class="header header-logo-app header-dark ">
+            <a href="#" id="id-chat-name" class="header-title ">Chat</a>
+            <a href="#" class="header-logo disabled"></a>
+            <a href="#" class="header-icon header-icon-1" onclick="window.location.href = 'chat2.html';">
+                <i class="fas fa-angle-left"></i>
+            </a>
+        </div>
+        <div id="includedContent"></div>
+        <input type="hidden" id="id2" name="id2" value="">
+        <input type="hidden" id="id22" name="id22" value="">
+
+        <style>
+            .i-chat{
+                background-color: rgba(0,0,255,0.4);
+                box-shadow: 0 0 10px rgba(0, 0, 240, 0.3);
+                margin-bottom: 10px;
+                padding: 10px 10px 10px 0;
+            }
+            .speech-bubble{
+                margin-top: 1px;
+                margin-bottom: 1px;
+            }
+            .chat-history2{
+                height: 100vh!important;
+                overflow-y:auto;
+                -webkit-transition: scrollTop 2s;
+                transition: scrollTop 2s;
+                padding-bottom: 45px!important;
+            }
+            .page-content{
+                background-image: url(images/wall2.jpg);
+                background-attachment: fixed;
+                background-size:cover;
+            }
+            .chat-message{
+                width: 100%;
+                position: fixed;
+                bottom: 0px;
+            }
+            .textBoxMessage{
+                font-size: 19px!important;
+                border-radius: 50%;
+                height: 28px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                margin-top: 3px;
+            }
+        </style>
+        <div class="page-content header-clear-large bg-white">
+            <div class="app" id="container">
+                <div id="chat-history" class="content bottom-0 chat-history2">
+                    <div id="chat-mensajes-items" style="margin-top: -20px; padding-bottom: 65px!important;">
+
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="input-simple-2 has-icon input-blue"
+                        style="width:calc(100% - 75px); background-color: rgba(255,255,255,0.90); float: left;">
+                        <i class="fa fa-edit"></i>
+                        <input type="text" placeholder="Escribir mensaje.." id="mensaje" name="mensaje" style="font-size: 19px!important;" onfocus="movePanel()">
+                    </div>
+                    <div style="float: right;">
+                        <button type="button" id="enviarMensaje" class="button button-blue button-round button-blue-3d">
+                            <span><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </div>
+                    <input type="hidden" id="txt_id2" name="txt_id2" value="0">
+                    <input type="hidden" id="txt_id22" name="txt_id22" value="0">
+                </div>
+            </div>
+            <script type="text/javascript" src="js/jquery.js"></script>
+            <script type="text/javascript" src="js/socket.io.js"></script>
+            <script>
+                function getParametro(name){
+                    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+                        return decodeURIComponent(name[1]);
+                }
+                
+                document.addEventListener("backbutton", onBackKeyDown, false);
+
+                function onBackKeyDown() {
+                    window.location.href = 'chat2.html';
+                }
+
+                //Cargar url
+                $("#id-chat-name").html(getParametro('usuario'));
+                var id2 = getParametro('i');
+                var $_usrsesion = localStorage.getItem("id")==null?"0":localStorage.getItem("id");
+                var id22 = $_usrsesion;
+                
+                $("#txt_id2").html(id2);
+                $("#txt_id22").html(id22);
+                
+                var _id2 = id2;
+                var _id22 = id22;
+
+                var socket = io.connect("http://iforms.genesisempresarial.org:5001");
+
+                socket.on("users-changed:"+_id22+"-"+_id2, function(data){
+                });
+
+                socket.on("message:"+_id22+"-"+_id2, function(data){
+                    var element = document.getElementById("chat-history");
+                    var id22Aux = _id22;
+                    debugger;
+                    if(data.from === id22Aux){
+                        $('<div class="speech-bubble speech-left bg-blue-dark shadow-icon-large" title="'+data.created+'">'+data.text+'</div><div class="clear"></div>').hide().appendTo("#chat-mensajes-items").show('fast',function(){
+                            element.scrollTop = element.scrollHeight;
+                        });
+                    }else{
+                        $('<div class="speech-bubble speech-right color-black shadow-icon-large" title="'+data.created+'">'+data.text+'</div><div class="clear"></div>').hide().appendTo("#chat-mensajes-items").show('fast',function(){
+                            element.scrollTop = element.scrollHeight;
+                        });
+                    }
+                    element.scrollTop = element.scrollHeight;
+                });
+
+                var inputSend = document.getElementById("mensaje");
+                inputSend.addEventListener("keyup", function(event) {
+                    event.preventDefault();
+                    if (event.keyCode === 13) {
+                        var message = $("#mensaje").val();
+                        var id2Aux = _id2;
+                        var id22Aux = _id22;
+                        if(message.length > 0 && id2Aux != null) {
+                            socket.emit("add-message", {text:message, id2:id2Aux, id22:id22Aux});
+                            $("#mensaje").val("");
+                        }
+                    }else{
+                        movePanel();
+                    }
+                });
+
+                $("#enviarMensaje").click(function(){
+                    var message = $("#mensaje").val();
+                    var id2Aux = _id2;
+                    var id22Aux = _id22;
+                    if(message.length > 0 && id2Aux != null) {
+                        socket.emit("add-message", {text:message, id2:id2Aux, id22:id22Aux});
+                        $("#mensaje").val("");
+                    }
+                }); 
+
+                //Peticion de mensajes
+                var request = new XMLHttpRequest();
+                request.open('GET', 'http://iforms.genesisempresarial.org/api/navegacion/usuarios/id/'+id2+'/'+id22, true)
+                request.onload = function() {
+                    // Begin accessing JSON data here
+                    var data = JSON.parse(this.response)
+
+                    if (request.status >= 200 && request.status < 400) {
+                        $("#chat-mensajes-items").html("");
+                        var mensajes = "";
+                        data.forEach(ite => {
+                            mensajes = mensajes + ('<div class="speech-bubble '+(id22==ite.emisor_id?'speech-left bg-blue-dark':'speech-right color-black')+' shadow-icon-large" title="'+ite.createdat+'">'+
+                                ite.mensaje+'</div><div class="clear"></div>');
+                        })
+                        $(mensajes).hide().appendTo("#chat-mensajes-items").show('fast',function(){
+                            var element = document.getElementById("chat-history");
+                            element.scrollTop = element.scrollHeight;
+                        });
+                    } else {
+                        alert('error');
+                    }
+                }
+                request.send();
+
+                $( document ).ready(function() {
+                    //establecemos el socket
+                    socket.emit('set-nickname', {id22:id22, id2:id2});
+                });
+
+                function movePanel(){
+                    var element = document.getElementById("chat-history");
+                    element.scrollTop = element.scrollHeight;
+                }
+            </script>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+    
+</body>
+</html>

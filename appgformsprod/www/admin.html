@@ -1,0 +1,1346 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap://ready file:; img-src * 'self' data: https:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">  
+
+    <style>
+        #page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background: #FFF none repeat scroll 0% 0%;
+        z-index: 99999;
+        }
+        #page-loader .preloader-interior {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #3498db;
+        
+            -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+                animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        #page-loader .preloader-interior:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #e74c3c;
+        
+            -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        #page-loader .preloader-interior:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #f9c922;
+        
+            -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        @-webkit-keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        @keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        #everything-wrapper {
+            display : none;
+        }
+        /* .page-content{
+            background-color: rgba(0,0,0,0.8);
+            background-image: url(images/principal.jpg);
+            background-attachment: fixed;
+            background-size:cover;
+            filter:brightness(0.4);
+        } */
+    </style>
+</head>
+
+<body >
+
+    <div id="preloader" class="preloader-light">
+        <h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">Gforms</h1>
+        <div id="preload-spinner"></div>
+    </div>
+    <div id="everything-wrapper">
+        <h1>Gforms</h1>
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+    </div>
+
+
+    <div id="page-transitions" class="highlight-red">
+        <div class="page-bg gradient-body-1"></div>
+        <div id="header" class="header header-logo-app header-dark ">
+            <a href="#" class="header-title ">Modo Admin Formularios</a>
+            <a href="#" class="header-logo disabled"></a>
+            <a data-menu="menu-1" data-menu-type="menu-sidebar-left-push" href="#" class="header-icon header-icon-1"><i
+                    class="fas fa-bars"></i></a>
+            <!-- <a class="header-icon header-icon-2" onclick="getposition();"><i class="fas fa-map-marker-alt"></i></a> -->
+            <a data-menu="menu-settings" data-menu-type="menu-box-full" href="#" class="header-icon header-icon-3"><i class="fas fa-cog fa-spin font-12"></i></a>
+            <!-- <a class="header-icon header-icon-4" onclick="db.createTables()"><i class="fas fa-database"></i></a> -->
+        </div>
+        
+        <div id="menu-1" class="menu menu-sidebar-left menu-settings"></div>
+
+        <div class="page-content header-clear-large ">
+            <div class="app" id="container">
+                <div class="content-box bg-white">
+                    <ul class="link-list link-list-large bottom-0" id="formularios">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu menu-box-full shadow-large" id="menu-settings">
+            <div class="page-bg gradient-body-1">
+                <div class="cover-content-center">
+                    <div class="content">
+                        <h1 class="uppercase ultrabold center-text fa-4x bottom-25 color-white text-shadow-large">Gforms</h1>
+                        <p class="center-text bottom-50 opacity-50 font-14 color-white text-shadow-large">
+                            
+                        </p>
+                        <ul class="demo-colors">
+                            <li><a href="#" class="democ-1 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-1"></i>Default</a></li>
+                            <li><a href="#" class="democ-5 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-5"></i>Violet</a></li>
+                            <li><a href="#" class="democ-7 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-7"></i>Magenta</a></li>
+                            <li><a href="#" class="democ-6 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-6"></i>Red</a></li>
+                            <li><a href="#" class="democ-3 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-3"></i>Green</a></li>
+                            <li><a href="#" class="democ-4 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-4"></i>Blue</a></li>
+                            <li><a href="#" class="democ-2 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-2"></i>Orange</a></li>
+                            <li><a href="#" class="democ-8 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-8"></i>Dark</a></li>
+                            <li><a href="#" class="democ-9 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-9"></i>Yellow</a></li>
+                            <li><a href="#" class="democ-10 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body109"></i>Génesis</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                        <a href="#" class="close-menu top-40 button button-round button-s button-white uppercase ultrabold button-center shadow-icon-small">Aceptar</a>
+                    </div>
+                </div>
+            </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/OptionsMenu.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script src="js/eventos.js" type="text/javascript"></script>
+    <script src="js/sweetalert2@8.js"></script>
+
+    <script type="text/javascript">
+
+        var app = {
+            initialize: function(){
+                var color = localStorage.getItem("fondo");
+                localStorage.setItem("sync",0);
+                var democs = 'gradient-body-1 gradient-body-2 gradient-body-3 gradient-body-4 gradient-body-5 gradient-body-6 gradient-body-7 gradient-body-8 gradient-body-9';
+                $('.page-bg, .menu-bg').removeClass(democs).addClass(color);
+                this.fetchData("formularios");
+            },
+            fetchData: function(id){
+                gforms.transaction(function(tx){
+                    var html='';
+                    var formularios = document.getElementById(id)
+                    var usuario = window.localStorage.getItem("login");
+                    tx.executeSql('SELECT form_id, nombre, version, MAX(version),proceso,icon FROM formularios where proceso !=4 GROUP BY nombre',[],function(tx1,result){
+                        var len = result.rows.length;
+                        if(len!=0){
+                            for(var i = 0; i < len; i++){
+                                nombre="'"+result.rows.item(i).nombre +"'";
+                                html += '<li><a onclick="app.verificacion(' + result.rows.item(i).form_id + ','+ result.rows.item(i).proceso +','+nombre +')"><i class="fa fa-angle-right"></i><i class="font-17 '+result.rows.item(i).icon+' color-red-dark"></i><span>' + result.rows.item(i).nombre + '</span><em>Version: ' + result.rows.item(i).version + '</em></a></li>';
+                            }
+                            formularios.innerHTML = html;
+                            this.mensaje;
+                        }
+                    });
+                },this.errorCT,this.successCT)
+            },
+            getflujo: function(form){
+                gforms.transaction(function (tx){
+                    tx.executeSql("SELECT idflujo FROM formularios WHERE form_id=?",[form],function(tx1,result){
+                        localStorage.setItem('codflu',result.rows.item(0).idflujo);
+                    },this.errorCT);    
+                },this.errorCT,this.successCT);
+            },
+            verificacion: function(id,proceso,nombre){
+                localStorage.setItem("proceso",proceso);
+                localStorage.setItem("nform",nombre);
+                console.log(proceso);
+                debugger;
+                gforms.transaction(function (tx){
+                    if(proceso==1){
+                        tx.executeSql("SELECT form_id FROM seguimiento WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="datosAdmin.html?formid="+id;
+                            }
+                            else{
+                                    Swal.fire({
+                                        type: 'error',
+                                        title: 'Oops...',
+                                        text: 'No tiene ninguna asignación',
+                                    }).then((result) => {
+                                        window.location.reload();
+                                    });
+                            }
+                        },this.errorCT);
+
+                        tx.executeSql("SELECT form_id FROM asigFin WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="datos.html?formid="+id;
+                            }
+                            
+                        },this.errorCT);    
+                    }
+                    if(proceso==6){
+                        tx.executeSql("SELECT form_id FROM asig WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                // if(proceso!=1){
+                                //     window.location="datosO.html?formid="+id;
+                                // }
+                                // else{
+                                    window.location="datosAdmin.html?formid="+id;
+                                // }
+                            }
+                            else{
+                                if(proceso==1){
+                                    Swal.fire({
+                                        type: 'error',
+                                        title: 'Oops...',
+                                        text: 'No tiene ninguna asignación',
+                                    }).then((result) => {
+                                        location.reload();
+                                    });
+                                }
+                                else{
+                                    window.location="formulario.html?formid="+id;
+                                }
+                                
+                            }
+                        },this.errorCT);    
+                    }
+                    if(proceso==2 ||proceso==3 || proceso==5||proceso==7||proceso==8){
+                        debugger;
+                        tx.executeSql("SELECT form_id FROM datos WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                // if(proceso!=1){
+                                    window.location="adminDatos.html?formid="+id;
+                                // }
+                                // else{
+                                //     window.location="datos.html?formid="+id;
+                                //     // document.location.href="datos.html?formid="+id;
+                                // }
+                            }
+                            else{
+                            //     if(proceso==1){
+                            //         Swal.fire({
+                            //             type: 'error',
+                            //             title: 'Oops...',
+                            //             text: 'No tiene ninguna asignación',
+                            //         }).then((result) => {
+                            //             location.reload();
+                            //         });
+                            //     }
+                                    window.location="formulario.html?formid="+id;
+                            
+                                
+                            }
+                        },this.errorCT);
+                    }
+                },this.errorCT,this.successCT);
+            },
+            errorCT: function(){
+                console.log("Error al seleccionar Formularios");
+            },
+            successCT: function(){
+                console.log("Consulta de formularios Exitoso");
+            },
+            sincForm: function(){
+                db.truncateFull();
+                $("#everything-wrapper").show();
+
+                var usuario = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                var dire = window.localStorage.getItem("url");
+                let Data ='{'+
+                                'formularios_usuarios(usr_codcia:'+empresa+',name:"'+usuario+'"){'+
+                                    'fusr_idfor '+
+                                    'for_codcia ' +
+                                    'for_esquema ' +
+                                    'for_nombre ' +
+                                    'for_descripcion ' +
+                                    'for_version ' +
+                                    'for_procesoid ' +
+                                    'fusr_idusr ' +
+                                    'usr_codcia ' +
+                                    'name ' +
+                                    'icon ' +
+                                    'for_codflu ' +
+                                '}'+
+                            '}';
+
+                cordova.plugins.notification.local.setDefaults({
+                    led: { color: '#FF00FF', on: 500, off: 500 }
+                });
+
+                cordova.plugins.notification.local.schedule({
+                    id: 15,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando formularios..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    timeout: 30000,
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        debugger;
+                        var forms = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of forms.data.formularios_usuarios) {
+                                (function () {
+                                    var id = valor.fusr_idfor;
+                                    var for_codcia = valor.for_codcia;
+                                    var esquema = valor.for_esquema;
+                                    var nombre = valor.for_nombre;
+                                    var version = valor.for_version;
+                                    var descripcion = valor.for_descripcion;
+                                    var name = valor.name;
+                                    var proceso=valor.for_procesoid;
+                                    var icon=valor.icon;
+                                    var idflujo=valor.for_codflu;
+                                    tx.executeSql("INSERT INTO formularios(form_id,for_codcia,esquema,nombre,version,descripcion,usuario,proceso,icon,idflujo) VALUES (?,?,?,?,?,?,?,?,?,?) ", [id,for_codcia, esquema, nombre, version, descripcion,usuario,proceso,icon,idflujo],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        $("formularios").empty();
+                        app.fetchData("formularios");
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 15,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(15, function() {
+                                console.log("ok");
+                            });
+                        }, 3000)
+                    },
+                    error: function (data) {
+                        //console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            sincronizar: function(){
+                $("#everything-wrapper").show();
+                var asig = "DELETE FROM asig";
+                db.transactionDelete(gforms,asig);
+                var dire = window.localStorage.getItem("url");
+
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data = '{' +
+                    'asig_asignados(asig_usuario_asignado:"'+usr+'",asig_codcia:"'+empresa+'"){' +
+                    'asig_idfor ' +
+                    'asig_external_id ' +
+                    'asig_datos ' +
+                    'fecha_asignacion ' +
+                    'asig_usuario_asignado '+
+                    '}' +
+                    '}';
+
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    timeout: 30000,
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of rec_recibidos.data.asig_asignados) {
+                                (function () {
+                                    var rec_idfor = valor.asig_idfor;
+                                    var rec_external_id = valor.asig_external_id;
+                                    var rec_datos = valor.asig_datos;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    var fecha_asignacion = formattedTime;
+                                    var rec_estado = "temporal";
+                                    var usuario = valor.asig_usuario_asignado;
+                                    tx.executeSql("select count(*) as total from asig WHERE external_id=? and usuario=?", [rec_external_id,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO asig(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", [rec_idfor, rec_external_id, rec_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                        
+                                        
+                                    },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 3000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            devoluciones: function(){
+                app.dev();
+                //app.devAux();
+            },
+            dev: function(){
+                $("#everything-wrapper").show();                
+                var dire = window.localStorage.getItem("url");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data = '{' +
+                    'dev_devoluciones(dev_usuario_asignado:"'+usr+'",dev_codcia:"'+empresa+'"){' +
+                    'dev_idfor ' +
+                    'dev_datos ' +
+                    'dev_external_id_old ' +
+                    'dev_external_id_padre ' +
+                    'dev_proceso '+
+                    'id_estado '+
+                    'dev_usuario_asignado '+
+                    'fecha_asignacion '+
+                    '}' +
+                    '}';
+
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando devoluciones',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    timeout: 30000,
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var dev_devoluciones = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of dev_devoluciones.data.dev_devoluciones) {
+                                (function () {
+                                    var dev_idfor = valor.dev_idfor;
+                                    var dev_external_id_padre = valor.dev_external_id_padre;
+                                    var dev_datos = valor.dev_datos;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    var fecha_asignacion = formattedTime;
+                                    var rec_estado = "temporal";
+                                    var usuario = valor.dev_usuario_asignado;
+                                    tx.executeSql("INSERT INTO datos(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", 
+                                    [dev_idfor, dev_external_id_padre, dev_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        app.devAux();
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            devAux: function(){
+                var dire = window.localStorage.getItem("url");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data = '{' +
+                    'dev_devoluciones_auxes(dev_usuario_asignado:"'+usr+'",dev_codcia:"'+empresa+'"){' +
+                    'dev_idfor ' +
+                    'dev_datos ' +
+                    'dev_external_id_old ' +
+                    'dev_external_id_padre ' +
+                    'dev_external_id_hijo ' +
+                    'dev_proceso '+
+                    'id_estado '+
+                    'dev_usuario_asignado '+
+                    'fecha_asignacion '+
+                    '}' +
+                    '}';
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    timeout: 30000,
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var dev_devoluciones_auxes = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of dev_devoluciones_auxes.data.dev_devoluciones_auxes) {
+                                (function () {
+                                    var dev_idfor = valor.dev_idfor;
+                                    var dev_external_id_padre = valor.dev_external_id_padre;
+                                    var dev_external_id_hijo = valor.dev_external_id_hijo;
+                                    var dev_datos = valor.dev_datos;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    var fecha_asignacion = formattedTime;
+                                    var rec_estado = "temporal";
+                                    var usuario = valor.dev_usuario_asignado;
+                                    tx.executeSql("INSERT INTO daux(form_id, external_id,external, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?,?) ", 
+                                    [dev_idfor, dev_external_id_hijo,dev_external_id_padre, dev_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(800);
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 3000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            dateConvert: function(timestamp){
+                var a = new Date(timestamp);
+                var year = a.getFullYear();
+                var month = a.getMonth();
+                var date = a.getDate();
+                var hour = a.getHours();
+                var min = a.getMinutes();
+                var sec = a.getSeconds();
+                var time = year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' + sec ;
+                return time;
+            },
+            catalogos:async function(){
+                $("#everything-wrapper").show();
+                db.trucateCatalogos();
+                this.departamentos();
+                this.municipios();
+                this.productos();
+                this.sector();
+                this.acEconomica();
+                this.flujos();
+                this.subProductos();
+                // this.aldeas();
+            },
+            prueba: function(num){
+                return promise = new Promise( (resolve,reject)=>{
+                    if(num>0){
+                        resolve("mayor");
+                    }else{
+                        let error = new Error("Error de ejecución . . . :( ");
+                        reject(error);
+                    }
+                });
+            },
+            sector: function(){
+                var dire = window.localStorage.getItem("url");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{ '+
+                            'sector_economico(sece_codcia:"'+empresa+'",sece_estado:"A"){ '+
+                                    'id '+
+                                    'sece_Codigo '+
+                                    'sece_descripcion '+
+                                    'sece_codcia '+
+                                    'sece_estado '+
+                                    'sece_adicionales '+
+                                '} '+
+                            '} ';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var sec = JSON.parse(JSON.stringify(response));
+                //             for (var valor of sec.data.sector_economico) {
+                //                     var sece_Codigo = valor.sece_Codigo;
+                //                     var sece_descripcion = valor.sece_descripcion;
+                //                     var sece_codcia = valor.sece_codcia;
+                //                     var sece_estado = valor.sece_estado;
+                //                     var sece_adicionales =  valor.sece_adicionales;
+                //                     var idata =  [sece_Codigo.toString(),sece_descripcion,sece_codcia.toString(),sece_estado,sece_adicionales];
+                //                     var query ="INSERT INTO sector_economico(sece_Codigo,sece_descripcion,sece_codcia,sece_estado,sece_adicionales) VALUES (?,?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //             }
+                // });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var sec = JSON.parse(JSON.stringify(data));
+                            for (var valor of sec.data.sector_economico) {
+                                    var sece_Codigo = valor.sece_Codigo;
+                                    var sece_descripcion = valor.sece_descripcion;
+                                    var sece_codcia = valor.sece_codcia;
+                                    var sece_estado = valor.sece_estado;
+                                    var sece_adicionales =  valor.sece_adicionales;
+                                    var idata =  [sece_Codigo.toString(),sece_descripcion,sece_codcia.toString(),sece_estado,sece_adicionales];
+                                    var query ="INSERT INTO sector_economico(sece_Codigo,sece_descripcion,sece_codcia,sece_estado,sece_adicionales) VALUES (?,?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                            }
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            acEconomica: function(){
+                var dire = window.localStorage.getItem("url");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{ '+
+                            'actividad_economica(acte_estado:"A"){ '+
+                                    'id '+
+                                    'acte_codsece '+
+                                    'acte_codigo '+
+                                    'acte_descripcion '+
+                                    'acte_estado '+
+                                '} '+
+                            '} ';
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var act = JSON.parse(JSON.stringify(response));
+                //             for (var valor of act.data.actividad_economica) {
+                //                     var acte_codsece = valor.acte_codsece;
+                //                     var acte_codigo = valor.acte_codigo;
+                //                     var acte_descripcion = valor.acte_descripcion;
+                //                     var acte_estado = valor.acte_estado;
+                //                     var idata =  [acte_codsece,acte_codigo,acte_descripcion,acte_estado];
+                //                     var query ="INSERT INTO actividad_economica(acte_codsece,acte_codigo,acte_descripcion,acte_estado) VALUES (?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //             }
+                // });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var act = JSON.parse(JSON.stringify(data));
+                            for (var valor of act.data.actividad_economica) {
+                                    var acte_codsece = valor.acte_codsece;
+                                    var acte_codigo = valor.acte_codigo;
+                                    var acte_descripcion = valor.acte_descripcion;
+                                    var acte_estado = valor.acte_estado;
+                                    var idata =  [acte_codsece,acte_codigo,acte_descripcion,acte_estado];
+                                    var query ="INSERT INTO actividad_economica(acte_codsece,acte_codigo,acte_descripcion,acte_estado) VALUES (?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                            }
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            departamentos:async function(){
+                $("#everything-wrapper").show();
+                var dire = window.localStorage.getItem("url");
+                let Data ='{'+
+                                'dep_departamentos{'+
+                                    'dep_codigo\n'+
+                                    'dep_descripcion' +
+                                '}'+
+                            '}';
+
+                cordova.plugins.notification.local.schedule({
+                    id: 17,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando catálogos..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var dep = JSON.parse(JSON.stringify(response));
+                //         catalogos.transaction(function (tx) {
+                //             for (var valor of dep.data.dep_departamentos) {
+                //                 (function () {
+                //                     var dep_codigo = valor.dep_codigo;
+                //                     var dep_descripcion = valor.dep_descripcion;
+                //                     tx.executeSql("INSERT INTO departamentos(dep_codigo,dep_descripcion) VALUES (?,?) ", [dep_codigo,dep_descripcion],this.successIT,this.errorIT);
+                //                 })();
+                //             }
+                //         },this.errorIT, this.successIT);
+                // });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var dep = JSON.parse(JSON.stringify(data));
+                        catalogos.transaction(function (tx) {
+                            for (var valor of dep.data.dep_departamentos) {
+                                (function () {
+                                    var dep_codigo = valor.dep_codigo;
+                                    var dep_descripcion = valor.dep_descripcion;
+                                    tx.executeSql("INSERT INTO departamentos(dep_codigo,dep_descripcion) VALUES (?,?) ", [dep_codigo,dep_descripcion],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+                        
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            municipios:async  function(){
+                var dire = window.localStorage.getItem("url");
+                let Data ='{'+
+                                'mun_municipios{'+
+                                    'mun_depcod\n'+
+                                    'mun_codigo\n'+
+                                    'mun_descripcion' +
+                                '}'+
+                            '}';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var mun = JSON.parse(JSON.stringify(response));
+                //         catalogos.transaction(function (tx) {
+                //             for (var valor of mun.data.mun_municipios) {
+                //                 (function () {
+                //                     var mun_depcod = valor.mun_depcod;
+                //                     var mun_codigo = valor.mun_codigo;
+                //                     var mun_descripcion = valor.mun_descripcion;
+                //                     tx.executeSql("INSERT INTO municipios(mun_depcod,mun_codigo,mun_descripcion) VALUES (?,?,?) ", [mun_depcod,mun_codigo,mun_descripcion],this.successIT,this.errorIT);
+                //                 })();
+                //             }
+                //         },this.errorIT, this.successIT);
+                // });
+                $.ajax({
+                    url: dire,
+                    async: false,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var mun = JSON.parse(JSON.stringify(data));
+                        catalogos.transaction(function (tx) {
+                            for (var valor of mun.data.mun_municipios) {
+                                (function () {
+                                    var mun_depcod = valor.mun_depcod;
+                                    var mun_codigo = valor.mun_codigo;
+                                    var mun_descripcion = valor.mun_descripcion;
+                                    tx.executeSql("INSERT INTO municipios(mun_depcod,mun_codigo,mun_descripcion) VALUES (?,?,?) ", [mun_depcod,mun_codigo,mun_descripcion],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            aldeas:async function(){
+                $("#everything-wrapper").show();
+                db.trucateAldeas();
+                cordova.plugins.notification.local.schedule({
+                    id: 17,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando catálogos..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                var dire = window.localStorage.getItem("url");
+                let Data ='{'+
+                                'ald_aldeas{'+
+                                    'ald_depcod\n'+
+                                    'ald_muncod\n'+
+                                    'ald_codigo\n'+
+                                    'ald_descripcion' +
+                                '}'+
+                            '}';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var ald = JSON.parse(JSON.stringify(response));
+                //         catalogos.transaction(function (tx) {
+                //             for (var valor of ald.data.ald_aldeas) {
+                //                 (function () {
+                //                     var ald_depcod = valor.ald_depcod;
+                //                     var ald_muncod = valor.ald_muncod;
+                //                     var ald_codigo = valor.ald_codigo;
+                //                     var ald_descripcion = valor.ald_descripcion;
+                //                     tx.executeSql("INSERT INTO aldeas(ald_depcod,ald_muncod,ald_codigo,ald_descripcion) VALUES (?,?,?,?) ", [ald_depcod,ald_muncod,ald_codigo,ald_descripcion],this.successIT,this.errorIT);
+                //                 })();
+                //             }
+                //         },this.errorIT, this.successIT);
+
+                        
+
+                //         cordova.plugins.notification.local.update({
+                //             id: 17,
+                //             text: 'Sincronización de aldeas finalizada',
+                //             progressBar: { value: 100 }
+                //         });
+
+                //         setTimeout(() => {
+                //             $("#everything-wrapper").fadeOut(600);
+                //             app.mensaje();
+                //             cordova.plugins.notification.local.clear(17, function() {
+                //                 console.log("ok");
+                //             });
+                //         }, 10000)
+                // });
+
+                $.ajax({
+                    url: dire,
+                    async: false,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var ald = JSON.parse(JSON.stringify(data));
+                        console.log(ald);
+                        catalogos.transaction(function (tx) {
+                            for (var valor of ald.data.ald_aldeas) {
+                                (function () {
+                                    var ald_depcod = valor.ald_depcod;
+                                    var ald_muncod = valor.ald_muncod;
+                                    var ald_codigo = valor.ald_codigo;
+                                    var ald_descripcion = valor.ald_descripcion;
+                                    tx.executeSql("INSERT INTO aldeas(ald_depcod,ald_muncod,ald_codigo,ald_descripcion) VALUES (?,?,?,?) ", [ald_depcod,ald_muncod,ald_codigo,ald_descripcion],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+
+                        
+
+                        cordova.plugins.notification.local.update({
+                            id: 17,
+                            text: 'Sincronización de aldeas finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            $("#everything-wrapper").fadeOut(600);
+                            app.mensaje();
+                            cordova.plugins.notification.local.clear(17, function() {
+                                console.log("ok");
+                            });
+                        }, 10000)
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        
+                    }
+                });
+            },
+            productos:async function(){
+                var dire = window.localStorage.getItem("url");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{'+
+                                'pro_productos(pro_codcia:'+empresa+',Pro_Estado:"A"){'+
+                                    'Pro_Codigo\n'+
+                                    'Pro_Nombre\n'+
+                                    'pro_codcia\n'+
+                                    'Pro_Estado' +
+                                '}'+
+                            '}';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var prod = JSON.parse(JSON.stringify(response));
+                //             for (var valor of prod.data.pro_productos) {
+                //                     var Pro_Codigo = valor.Pro_Codigo;
+                //                     var Pro_Nombre = valor.Pro_Nombre;
+                //                     var pro_codcia = valor.pro_codcia;
+                //                     var Pro_Estado = valor.Pro_Estado;
+                //                     var idata =  [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado];
+                //                     var query ="INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //                     // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                //             }
+                // });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var prod = JSON.parse(JSON.stringify(data));
+                            for (var valor of prod.data.pro_productos) {
+                                    var Pro_Codigo = valor.Pro_Codigo;
+                                    var Pro_Nombre = valor.Pro_Nombre;
+                                    var pro_codcia = valor.pro_codcia;
+                                    var Pro_Estado = valor.Pro_Estado;
+                                    var idata =  [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado];
+                                    var query ="INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                                    // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                            }
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            subProductos:async function(){
+                var dire = window.localStorage.getItem("url");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{'+
+                                'sub_subproductos(Sub_Estado:"A"){'+
+                                    'Sub_CodPro\n'+
+                                    'Sub_Codigo\n'+
+                                    'Sub_Nombre\n'+
+                                    'Sub_Estado' +
+                                '}'+
+                            '}';
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },5000);
+                // })
+                // .then(function(response){
+                //     var subProd = JSON.parse(JSON.stringify(response));
+                //             for (var valor of subProd.data.sub_subproductos) {
+                //                     var Sub_CodPro = valor.Sub_CodPro;
+                //                     var Sub_Codigo = valor.Sub_Codigo;
+                //                     var Sub_Nombre = valor.Sub_Nombre;
+                //                     var Sub_Estado = valor.Sub_Estado;
+                //                     var idata =  [Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado];
+                //                     var query ="INSERT INTO subproductos(Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado) VALUES (?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //                     // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                //             }
+                //             cordova.plugins.notification.local.update({
+                //                 id: 17,
+                //                 text: 'Sincronización de Catálogos finalizada',
+                //                 progressBar: { value: 100 }
+                //             });
+
+                //         setTimeout(() => {
+                //             $("#everything-wrapper").fadeOut(600);
+                //             app.mensaje();
+                            
+                //             cordova.plugins.notification.local.clear(17, function() {
+                //                 console.log("ok");
+                //             });
+                //         }, 10000)
+                        
+                // });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var subProd = JSON.parse(JSON.stringify(data));
+                        for (var valor of subProd.data.sub_subproductos) {
+                                    var Sub_CodPro = valor.Sub_CodPro;
+                                    var Sub_Codigo = valor.Sub_Codigo;
+                                    var Sub_Nombre = valor.Sub_Nombre;
+                                    var Sub_Estado = valor.Sub_Estado;
+                                    var idata =  [Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado];
+                                    var query ="INSERT INTO subproductos(Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado) VALUES (?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                                    // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                            }
+                            cordova.plugins.notification.local.update({
+                                id: 17,
+                                text: 'Sincronización de Catálogos finalizada',
+                                progressBar: { value: 100 }
+                            });
+
+                        setTimeout(() => {
+                            $("#everything-wrapper").fadeOut(600);
+                            app.mensaje();
+                            
+                            cordova.plugins.notification.local.clear(17, function() {
+                                console.log("ok");
+                            });
+                        }, 10000)
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            flujos: function(){
+                var dire = window.localStorage.getItem("url");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{ '+
+                            'flu_flujos(flu_codcia:'+empresa+'){ '+
+                                    'id '+
+                                    'flu_descripcion '+
+                                    'flu_estado '+
+                                '} '+
+                            '} ';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var sec = JSON.parse(JSON.stringify(response));
+                //             for (var valor of sec.data.flu_flujos) {
+                //                     var flu_id = valor.id;
+                //                     var flu_descripcion = valor.flu_descripcion;
+                //                     var flu_estado = valor.flu_estado;
+                //                     var idata =  [flu_id,flu_descripcion,flu_estado];
+                //                     var query ="INSERT INTO flujos(id,flu_descripcion,flu_estado) VALUES (?,?,?) ";
+                //                     app.insertRecords(gforms,query,idata);
+                //             }
+                // });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var sec = JSON.parse(JSON.stringify(data));
+                        for (var valor of sec.data.flu_flujos) {
+                                    var flu_id = valor.id;
+                                    var flu_descripcion = valor.flu_descripcion;
+                                    var flu_estado = valor.flu_estado;
+                                    var idata =  [flu_id,flu_descripcion,flu_estado];
+                                    var query ="INSERT INTO flujos(id,flu_descripcion,flu_estado) VALUES (?,?,?) ";
+                                    app.insertRecords(gforms,query,idata);
+                        }
+
+                            cordova.plugins.notification.local.update({
+                                id: 17,
+                                text: 'Sincronización de Catálogos finalizada',
+                                progressBar: { value: 100 }
+                            });
+
+                        setTimeout(() => {
+                            $("#everything-wrapper").fadeOut(600);
+                            app.mensaje();
+                            
+                            cordova.plugins.notification.local.clear(17, function() {
+                                console.log("ok");
+                            });
+                        }, 10000)
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            
+            },
+            insertRecords: function (db,query,datos) {
+                    db.transaction(function(tx) {
+                        tx.executeSql(query,datos, function(tx, result) {
+                            // console.log(result.insertId);
+                        }, function(tx, error) {
+                            alert(error);
+                        });
+                    },this.transError, this.transSuccess);
+            },
+            transError: function(t,e){
+                console.error("Error Ocurrido ! Codigo:" + e.code + " Mensaje : " + e.message);
+            },
+            transSuccess: function(t,r){
+                // console.info("Transaccion Completa!");
+            },
+            errorIT: function(){
+                console.log("Error insertando formularios");
+            },
+            successIT: function(){
+                console.log("Formularios insertados correctamente");
+            },
+            mensaje: function(){
+                $('.menu').removeClass('active-menu-box-top active-menu-box-bottom active-menu-box-modal active-menu-full active-sidebar-left-over active-sidebar-left-push active-sidebar-right-push active-sidebar-left-parallax active-sidebar-right-parallax active-sidebar-right-over');
+		        $('.page-content, .header').removeClass('active-body-left-push active-body-right-push active-body-left-parallax active-body-right-parallax')
+                $('.menu').css({'margin-top':''})
+                var bodyEffect = ($('#confirm').data('menu-height')) / 6;
+                $('#confirm-1').toggleClass('active-menu-box-bottom');
+                $('.page-content').css('transform','translateY('+bodyEffect*(-1)+'px)');
+                $('.header').css('transform','translateY('+(-90)+'px)');
+            }
+        }
+    </script>
+    <script type="text/javascript">
+
+        function sistema(){
+            window.location="sistema.html";
+        }
+        
+    </script>
+
+</body>
+
+</html>

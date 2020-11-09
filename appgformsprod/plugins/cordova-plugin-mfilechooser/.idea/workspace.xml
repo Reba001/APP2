@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ab8bed90-5eba-4054-a6c3-37f6c94b7180" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="871306375">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="json" value="1" />
+          <entry key="md" value="1" />
+          <entry key="png" value="2" />
+          <entry key="xml" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Image" value="2" />
+          <entry key="JSON" value="1" />
+          <entry key="Markdown" value="1" />
+          <entry key="XML" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="json" value="28" />
+          <entry key="md" value="82" />
+          <entry key="xml" value="40" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JSON" value="28" />
+          <entry key="Markdown" value="82" />
+          <entry key="XML" value="40" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="38" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="765">
+                <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugin.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1189">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>fel</find>
+      <find>com.</find>
+      <find>drawable/divi</find>
+      <find>@drawable/folder</find>
+      <find>dr</find>
+      <find>drawer_list_item</find>
+      <find>color</find>
+      <find>folder</find>
+      <find>divi</find>
+      <find>d</find>
+      <find>source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\/divider_line_grey\.png\&quot; target\-dir\=\&quot;res\/drawable\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\/drawer_list_selector\.xml\&quot; target\-dir\=\&quot;res\/drawable\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\/drawer_shadow\.9\.png\&quot; target\-dir\=\&quot;res\/drawable\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-hdpi\/ic_launcher\.png\&quot; target\-dir\=\&quot;res\/drawable\-hdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-hdpi\/ic_navigation_drawer\.png\&quot;\n                     target\-dir\=\&quot;res\/drawable\-hdpi\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/_blank\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/aac\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/apk\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/avi\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/back\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/blank\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/doc\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/folder\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/gif\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/ic_launcher\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/ic_navigation_drawer\.png\&quot;\n                     target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/jpg\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/mp3\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/mp4\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/odp\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/ods\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/odt\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/pdf\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/png\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/ppt\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/rar\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/rtf\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/txt\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/xls\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-mdpi\/zip\.png\&quot; target\-dir\=\&quot;res\/drawable\-mdpi\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-xhdpi\/ic_launcher\.png\&quot; target\-dir\=\&quot;res\/drawable\-xhdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-xhdpi\/ic_navigation_drawer\.png\&quot;\n                     target\-dir\=\&quot;res\/drawable\-xhdpi\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-xxhdpi\/ic_launcher\.png\&quot;\n                     target\-dir\=\&quot;res\/drawable\-xxhdpi\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/drawable\-xxhdpi\/ic_navigation_drawer\.png\&quot;\n                     target\-dir\=\&quot;res\/drawable\-xxhdpi\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/layout\/drawer_list_item\.xml\&quot; target\-dir\=\&quot;res\/layout\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/layout\/file_row\.xml\&quot; target\-dir\=\&quot;res\/layout\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/layout\/main\.xml\&quot; target\-dir\=\&quot;res\/layout\&quot;\/\&gt;\n\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/values\/colors\.xml\&quot; target\-dir\=\&quot;res\/values\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/values\/styles\.xml\&quot; target\-dir\=\&quot;res\/values\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/values\-v11\/styles\.xml\&quot; target\-dir\=\&quot;res\/values\-v11\&quot;\/\&gt;\n        \&lt;source\-file src\=\&quot;src\/android\/mfilechooser\/res\/values\-v14\/styles\.xml\&quot; target\-dir\=\&quot;res\/values\-v14\&quot;\/\&gt;</find>
+      <find>&quot;res/layout</find>
+      <find>&quot;res/values</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>&quot;app/src/main/res/layout</replace>
+      <replace>&quot;app/src/main/res/values</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/src/android/mfilechooser</dir>
+      <dir>$PROJECT_DIR$/src/android/mfilechooser/re</dir>
+      <dir>$PROJECT_DIR$/src/android/mfilechooser/res</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/android/mfilechooser/res/layout/drawer_list_item.xml" />
+        <option value="$PROJECT_DIR$/src/android/mfilechooser/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/plugin.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="5">
+    <option name="y" value="32" />
+    <option name="width" value="1280" />
+    <option name="height" value="1408" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>OSGi</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="MFileChooser" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="MFileChooser" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="MFileChooser" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="MFileChooser" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MFileChooser" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="MFileChooser" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="android" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MFileChooser" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="MFileChooser" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="android" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="mfilechooser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MFileChooser" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="MFileChooser" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="android" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="mfilechooser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="res" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="MFileChooser" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="MFileChooser" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="android" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="mfilechooser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="res" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="drawable" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../computer_science/isep/drones_simulator" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.14674442" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/android/mfilechooser/res/drawable" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="32" width="1280" height="1408" extended-state="4" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25528455" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/android/mfilechooser/res/drawable-mdpi/folder.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/mfilechooser/res/layout/drawer_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/mfilechooser/res/layout/file_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/mfilechooser/res/drawable/folder.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/mfilechooser/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/android/mfilechooser/res/drawable/drawer_list_selector.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1189">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="765">
+            <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

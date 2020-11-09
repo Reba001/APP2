@@ -1,0 +1,5 @@
+platforms/android/
+node_modules/
+platforms/browser/
+.vscode/
+.vscode/plugins.json

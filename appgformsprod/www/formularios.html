@@ -1,0 +1,2160 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap://ready file:; img-src * 'self' data: https:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">  
+
+    <style>
+        #page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background: #FFF none repeat scroll 0% 0%;
+        z-index: 99999;
+        }
+        #page-loader .preloader-interior {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #3498db;
+        
+            -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+                animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        #page-loader .preloader-interior:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #e74c3c;
+        
+            -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        #page-loader .preloader-interior:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #f9c922;
+        
+            -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+        
+        @-webkit-keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        @keyframes spin {
+            0%   { 
+                -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);  /* IE 9 */
+                transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+            100% {
+                -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);  /* IE 9 */
+                transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        #everything-wrapper {
+            display : none;
+        }
+        .scroll-mio{
+            overflow-y: scroll;
+        }
+        /* .page-content{
+            background-color: rgba(0,0,0,0.8);
+            background-image: url(images/principal.jpg);
+            background-attachment: fixed;
+            background-size:cover;
+            filter:brightness(0.4);
+        } */
+    </style>
+</head>
+
+<body >
+
+    <div id="preloader" class="preloader-light">
+        <h1 class="center-text color-black ultrabold uppercase bottom-0 fa-2x">Gforms</h1>
+        <div id="preload-spinner"></div>
+    </div>
+    <div id="everything-wrapper">
+        <h1>Gforms</h1>
+        <div id="page-loader"><span class="preloader-interior"></span></div>
+    </div>
+
+
+    <div id="page-transitions" class="highlight-red">
+        <div class="page-bg gradient-body-1"></div>
+        <div id="header" class="header header-logo-app header-dark ">
+            <a href="#" class="header-title ">Formularios</a>
+            <a href="#" class="header-logo disabled"></a>
+            <a data-menu="menu-1" data-menu-type="menu-sidebar-left-push" href="#" class="header-icon header-icon-1"><i
+                    class="fas fa-bars"></i></a>
+            <!-- <a class="header-icon header-icon-2" onclick="getposition();"><i class="fas fa-map-marker-alt"></i></a> -->
+            <a class="header-icon header-icon-2" data-menu="menu-call" data-menu-type="menu-box-bottom" id="btnSync">
+                <i class="fas fa-cog fa-sync font-12"></i>
+            </a>
+            <a data-menu="menu-settings" data-menu-type="menu-box-full" href="#" class="header-icon header-icon-3"><i class="fas fa-cog fa-spin font-12"></i></a>
+            <!-- <a class="header-icon header-icon-4" onclick="db.createTables()"><i class="fas fa-database"></i></a> -->
+        </div>
+        
+        <div id="menu-1" class="menu menu-sidebar-left menu-settings"></div>
+
+        <div class="page-content header-clear-large ">
+            <div class="app" id="container">
+                <div class="content-box bg-white">
+                    <ul class="link-list link-list-large bottom-0" id="formularios">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Menu Call-->
+    <div id="menu-call" data-menu-height="520" class="menu menu-box-bottom bg-white">
+        <h1 class="center-text top-20 bottom-0 uppercase ultrabold">SINCRONIZAR</h1>
+        <div class="phone-boxes scroll-mio top-20">
+            <a href="#" class="phone-box" onclick="app.catalogos();">
+                <i class="shadow-icon-large fa fa-briefcase bg-green-dark"></i>
+                <em>Catalogos</em>
+                <strong>de la aplicación</strong>
+            </a>
+            <a href="#" class="phone-box" onclick="app.aldeas();">
+                    <i class="shadow-icon-large fa fa-briefcase bg-orange-dark"></i>
+                    <em>Aldeas</em>
+                    <strong>de la aplicación</strong>
+            </a>
+            <a href="#" class="phone-box" onclick="app.sincForm();">
+                <i class="shadow-icon-large fa fa-life-ring font-24 bg-yellow-dark"></i>
+                <em>Formularios</em>
+                <strong>Asignados</strong>
+            </a>
+            <a href="#" class="phone-box" onclick="app.promotor();">
+                <i class="shadow-icon-large fa fa-briefcase bg-red-dark"></i>
+                <em>Asignación</em>
+                <strong>Agenda del promotor</strong>
+            </a>
+            <a href="#" class="phone-box" onclick="app.geolocalizacion();">
+                <i class="shadow-icon-large fa fa-briefcase bg-blue-dark"></i>
+                <em>Asignación</em>
+                <strong>Geolocalización</strong>
+            </a>
+
+            <a href="#" class="phone-box" onclick="app.geolocalizacionCajas();">
+                <i class="shadow-icon-large fa fa-compass bg-red-dark"></i>
+                <em>Asignación</em>
+                <strong>Geolocalización cajas</strong>
+            </a>
+
+            <a href="#" class="phone-box" onclick="app.gestor();">
+                <i class="shadow-icon-large fa fa-briefcase bg-green-dark"></i>
+                <em>Asignación</em>
+                <strong>Agenda Gestor</strong>
+            </a>
+            <a href="#" class="phone-box" onclick="app.seguimiento();">
+                <i class="shadow-icon-large fa fa-briefcase bg-orange-dark"></i>
+                <em>Asignación</em>
+                <strong>Seguimiento de la Inversión</strong>
+            </a>
+            <a href="#" class="phone-box" onclick="app.asignacion();">
+                <i class="shadow-icon-large fa fa-briefcase bg-yellow-dark"></i>
+                <em>Asignación</em>
+                <strong>Referidos y Retención</strong>
+            </a>
+            <a href="#" class="phone-box" onclick="app.devoluciones()">
+                <i class="shadow-icon-large fa fa-book font-24 bg-red-dark"></i>
+                <em>Devoluciones</em>
+                <strong></strong>
+            </a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <p id="toast-9" class="toast toast-bottom toast-small bg-blue-dark"><i class="fa fa-info"></i>Iniciando!</p>
+    <p id="toast-8" class="toast toast-bottom toast-small bg-red-dark"><i class="fa fa-times"></i>Ooops!</p>
+    <p id="toast-0" class="toast toast-bottom toast-small bg-green-dark"><i class="fa fa-check"></i>Finalizado</p>
+
+    <div class="menu menu-box-bottom bg-green-dark shadow-large" id="confirm-1" data-menu-height="315">
+        <div class="content">
+            <h1 class="center-text top-15 bottom-30"><i class="fa fa-check font-30 icon-circle icon-l color-green-dark bg-white shadow-icon-large"></i></h1>
+            <h1 class="color-white uppercase ultrabold center-text bottom-10 font-27 text-shadow">Sincronización Finalizada</h1>
+            <a href="#" class="close-menu2 button button-round button-xs button-white uppercase ultrabold button-center shadow-icon-small" >Salir</a>
+        </div>
+    </div>
+
+    <div class="menu menu-box-full shadow-large" id="menu-settings">
+            <div class="page-bg gradient-body-1">
+                <div class="cover-content-center">
+                    <div class="content">
+                        <h1 class="uppercase ultrabold center-text fa-4x bottom-25 color-white text-shadow-large">Gforms</h1>
+                        <p class="center-text bottom-50 opacity-50 font-14 color-white text-shadow-large">
+                            
+                        </p>
+                        <ul class="demo-colors">
+                            <li><a href="#" class="democ-1 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-1"></i>Default</a></li>
+                            <li><a href="#" class="democ-5 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-5"></i>Violet</a></li>
+                            <li><a href="#" class="democ-7 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-7"></i>Magenta</a></li>
+                            <li><a href="#" class="democ-6 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-6"></i>Red</a></li>
+                            <li><a href="#" class="democ-3 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-3"></i>Green</a></li>
+                            <li><a href="#" class="democ-4 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-4"></i>Blue</a></li>
+                            <li><a href="#" class="democ-2 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-2"></i>Orange</a></li>
+                            <li><a href="#" class="democ-8 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-8"></i>Dark</a></li>
+                            <li><a href="#" class="democ-9 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body-9"></i>Yellow</a></li>
+                            <li><a href="#" class="democ-10 color-white bottom-10 no-border"><i class="shadow-icon-large gradient-body109"></i>Génesis</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                        <a href="#" class="close-menu top-40 button button-round button-s button-white uppercase ultrabold button-center shadow-icon-small">Aceptar</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <div class="menu menu-box-full bg-white shadow-large" id="action-1">
+        <div class="cover-item cover-item-full">
+            <div class="cover-content cover-content-center">
+                <i class="fa fa-exclamation cover-icon color-white icon-xxl bg-red-light icon-circle shadow-icon-large center-text"></i>
+                <h1 class="color-black center-text uppercase ultrabold font-28 bottom-0 top-20">Acción requerida</h1>
+                <h5 class="color-red-light thiner opacity-70 center-text bottom-20 font-13">
+                    <!-- Antes de continuar, se debe de dar el siguiente permiso. -->
+                </h5>
+                <p class="color-black boxed-text-large opacity-50 bottom-30">
+                    ¿Permitir a Gforms pueda enviarle notificaciones?
+                </p>
+                <a href="#" class="close-menu shadow-icon-large button button-red button-round button-center button-sm uppercase ultrabold" id="notificaciones">Aceptar</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/OptionsMenu.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script src="js/eventos.js" type="text/javascript"></script>
+    <script src="js/sweetalert2@8.js"></script>
+
+    <script type="text/javascript">
+
+        var app = {
+            initialize: function(){
+                app.countAlde();
+                var color = localStorage.getItem("fondo");
+                localStorage.setItem("sync",0);
+                localStorage.setItem('reload',0);
+                var democs = 'gradient-body-1 gradient-body-2 gradient-body-3 gradient-body-4 gradient-body-5 gradient-body-6 gradient-body-7 gradient-body-8 gradient-body-9';
+                $('.page-bg, .menu-bg').removeClass(democs).addClass(color);
+                this.fetchData("formularios");
+            },
+            fetchData: function(id){
+                gforms.transaction(function(tx){
+                    var html='';
+                    var formularios = document.getElementById(id)
+                    var usuario = window.localStorage.getItem("login");
+                    tx.executeSql('SELECT form_id, nombre, version, MAX(version),proceso,icon FROM formularios where usuario=? and proceso !=4 GROUP BY nombre',[usuario],function(tx1,result){
+                        var len = result.rows.length;
+                        if(len!=0){
+                            for(var i = 0; i < len; i++){
+                                nombre="'"+result.rows.item(i).nombre +"'";
+                                html += '<li><a onclick="app.verificacion(' + result.rows.item(i).form_id + ','+ result.rows.item(i).proceso +','+nombre +')"><i class="fa fa-angle-right"></i><i class="font-17 '+result.rows.item(i).icon+' color-red-dark"></i><span>' + result.rows.item(i).nombre + '</span><em>Version: ' + result.rows.item(i).version + '</em></a></li>';
+                            }
+                            formularios.innerHTML = html;
+                            this.mensaje;
+                        }
+                        else{
+                            window.document.getElementById('btnSync').click();
+                        }
+                    });
+                },this.errorCT,this.successCT)
+            },
+            getflujo: function(form){
+                gforms.transaction(function (tx){
+                    tx.executeSql("SELECT idflujo FROM formularios WHERE form_id=?",[form],function(tx1,result){
+                        localStorage.setItem('codflu',result.rows.item(0).idflujo);
+                    },this.errorCT);    
+                },this.errorCT,this.successCT);
+            },
+            verificacion: function(id,proceso,nombre){
+                localStorage.setItem("proceso",proceso);
+                localStorage.setItem("nform",nombre);
+                console.log(proceso);
+                debugger;
+                gforms.transaction(function (tx){
+                    if(proceso==1){
+                        tx.executeSql("SELECT form_id FROM seguimiento WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="datos.html?formid="+id;
+                            }
+                            else{
+                                    Swal.fire({
+                                        type: 'error',
+                                        title: 'Oops...',
+                                        text: 'No tiene ninguna asignación',
+                                    }).then((result) => {
+                                        window.location.reload();
+                                    });
+                            }
+                        },this.errorCT);
+
+                        tx.executeSql("SELECT form_id FROM asigFin WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="datos.html?formid="+id;
+                            }
+                            
+                        },this.errorCT);
+                    }
+                    if(proceso==6){
+                        tx.executeSql("SELECT form_id FROM asig WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="datos.html?formid="+id;
+                            }
+                            else{
+                                    Swal.fire({
+                                        type: 'error',
+                                        title: 'Oops...',
+                                        text: 'No tiene ninguna asignación',
+                                    }).then((result) => {
+                                        window.location.reload();
+                                    });
+                            }
+                        },this.errorCT);
+
+                        tx.executeSql("SELECT form_id FROM asigFin WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="datos.html?formid="+id;
+                            }
+                            
+                        },this.errorCT);    
+                    }
+                    if(proceso==2){//individuales
+                        tx.executeSql("SELECT form_id FROM datos WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="Data2.html?formid="+id;
+                            }
+                            else{
+                                window.location="formulario.html?formid="+id;
+                            }
+                        },this.errorCT);
+                    }
+                    if(proceso==3){//supervicion enviar en gestiones
+                        tx.executeSql("SELECT form_id FROM datos WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="Data3.html?formid="+id;
+                            }
+                            else{
+                                window.location="formulario.html?formid="+id;
+                            }
+                        },this.errorCT);
+                    }
+                    if(proceso==5){//grupales
+                        tx.executeSql("SELECT form_id FROM datos WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="Data5.html?formid="+id;
+                            }
+                            else{
+                                window.location="formulario.html?formid="+id;
+                            }
+                        },this.errorCT);
+                    }
+                    if(proceso==7){//Integrantes grupos devoluciones
+                        debugger;
+                        tx.executeSql("SELECT form_id FROM daux WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="Data6.html?formid="+id;
+                            }
+                            else{
+                                Swal.fire({
+                                        type: 'error',
+                                        text: 'No tiene ninguna Devolución',
+                                    }).then((result) => {
+                                        if (result.value) {
+                                            window.location.reload();
+                                        }
+                                    });
+                            }
+                        },this.errorCT);
+                    }
+                    if(proceso==8){//Facturadores
+                        tx.executeSql("SELECT form_id FROM datos WHERE form_id=?",[id],function(tx1,result){
+                            var len = result.rows.length;
+                            if(len!=0){
+                                window.location="Data8.html?formid="+id;
+                            }
+                            else{
+                                window.location="formulario.html?formid="+id;
+                            }
+                        },this.errorCT);
+                    }
+                },this.errorCT,this.successCT);
+            },
+            errorCT: function(){
+                console.log("Error al seleccionar Formularios");
+            },
+            successCT: function(){
+                console.log("Consulta de formularios Exitoso");
+            },
+            sincForm: function(){
+                console.log("sincForm-getForm");
+                $("#everything-wrapper").show();
+                var stack = $.Callbacks('unique');
+                stack.add(db.truncateFull());
+                stack.add(app.getForm());
+                stack.fire();
+            },
+            getForm: function(){
+                var usuario = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                var dire = window.localStorage.getItem("GformsInd");
+                let Data ='{'+
+                                'formularios_usuarios(usr_codcia:'+empresa+',name:"'+usuario+'"){'+
+                                    'fusr_idfor '+
+                                    'for_codcia ' +
+                                    'for_esquema ' +
+                                    'for_nombre ' +
+                                    'for_descripcion ' +
+                                    'for_version ' +
+                                    'for_procesoid ' +
+                                    'fusr_idusr ' +
+                                    'usr_codcia ' +
+                                    'name ' +
+                                    'icon ' +
+                                    'for_codflu ' +
+                                '}'+
+                            '}';
+
+                cordova.plugins.notification.local.setDefaults({
+                    led: { color: '#FF00FF', on: 500, off: 500 }
+                });
+
+                cordova.plugins.notification.local.schedule({
+                    id: 15,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando formularios..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    timeout: 30000,
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        debugger;
+                        var forms = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of forms.data.formularios_usuarios) {
+                                (function () {
+                                    var id = valor.fusr_idfor;
+                                    var for_codcia = valor.for_codcia;
+                                    var esquema = valor.for_esquema;
+                                    var nombre = valor.for_nombre;
+                                    var version = valor.for_version;
+                                    var descripcion = valor.for_descripcion;
+                                    var name = valor.name;
+                                    var proceso=valor.for_procesoid;
+                                    var icon=valor.icon;
+                                    var idflujo=valor.for_codflu;
+                                    tx.executeSql("INSERT INTO formularios(form_id,for_codcia,esquema,nombre,version,descripcion,usuario,proceso,icon,idflujo) VALUES (?,?,?,?,?,?,?,?,?,?) ", [id,for_codcia, esquema, nombre, version, descripcion,usuario,proceso,icon,idflujo],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        $("formularios").empty();
+                        app.fetchData("formularios");
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 15,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(15, function() {
+                                console.log("ok");
+                            });
+                        }, 3000)
+                    },
+                    error: function (data) {
+                        //console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            sincForms: function(){
+                console.log("sinForms-getForms");
+                var stack = $.Callbacks('unique');
+                stack.add(db.truncateFull());
+                stack.add(app.getForms());
+                stack.fire();
+            },
+            getForms: function(){
+                var usuario = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                var dire = window.localStorage.getItem("GformsInd");
+                let Data ='{'+
+                                'formularios_usuarios(usr_codcia:'+empresa+',name:"'+usuario+'"){'+
+                                    'fusr_idfor '+
+                                    'for_codcia ' +
+                                    'for_esquema ' +
+                                    'for_nombre ' +
+                                    'for_descripcion ' +
+                                    'for_version ' +
+                                    'for_procesoid ' +
+                                    'fusr_idusr ' +
+                                    'usr_codcia ' +
+                                    'name ' +
+                                    'icon ' +
+                                    'for_codflu ' +
+                                '}'+
+                            '}';
+
+                cordova.plugins.notification.local.setDefaults({
+                    led: { color: '#FF00FF', on: 500, off: 500 }
+                });
+
+                cordova.plugins.notification.local.schedule({
+                    id: 17,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando formularios..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    timeout: 30000,
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var forms = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of forms.data.formularios_usuarios) {
+                                (function () {
+                                    var id = valor.fusr_idfor;
+                                    var for_codcia = valor.for_codcia;
+                                    var esquema = valor.for_esquema;
+                                    var nombre = valor.for_nombre;
+                                    var version = valor.for_version;
+                                    var descripcion = valor.for_descripcion;
+                                    var name = valor.name;
+                                    var proceso=valor.for_procesoid;
+                                    var icon=valor.icon;
+                                    var idflujo=valor.for_codflu;
+                                    tx.executeSql("INSERT INTO formularios(form_id,for_codcia,esquema,nombre,version,descripcion,usuario,proceso,icon,idflujo) VALUES (?,?,?,?,?,?,?,?,?,?) ", [id,for_codcia, esquema, nombre, version, descripcion,usuario,proceso,icon,idflujo],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+                        $("formularios").empty();
+                        app.fetchData("formularios");
+
+                        cordova.plugins.notification.local.update({
+                            id: 17,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(17, function() {
+                                console.log("ok");
+                            });
+                        }, 3000)
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                    }
+                });
+            },
+            promotor: function(){
+                $("#everything-wrapper").show();
+                gforms.transaction(function (tx) {
+                    var usr = window.localStorage.getItem("login");
+                    // tx.executeSql("select count(*) as total from asig WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                    tx.executeSql("select count(*) as total from asigFin WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                        var len = result.rows.item(0).total;
+                        console.log(result.rows.item(0).total);
+                        if(len>0){
+                            Swal.fire({
+                                        type: 'error',
+                                        title: 'Pendientes',
+                                        text: 'Tiene asignaciones pendientes de envio, sincronice antes de asignarse nuevas gestiones',
+                                    }).then((result) => {
+                                    });
+                            $("#everything-wrapper").fadeOut(600);
+                        }
+                        else{
+                            var asig = "DELETE FROM asig where form_id = '79'";
+                            db.transactionDelete(gforms,asig);
+                            app.sincForms();
+                            app.getPromotor();
+                            console.log("sincronizar asignaciones");
+                        }
+                    },this.errorCB);
+                }, this.errorIT, this.successIT);
+            },
+            getPromotor: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                //mora para promotores
+                $.ajax({
+                    //url: dire,
+                    url: "http://190.151.130.101:8090/wsasiggform/asig.ashx?prom="+usr+"&Tip=1",
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "GET",
+                    timeout: 30000,
+                    //contentType: "application/graphql",
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        debugger;
+                        gforms.transaction(function (tx) {
+                            for (var valor of rec_recibidos.asignacion) {
+                                (function () {
+                                    console.log(JSON.stringify(valor.Data));
+                                    var rec_idfor = valor.idform;
+                                    var rec_external_id = valor.external_id;
+                                    var rec_datos =valor.Data;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    var fecha_asignacion = valor.fecha_asignacion;
+                                    var rec_estado = "temporal";    
+                                    var usuario = valor.usuario_asignado;
+                                    tx.executeSql("select count(*) as total from asig WHERE external_id=? and usuario=?", [rec_external_id,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO asig(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", [rec_idfor, rec_external_id, rec_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                        },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 6000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            seguimiento: function(){
+                $("#everything-wrapper").show();
+                gforms.transaction(function (tx) {
+                    var usr = window.localStorage.getItem("login");
+                    // tx.executeSql("select count(*) as total from asig WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                    tx.executeSql("select count(*) as total from seguimiento WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                        var len = result.rows.item(0).total;
+                        console.log(result.rows.item(0).total);
+                        if(len>0){
+                            Swal.fire({
+                                        type: 'error',
+                                        title: 'Pendientes',
+                                        text: 'Tiene asignaciones pendientes de envio, sincronice antes de asignarse nuevas gestiones',
+                                    }).then((result) => {
+                                    });
+                            $("#everything-wrapper").fadeOut(600);
+                        }
+                        else{
+                            var asig = "DELETE FROM seguimiento where form_id = '80'";
+                            db.transactionDelete(gforms,asig);
+                            app.sincForms();
+                            app.getSeguimiento();
+                            console.log("sincronizar asignaciones");
+                        }
+                    },this.errorCB);
+                }, this.errorUT, this.successUT);
+            },
+            getSeguimiento: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                
+                //seguimiento de la inversion
+                $.ajax({
+                    //url: dire,
+                    url: "http://190.151.130.101:8090/wsasiggform/asig.ashx?prom="+usr+"&Tip=2",
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "GET",
+                    timeout: 30000,
+                    //contentType: "application/graphql",
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        debugger;
+                        gforms.transaction(function (tx) {
+                            for (var valor of rec_recibidos.asignacion) {
+                                (function () {
+                                    console.log(JSON.stringify(valor.Data));
+                                    var rec_idfor = valor.idform;
+                                    var rec_external_id = valor.external_id;
+                                    var rec_datos =valor.Data;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    // var fecha_asignacion = formattedTime;
+                                    var fecha_asignacion = valor.fecha_asignacion;
+                                    var rec_estado = "temporal";    
+                                    var usuario = valor.usuario_asignado;
+                                    tx.executeSql("select count(*) as total from asig WHERE external_id=? and usuario=?", [rec_external_id,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO seguimiento(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", [rec_idfor, rec_external_id, rec_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                        },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 6000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            geolocalizacion: function(){
+                $("#everything-wrapper").show();
+                gforms.transaction(function (tx) {
+                    var usr = window.localStorage.getItem("login");
+                    // tx.executeSql("select count(*) as total from asig WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                    tx.executeSql("select count(*) as total from asigFin WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                        var len = result.rows.item(0).total;
+                        console.log(result.rows.item(0).total);
+                        if(len>0){
+                            Swal.fire({
+                                        type: 'error',
+                                        title: 'Pendientes',
+                                        text: 'Tiene asignaciones pendientes de envio, sincronice antes de asignarse nuevas gestiones',
+                                    }).then((result) => {
+                                    });
+                            $("#everything-wrapper").fadeOut(600);
+                        }
+                        else{
+                            var asig = "DELETE FROM asig where form_id = '81'";
+                            db.transactionDelete(gforms,asig);
+                            app.sincForms();
+                            app.getGeolocalizacion();
+                            console.log("sincronizar asignaciones");
+                        }
+                    },this.errorCB);
+                }, this.errorUT, this.successUT);
+            },
+            getGeolocalizacion: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                
+                //geolocalizacion
+                $.ajax({
+                    //url: dire,
+                    url: "http://190.151.130.101:8090/wsasiggform/asig.ashx?prom="+usr+"&Tip=3",
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "GET",
+                    timeout: 30000,
+                    //contentType: "application/graphql",
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        debugger;
+                        gforms.transaction(function (tx) {
+                            for (var valor of rec_recibidos.asignacion) {
+                                (function () {
+                                    console.log(JSON.stringify(valor.Data));
+                                    var rec_idfor = valor.idform;
+                                    var rec_external_id = valor.external_id;
+                                    var rec_datos =valor.Data;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    // var fecha_asignacion = formattedTime;
+                                    var fecha_asignacion = valor.fecha_asignacion;
+                                    var rec_estado = "temporal";    
+                                    var usuario = valor.usuario_asignado;
+                                    tx.executeSql("select count(*) as total from asig WHERE external_id=? and usuario=?", [rec_external_id,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO asig(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", [rec_idfor, rec_external_id, rec_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                        },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        app.mensaje();
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 6000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            geolocalizacionCajas: function(){
+                $("#everything-wrapper").show();
+                gforms.transaction(function (tx) {
+                    var usr = window.localStorage.getItem("login");
+                    // tx.executeSql("select count(*) as total from asig WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                    tx.executeSql("select count(*) as total from asigFin WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                        var len = result.rows.item(0).total;
+                        console.log(result.rows.item(0).total);
+                        if(len>0){
+                            Swal.fire({
+                                        type: 'error',
+                                        title: 'Pendientes',
+                                        text: 'Tiene asignaciones pendientes de envio, sincronice antes de asignarse nuevas gestiones',
+                                    }).then((result) => {
+                                    });
+                            $("#everything-wrapper").fadeOut(600);
+                        }
+                        else{
+                            var asig = "DELETE FROM asig where form_id = '141'";
+                            db.transactionDelete(gforms,asig);
+                            app.sincForms();
+                            app.getGeolocalizacionCajas();
+                            console.log("sincronizar asignaciones");
+                        }
+                    },this.errorCB);
+                }, this.errorUT, this.successUT);
+            },
+            getGeolocalizacionCajas: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                
+                //geolocalizacion
+                $.ajax({
+                    //url: dire,
+                    url: "http://216.230.137.138/wsgeo/asig.ashx?prom="+usr+"&Tip=5",
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "GET",
+                    timeout: 30000,
+                    //contentType: "application/graphql",
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        debugger;
+                        gforms.transaction(function (tx) {
+                            for (var valor of rec_recibidos.asignacion) {
+                                (function () {
+                                    console.log(JSON.stringify(valor.Data));
+                                    var rec_idfor = valor.idform;
+                                    var rec_external_id = valor.external_id;
+                                    var rec_datos =valor.Data;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    // var fecha_asignacion = formattedTime;
+                                    var fecha_asignacion = valor.fecha_asignacion;
+                                    var rec_estado = "temporal";    
+                                    var usuario = valor.usuario_asignado;
+                                    tx.executeSql("select count(*) as total from asig WHERE external_id=? and usuario=?", [rec_external_id,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO asig(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", [rec_idfor, rec_external_id, rec_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                        },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        app.mensaje();
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 6000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            gestor: function(){
+                $("#everything-wrapper").show();
+                gforms.transaction(function (tx) {
+                    var usr = window.localStorage.getItem("login");
+                    // tx.executeSql("select count(*) as total from asig WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                    tx.executeSql("select count(*) as total from asigFin WHERE estado=? and usuario=?", ["Finalizado",usr], function (tx1, result) {
+                        var len = result.rows.item(0).total;
+                        console.log(result.rows.item(0).total);
+                        if(len>0){
+                            Swal.fire({
+                                        type: 'error',
+                                        title: 'Pendientes',
+                                        text: 'Tiene asignaciones pendientes de envio, sincronice antes de asignarse nuevas gestiones',
+                                    }).then((result) => {
+                                    });
+                            $("#everything-wrapper").fadeOut(600);
+                        }
+                        else{
+                            var asig = "DELETE FROM asig where form_id = '78'";
+                            db.transactionDelete(gforms,asig);
+                            app.sincForms();
+                            app.getGestor();
+                            
+                            console.log("sincronizar asignaciones");
+                        }
+                    },this.errorCB);
+                }, this.errorUT, this.successUT);
+            },
+			
+			
+			getGestor: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+
+                //gestor de cobros
+                $.ajax({
+                    //url: dire,
+                    url: "http://190.151.130.101:8090/wsasiggform/asig.ashx?prom="+usr+"&Tip=4",
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "GET",
+                    timeout: 480000,
+                    //contentType: "application/graphql",
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        debugger;
+                        gforms.transaction(function (tx) {
+                            for (var valor of rec_recibidos.asignacion) {
+                                (function () {
+                                    console.log(JSON.stringify(valor.Data));
+                                    var rec_idfor = valor.idform;
+                                    var rec_external_id = valor.external_id;
+                                    var rec_datos =valor.Data;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    // var fecha_asignacion = formattedTime;
+                                    var fecha_asignacion = valor.fecha_asignacion;
+                                    var rec_estado = "temporal";    
+                                    var usuario = valor.usuario_asignado;
+                                    tx.executeSql("select count(*) as total from asig WHERE external_id=? and usuario=?", [rec_external_id,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO asig(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", [rec_idfor, rec_external_id, rec_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                        },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 6000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            successUT: function(){
+                var len = localStorage.getItem("enviados");
+                var actual = parseInt(len)+1;
+                localStorage.setItem("enviados",actual);
+                var lon = localStorage.getItem("longitud");
+                if(actual==lon){
+                    $("#everything-wrapper").fadeOut(600);
+                    location.reload();
+                }
+                console.log("Actualización de Datos Exitoso");
+            },
+           
+            devoluciones: function(){
+                $("#everything-wrapper").show();                
+                var stack = $.Callbacks('unique');
+                stack.add(app.dev());
+                stack.add(app.devAux());
+                stack.fire();
+            },
+            dev: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data = '{' +
+                    'dev_devoluciones(dev_usuario_asignado:"'+usr+'",dev_codcia:"'+empresa+'"){' +
+                    'dev_idfor ' +
+                    'dev_datos ' +
+                    'dev_external_id_old ' +
+                    'dev_external_id_padre ' +
+                    'dev_proceso '+
+                    'id_estado '+
+                    'dev_usuario_asignado '+
+                    'fecha_asignacion '+
+                    '}' +
+                    '}';
+                console.log(Data);
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando devoluciones',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                debugger;
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    timeout: 3000000,
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        console.log(Data);
+                        var dev_devoluciones = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of dev_devoluciones.data.dev_devoluciones) {
+                                (function () {
+                                    var dev_idfor = valor.dev_idfor;
+                                    var dev_external_id_padre = valor.dev_external_id_padre;
+                                    var dev_datos = valor.dev_datos;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    var fecha_asignacion = formattedTime.toString();
+                                    var rec_estado = "temporal";
+                                    var usuario = valor.dev_usuario_asignado;
+                                    tx.executeSql("select count(*) as total from Datos WHERE external_id=? and usuario=?", [dev_external_id_padre,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                        debugger;
+                                        console.log("longitud de datos devolucioes: "+len);
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO datos(form_id, external_id, data, fechasig, estado,usuario,status) VALUES (?,?,?,?,?,?,?) ", 
+                                                [dev_idfor, dev_external_id_padre, dev_datos,fecha_asignacion,rec_estado,usuario,'50'], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                    },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            devAux: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data = '{' +
+                    'dev_devoluciones_auxes(dev_usuario_asignado:"'+usr+'",dev_codcia:"'+empresa+'"){' +
+                    'dev_idfor ' +
+                    'dev_datos ' +
+                    'dev_external_id_old ' +
+                    'dev_external_id_padre ' +
+                    'dev_external_id_hijo ' +
+                    'dev_proceso '+
+                    'id_estado '+
+                    'dev_usuario_asignado '+
+                    'fecha_asignacion '+
+                    '}' +
+                    '}';
+                console.log(Data);
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    timeout: 3000000,
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        console.log(Data);
+                        var dev_devoluciones_auxes = JSON.parse(JSON.stringify(data));
+                        gforms.transaction(function (tx) {
+                            for (var valor of dev_devoluciones_auxes.data.dev_devoluciones_auxes) {
+                                (function () {
+                                    var dev_idfor = valor.dev_idfor;
+                                    var dev_external_id_padre = valor.dev_external_id_padre;
+                                    var dev_external_id_hijo = valor.dev_external_id_hijo;
+                                    var dev_datos = valor.dev_datos;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    var fecha_asignacion = formattedTime.toString();
+                                    var rec_estado = "temporal";
+                                    var usuario = valor.dev_usuario_asignado;
+                                    console.log(fecha_asignacion);
+                                    tx.executeSql("select count(*) as total from daux WHERE external_id=? and usuario=?", [dev_external_id_hijo,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO daux(form_id, external_id,external, data, fechasig, estado,usuario,status) VALUES (?,?,?,?,?,?,?,?) ", 
+                                                [dev_idfor, dev_external_id_hijo,dev_external_id_padre, dev_datos,fecha_asignacion,rec_estado,usuario,'50'], this.successIT,this.errorIT);
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                    },this.errorCB);
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(800);
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 3000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+
+                        $("#everything-wrapper").fadeOut(800);
+                        Swal.fire({
+                                        type: 'error',
+                                        text: 'Reintenta de nuevo.',
+                                    }).then((result) => {
+                                        if (result.value) {
+                                            window.location.reload();
+                                        }
+                                    });
+                        
+                    }
+                });
+            },
+            dateConvert: function(timestamp){
+                // var a = new Date(timestamp*1000);
+                // var year = a.getFullYear();
+                // var month = a.getMonth();
+                // var date = a.getDate();
+                // var hour = a.getHours();
+                // var min = "0"+a.getMinutes();
+                // var sec = "0"+a.getSeconds();
+                // var time = year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' + sec ;
+                
+                var date = new Date(timestamp);
+                var d  = date.getDate();
+                var day = (d < 10) ? '0' + d : d;
+                var m = date.getMonth() + 1;
+                var month = (m < 10) ? '0' + m : m;
+                var yy = date.getYear();
+                var year = (yy < 1000) ? yy + 1900 : yy;
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                var fecha = year + "-" + month + "-" +day+" "+h+":"+m+":"+s;
+
+                return fecha;
+            },
+            catalogos:async function(){
+                $("#everything-wrapper").show();
+                var stack = $.Callbacks('unique');
+                stack.add(db.trucateCatalogos());
+                stack.add(app.departamentos());
+                stack.add(app.municipios());
+                stack.add(app.productos());
+                stack.add(app.sector());
+                stack.add(app.acEconomica());
+                stack.add(app.flujos());
+                stack.add(app.subProductos);
+                stack.fire();
+            },
+            sector: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{ '+
+                            'sector_economico(sece_codcia:"'+empresa+'",sece_estado:"A"){ '+
+                                    'id '+
+                                    'sece_Codigo '+
+                                    'sece_descripcion '+
+                                    'sece_codcia '+
+                                    'sece_estado '+
+                                    'sece_adicionales '+
+                                '} '+
+                            '} ';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var sec = JSON.parse(JSON.stringify(response));
+                //             for (var valor of sec.data.sector_economico) {
+                //                     var sece_Codigo = valor.sece_Codigo;
+                //                     var sece_descripcion = valor.sece_descripcion;
+                //                     var sece_codcia = valor.sece_codcia;
+                //                     var sece_estado = valor.sece_estado;
+                //                     var sece_adicionales =  valor.sece_adicionales;
+                //                     var idata =  [sece_Codigo.toString(),sece_descripcion,sece_codcia.toString(),sece_estado,sece_adicionales];
+                //                     var query ="INSERT INTO sector_economico(sece_Codigo,sece_descripcion,sece_codcia,sece_estado,sece_adicionales) VALUES (?,?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //             }
+                // });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var sec = JSON.parse(JSON.stringify(data));
+                            for (var valor of sec.data.sector_economico) {
+                                    var sece_Codigo = valor.sece_Codigo;
+                                    var sece_descripcion = valor.sece_descripcion;
+                                    var sece_codcia = valor.sece_codcia;
+                                    var sece_estado = valor.sece_estado;
+                                    var sece_adicionales =  valor.sece_adicionales;
+                                    var idata =  [sece_Codigo.toString(),sece_descripcion,sece_codcia.toString(),sece_estado,sece_adicionales];
+                                    var query ="INSERT INTO sector_economico(sece_Codigo,sece_descripcion,sece_codcia,sece_estado,sece_adicionales) VALUES (?,?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                            }
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            acEconomica: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{ '+
+                            'actividad_economica(acte_estado:"A"){ '+
+                                    'id '+
+                                    'acte_codsece '+
+                                    'acte_codigo '+
+                                    'acte_descripcion '+
+                                    'acte_estado '+
+                                '} '+
+                            '} ';
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var act = JSON.parse(JSON.stringify(response));
+                //             for (var valor of act.data.actividad_economica) {
+                //                     var acte_codsece = valor.acte_codsece;
+                //                     var acte_codigo = valor.acte_codigo;
+                //                     var acte_descripcion = valor.acte_descripcion;
+                //                     var acte_estado = valor.acte_estado;
+                //                     var idata =  [acte_codsece,acte_codigo,acte_descripcion,acte_estado];
+                //                     var query ="INSERT INTO actividad_economica(acte_codsece,acte_codigo,acte_descripcion,acte_estado) VALUES (?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //             }
+                // });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var act = JSON.parse(JSON.stringify(data));
+                            for (var valor of act.data.actividad_economica) {
+                                    var acte_codsece = valor.acte_codsece;
+                                    var acte_codigo = valor.acte_codigo;
+                                    var acte_descripcion = valor.acte_descripcion;
+                                    var acte_estado = valor.acte_estado;
+                                    var idata =  [acte_codsece,acte_codigo,acte_descripcion,acte_estado];
+                                    var query ="INSERT INTO actividad_economica(acte_codsece,acte_codigo,acte_descripcion,acte_estado) VALUES (?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                            }
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            departamentos:async function(){
+                $("#everything-wrapper").show();
+                var dire = window.localStorage.getItem("gformsGes");
+                let Data ='{'+
+                                'dep_departamentos{'+
+                                    'dep_codigo\n'+
+                                    'dep_descripcion' +
+                                '}'+
+                            '}';
+
+                cordova.plugins.notification.local.schedule({
+                    id: 17,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando catálogos..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var dep = JSON.parse(JSON.stringify(response));
+                //         catalogos.transaction(function (tx) {
+                //             for (var valor of dep.data.dep_departamentos) {
+                //                 (function () {
+                //                     var dep_codigo = valor.dep_codigo;
+                //                     var dep_descripcion = valor.dep_descripcion;
+                //                     tx.executeSql("INSERT INTO departamentos(dep_codigo,dep_descripcion) VALUES (?,?) ", [dep_codigo,dep_descripcion],this.successIT,this.errorIT);
+                //                 })();
+                //             }
+                //         },this.errorIT, this.successIT);
+                // });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var dep = JSON.parse(JSON.stringify(data));
+                        catalogos.transaction(function (tx) {
+                            for (var valor of dep.data.dep_departamentos) {
+                                (function () {
+                                    var dep_codigo = valor.dep_codigo;
+                                    var dep_descripcion = valor.dep_descripcion;
+                                    tx.executeSql("INSERT INTO departamentos(dep_codigo,dep_descripcion) VALUES (?,?) ", [dep_codigo,dep_descripcion],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+                        
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            municipios:async  function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                let Data ='{'+
+                                'mun_municipios{'+
+                                    'mun_depcod\n'+
+                                    'mun_codigo\n'+
+                                    'mun_descripcion' +
+                                '}'+
+                            '}';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var mun = JSON.parse(JSON.stringify(response));
+                //         catalogos.transaction(function (tx) {
+                //             for (var valor of mun.data.mun_municipios) {
+                //                 (function () {
+                //                     var mun_depcod = valor.mun_depcod;
+                //                     var mun_codigo = valor.mun_codigo;
+                //                     var mun_descripcion = valor.mun_descripcion;
+                //                     tx.executeSql("INSERT INTO municipios(mun_depcod,mun_codigo,mun_descripcion) VALUES (?,?,?) ", [mun_depcod,mun_codigo,mun_descripcion],this.successIT,this.errorIT);
+                //                 })();
+                //             }
+                //         },this.errorIT, this.successIT);
+                // });
+                $.ajax({
+                    url: dire,
+                    async: false,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var mun = JSON.parse(JSON.stringify(data));
+                        catalogos.transaction(function (tx) {
+                            for (var valor of mun.data.mun_municipios) {
+                                (function () {
+                                    var mun_depcod = valor.mun_depcod;
+                                    var mun_codigo = valor.mun_codigo;
+                                    var mun_descripcion = valor.mun_descripcion;
+                                    tx.executeSql("INSERT INTO municipios(mun_depcod,mun_codigo,mun_descripcion) VALUES (?,?,?) ", [mun_depcod,mun_codigo,mun_descripcion],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successIT);
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            aldeas:async function(){
+                $("#everything-wrapper").show();
+                var stack = $.Callbacks('unique');
+                stack.add(db.trucateAldeas());
+                stack.add(app.getAldeas());
+                stack.fire();
+            },
+            countAlde: async function(){
+                catalogos.transaction(function (tx) {
+                    tx.executeSql("select count(*) as total from aldeas", [], function (tx1, result) {
+                        var len = result.rows.item(0).total;
+                        console.log("longitud de aldeas: "+len);
+                        if(len<1){
+                            Swal.fire({
+                                        type: 'error',
+                                        title: 'Error',
+                                        text: 'No tiene aldeas Sincronizadas',
+                                    }).then((result) => {
+                                    });
+                        }
+                        else{
+                            console.log("tiene aldeas");
+                            $("#everything-wrapper").fadeOut(600);
+                            setTimeout(function(){
+                                $('#toast-8').removeClass('show-toast');
+                            },3000);
+                        }
+                    },this.errorCB);
+                }, this.errorIT, this.successIT);
+            },
+            getAldeas:async function(){
+                console.log("entro a aldeas")
+                cordova.plugins.notification.local.schedule({
+                    id: 17,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando catálogos..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                var dire = window.localStorage.getItem("gformsGes");
+                let Data ='{'+
+                                'ald_aldeas{'+
+                                    'ald_depcod\n'+
+                                    'ald_muncod\n'+
+                                    'ald_codigo\n'+
+                                    'ald_descripcion' +
+                                '}'+
+                            '}';
+
+                fetch(dire, {
+                    method: 'POST', // or 'PUT'
+                    body: Data, // data can be `string` or {object}!
+                    headers:{
+                        'Content-Type': 'application/graphql'
+                    },
+                    crossDomain:false,
+                    contentType: "application/graphql"
+                }).then(res => res.json())
+                .catch(function(error){
+                    console.error('Error:', error)
+                    $('#toast-8').addClass('show-toast');
+                    setTimeout(function(){
+                        $('#toast-8').removeClass('show-toast');
+                    },3000);
+                })
+                .then(function(response){
+                    var ald = JSON.parse(JSON.stringify(response));
+                        catalogos.transaction(function (tx) {
+                            for (var valor of ald.data.ald_aldeas) {
+                                (function () {
+                                    var ald_depcod = valor.ald_depcod;
+                                    var ald_muncod = valor.ald_muncod;
+                                    var ald_codigo = valor.ald_codigo;
+                                    var ald_descripcion = valor.ald_descripcion;
+                                    tx.executeSql("INSERT INTO aldeas(ald_depcod,ald_muncod,ald_codigo,ald_descripcion) VALUES (?,?,?,?) ", [ald_depcod,ald_muncod,ald_codigo,ald_descripcion],this.successIT,this.errorIT);
+                                })();
+                            }
+                        },this.errorIT, this.successAl);
+                        setTimeout(() => {
+                            $("#everything-wrapper").fadeOut(600);
+                            app.mensaje();
+                            
+                            cordova.plugins.notification.local.clear(17, function() {
+                                console.log("ok");
+                            });
+                                $('#toast-8').removeClass('show-toast');
+                           
+                        }, 3000)
+
+                });
+                
+                // $.ajax({
+                //     url: dire,
+                //     async: false,   // this will solve the problem
+                //     crossDomain: false,
+                //     headers: {
+                //         "Content-Type": "application/graphql"
+                //     },
+                //     type: "POST",
+                //     contentType: "application/graphql",
+                //     data: Data,
+                //     success: function (data) {
+                //         var ald = JSON.parse(JSON.stringify(data));
+                //         console.log(ald);
+                //         catalogos.transaction(function (tx) {
+                //             for (var valor of ald.data.ald_aldeas) {
+                //                 (function () {
+                //                     var ald_depcod = valor.ald_depcod;
+                //                     var ald_muncod = valor.ald_muncod;
+                //                     var ald_codigo = valor.ald_codigo;
+                //                     var ald_descripcion = valor.ald_descripcion;
+                //                     tx.executeSql("INSERT INTO aldeas(ald_depcod,ald_muncod,ald_codigo,ald_descripcion) VALUES (?,?,?,?) ", [ald_depcod,ald_muncod,ald_codigo,ald_descripcion],this.successIT,this.errorIT);
+                //                 })();
+                //             }
+                //         },this.errorIT, this.successIT);
+
+                        
+
+                //         cordova.plugins.notification.local.update({
+                //             id: 17,
+                //             text: 'Sincronización de aldeas finalizada',
+                //             progressBar: { value: 100 }
+                //         });
+
+                //         setTimeout(() => {
+                //             $("#everything-wrapper").fadeOut(600);
+                //             app.mensaje();
+                //             cordova.plugins.notification.local.clear(17, function() {
+                //                 console.log("ok");
+                //             });
+                //         }, 10000)
+                //     },
+                //     error: function (data) {
+                //         console.log(JSON.stringify(data));
+                        
+                //     }
+                // });
+            },
+            productos:async function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{'+
+                                'pro_productos(pro_codcia:'+empresa+',Pro_Estado:"A"){'+
+                                    'Pro_Codigo\n'+
+                                    'Pro_Nombre\n'+
+                                    'pro_codcia\n'+
+                                    'Pro_Estado' +
+                                '}'+
+                            '}';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var prod = JSON.parse(JSON.stringify(response));
+                //             for (var valor of prod.data.pro_productos) {
+                //                     var Pro_Codigo = valor.Pro_Codigo;
+                //                     var Pro_Nombre = valor.Pro_Nombre;
+                //                     var pro_codcia = valor.pro_codcia;
+                //                     var Pro_Estado = valor.Pro_Estado;
+                //                     var idata =  [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado];
+                //                     var query ="INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //                     // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                //             }
+                // });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var prod = JSON.parse(JSON.stringify(data));
+                            for (var valor of prod.data.pro_productos) {
+                                    var Pro_Codigo = valor.Pro_Codigo;
+                                    var Pro_Nombre = valor.Pro_Nombre;
+                                    var pro_codcia = valor.pro_codcia;
+                                    var Pro_Estado = valor.Pro_Estado;
+                                    var idata =  [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado];
+                                    var query ="INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                                    // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                            }
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            subProductos:async function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{'+
+                                'sub_subproductos(Sub_Estado:"A"){'+
+                                    'Sub_CodPro\n'+
+                                    'Sub_Codigo\n'+
+                                    'Sub_Nombre\n'+
+                                    'Sub_Estado' +
+                                '}'+
+                            '}';
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },5000);
+                // })
+                // .then(function(response){
+                //     var subProd = JSON.parse(JSON.stringify(response));
+                //             for (var valor of subProd.data.sub_subproductos) {
+                //                     var Sub_CodPro = valor.Sub_CodPro;
+                //                     var Sub_Codigo = valor.Sub_Codigo;
+                //                     var Sub_Nombre = valor.Sub_Nombre;
+                //                     var Sub_Estado = valor.Sub_Estado;
+                //                     var idata =  [Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado];
+                //                     var query ="INSERT INTO subproductos(Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado) VALUES (?,?,?,?) ";
+                //                     app.insertRecords(catalogos,query,idata);
+                //                     // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                //             }
+                //             cordova.plugins.notification.local.update({
+                //                 id: 17,
+                //                 text: 'Sincronización de Catálogos finalizada',
+                //                 progressBar: { value: 100 }
+                //             });
+
+                //         setTimeout(() => {
+                //             $("#everything-wrapper").fadeOut(600);
+                //             app.mensaje();
+                            
+                //             cordova.plugins.notification.local.clear(17, function() {
+                //                 console.log("ok");
+                //             });
+                //         }, 10000)
+                        
+                // });
+
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var subProd = JSON.parse(JSON.stringify(data));
+                        for (var valor of subProd.data.sub_subproductos) {
+                                    var Sub_CodPro = valor.Sub_CodPro;
+                                    var Sub_Codigo = valor.Sub_Codigo;
+                                    var Sub_Nombre = valor.Sub_Nombre;
+                                    var Sub_Estado = valor.Sub_Estado;
+                                    var idata =  [Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado];
+                                    var query ="INSERT INTO subproductos(Sub_CodPro,Sub_Codigo,Sub_Nombre,Sub_Estado) VALUES (?,?,?,?) ";
+                                    app.insertRecords(catalogos,query,idata);
+                                    // tx.executeSql("INSERT INTO productos(Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado) VALUES (?,?,?,?) ", [Pro_Codigo,Pro_Nombre,pro_codcia,Pro_Estado],this.successIT,this.errorIT);
+                            }
+                            cordova.plugins.notification.local.update({
+                                id: 17,
+                                text: 'Sincronización de Catálogos finalizada',
+                                progressBar: { value: 100 }
+                            });
+
+                        setTimeout(() => {
+                            $("#everything-wrapper").fadeOut(600);
+                            app.mensaje();
+                            
+                            cordova.plugins.notification.local.clear(17, function() {
+                                console.log("ok");
+                            });
+                        }, 10000)
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            },
+            flujos: function(){
+                var dire = window.localStorage.getItem("gformsGes");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data ='{ '+
+                            'flu_flujos(flu_codcia:'+empresa+'){ '+
+                                    'id '+
+                                    'flu_descripcion '+
+                                    'flu_estado '+
+                                '} '+
+                            '} ';
+
+                // fetch(dire, {
+                //     method: 'POST', // or 'PUT'
+                //     body: Data, // data can be `string` or {object}!
+                //     headers:{
+                //         'Content-Type': 'application/graphql'
+                //     },
+                //     crossDomain:false,
+                //     contentType: "application/graphql"
+                // }).then(res => res.json())
+                // .catch(function(error){
+                //     console.error('Error:', error)
+                //     $('#toast-8').addClass('show-toast');
+                //     setTimeout(function(){
+                //         $('#toast-8').removeClass('show-toast');
+                //     },3000);
+                // })
+                // .then(function(response){
+                //     var sec = JSON.parse(JSON.stringify(response));
+                //             for (var valor of sec.data.flu_flujos) {
+                //                     var flu_id = valor.id;
+                //                     var flu_descripcion = valor.flu_descripcion;
+                //                     var flu_estado = valor.flu_estado;
+                //                     var idata =  [flu_id,flu_descripcion,flu_estado];
+                //                     var query ="INSERT INTO flujos(id,flu_descripcion,flu_estado) VALUES (?,?,?) ";
+                //                     app.insertRecords(gforms,query,idata);
+                //             }
+                // });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    crossDomain: false,
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var sec = JSON.parse(JSON.stringify(data));
+                        for (var valor of sec.data.flu_flujos) {
+                                    var flu_id = valor.id;
+                                    var flu_descripcion = valor.flu_descripcion;
+                                    var flu_estado = valor.flu_estado;
+                                    var idata =  [flu_id,flu_descripcion,flu_estado];
+                                    var query ="INSERT INTO flujos(id,flu_descripcion,flu_estado) VALUES (?,?,?) ";
+                                    app.insertRecords(gforms,query,idata);
+                        }
+
+                            cordova.plugins.notification.local.update({
+                                id: 17,
+                                text: 'Sincronización de Catálogos finalizada',
+                                progressBar: { value: 100 }
+                            });
+
+                        setTimeout(() => {
+                            $("#everything-wrapper").fadeOut(600);
+                            app.mensaje();
+                            
+                            cordova.plugins.notification.local.clear(17, function() {
+                                console.log("ok");
+                            });
+                        }, 10000)
+                    },
+                    error: function (data) {
+                        console.log(JSON.stringify(data));
+                        $('#toast-8').addClass('show-toast');
+                        setTimeout(function(){$('#toast-8').removeClass('show-toast');},3000);
+                    }
+                });
+            
+            },
+            asignacion: function(){
+                $("#everything-wrapper").show();
+                cordova.plugins.notification.local.schedule({
+                    id: 17,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando catálogos..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                var dire = window.localStorage.getItem("GformsInd");
+                var usr = window.localStorage.getItem("login");
+                var empresa = window.localStorage.getItem("empresa");
+                let Data = '{' +
+                    'asig_asignados(asig_usuario_asignado:"'+usr+'",asig_codcia:"'+empresa+'"){' +
+                    'asig_idfor ' +
+                    'asig_datos ' +
+                    'asig_external_id ' +
+                    'asig_codcia '+
+                    'id_estado '+
+                    'asig_usuario_asignado '+
+                    'fecha_asignacion '+
+                    '}' +
+                    '}';
+
+                cordova.plugins.notification.local.schedule({
+                    id: 16,
+                    title: 'Sincronizar',
+                    text: 'Sincronizando..',
+                    progressBar: { value: 0 },
+                    icon: 'http://www.genesisempresarial.org/wp-content/uploads/2016/10/Logo-Smart-op-86x86.png'
+                });
+                
+                $.ajax({
+                    url: dire,
+                    async: true,   // this will solve the problem
+                    headers: {
+                        "Content-Type": "application/graphql"
+                    },
+                    type: "POST",
+                    timeout: 30000,
+                    contentType: "application/graphql",
+                    data: Data,
+                    success: function (data) {
+                        var rec_recibidos = JSON.parse(JSON.stringify(data));
+                        console.log(rec_recibidos);
+                        debugger;
+                        gforms.transaction(function (tx) {
+                            for (var valor of rec_recibidos.data.asig_asignados) {
+                                (function () {
+                                    var rec_idfor = valor.asig_idfor;
+                                    var rec_external_id = valor.asig_external_id;
+                                    var rec_datos =valor.asig_datos;
+                                    var formattedTime = app.dateConvert(parseInt(valor.fecha_asignacion));
+                                    var fecha_asignacion = formattedTime;
+                                    var rec_estado = "temporal";    
+                                    var usuario = valor.asig_usuario_asignado;
+                                    tx.executeSql("select count(*) as total from Datos WHERE external_id=? and usuario=?", [rec_external_id,usuario], function (tx1, result) {
+                                        var len = result.rows.item(0).total;
+                                            if(len<=0){
+                                                tx.executeSql("INSERT INTO Datos(form_id, external_id, data, fechasig, estado,usuario) VALUES (?,?,?,?,?,?) ", 
+                                                [rec_idfor, rec_external_id, rec_datos,fecha_asignacion,rec_estado,usuario], this.successIT,this.errorIT); 
+                                            }
+                                            else{
+                                                console.log("no se inserto datos");
+                                            }
+                                    },this.errorCB);
+                                    
+                                    
+                                })();
+                            }
+                        }, this.errorIT, this.successIT);
+                        $("#everything-wrapper").fadeOut(600);
+                        app.mensaje();
+
+                        cordova.plugins.notification.local.update({
+                            id: 16,
+                            text: 'Sincronización finalizada',
+                            progressBar: { value: 100 }
+                        });
+
+                        setTimeout(() => {
+                            cordova.plugins.notification.local.clear(16, function() {
+                                console.log("ok");
+                            });
+                        }, 6000)
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            },
+            insertRecords: function (db,query,datos) {
+                    db.transaction(function(tx) {
+                        tx.executeSql(query,datos, function(tx, result) {
+                            // console.log(result.insertId);
+                        }, function(tx, error) {
+                            alert(error);
+                        });
+                    },this.transError, this.transSuccess);
+            },
+            transError: function(t,e){
+                console.error("Error Ocurrido ! Codigo:" + e.code + " Mensaje : " + e.message);
+            },
+            transSuccess: function(t,r){
+                // console.info("Transaccion Completa!");
+            },
+            errorIT: function(){
+                console.log("Error insertando formularios");
+            },
+            successIT: function(){
+                console.log("Formularios insertados correctamente");
+            },
+            successAl: function(){
+                console.log("Aldeas Insertadas correctamente");
+                
+            },
+            mensaje: function(){
+                $('.menu').removeClass('active-menu-box-top active-menu-box-bottom active-menu-box-modal active-menu-full active-sidebar-left-over active-sidebar-left-push active-sidebar-right-push active-sidebar-left-parallax active-sidebar-right-parallax active-sidebar-right-over');
+		        $('.page-content, .header').removeClass('active-body-left-push active-body-right-push active-body-left-parallax active-body-right-parallax')
+                $('.menu').css({'margin-top':''})
+                var bodyEffect = ($('#confirm').data('menu-height')) / 6;
+                $('#confirm-1').toggleClass('active-menu-box-bottom');
+                $('.page-content').css('transform','translateY('+bodyEffect*(-1)+'px)');
+                $('.header').css('transform','translateY('+(-90)+'px)');
+            },
+            mensajeFull: function(){
+                $('.menu').removeClass('active-menu-box-top active-menu-box-bottom active-menu-box-modal active-menu-full active-sidebar-left-over active-sidebar-left-push active-sidebar-right-push active-sidebar-left-parallax active-sidebar-right-parallax active-sidebar-right-over');
+		        $('.page-content, .header').removeClass('active-body-left-push active-body-right-push active-body-left-parallax active-body-right-parallax')
+                $('.menu').css({'margin-top':''})
+                var bodyEffect = ($('#confirm').data('menu-height')) / 6;
+                $('#action-1').toggleClass('active-menu-box-full');
+                $('.page-content').css('transform','translateY('+bodyEffect*(-1)+'px)');
+                $('.header').css('transform','translateY('+(-90)+'px)');
+                
+            }
+        }
+    </script>
+    <script type="text/javascript">
+
+        function sistema(){
+            window.location="sistema.html";
+        }
+        
+    </script>
+
+</body>
+
+</html>
